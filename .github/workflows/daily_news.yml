@@ -3,7 +3,7 @@ name: Daily AI/IT News to LINE
 on:
   schedule:
     # 日本時間 (JST) 毎朝 7:00 実行 = 22:00 UTC (前日)
-    - cron: '42 22 * * *'
+    - cron: '12 23 * * *'
   # 手動テスト用ボタン
   workflow_dispatch:
 
