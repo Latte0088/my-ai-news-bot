@@ -1,12 +1,12 @@
 # 🤖 Daily AI Tech News Line Bot
 
-Google Gemini API、GitHub Actions、LINE Messaging APIを組み合わせ、**毎朝7時にAI/IT技術ニュースを要約してLINEに通知するBot**です。
+Google Gemini API、GitHub Actions、LINE Messaging APIを組み合わせ、**毎朝7時にAI/IT技術ニュースと関心ニュースを要約してLINEに通知するBot**です。
 
 ---
 
 ## 💡 概要
 
-毎朝、GoogleニュースのAI/IT検索RSS（過去1日分）から重複を除いた記事を最大10件取得します。取得した記事をGemini APIで分析し、重要度の高い記事を最大5件にまとめてLINE Messaging APIでPush通知します。
+毎朝、GoogleニュースのRSSから、AI/IT技術ニュースを最大20件、関心ニュースを最大20件取得します。取得した記事をGemini APIでそれぞれ要約し、2通のメッセージとしてLINE Messaging APIでPush通知します。
 
 GitHub Actionsのスケジュール実行を利用するため、常時稼働するサーバーは必要ありません。Gemini APIやLINE Messaging APIの利用料金・上限は各サービスの契約に従います。
 
@@ -19,10 +19,12 @@ GitHub Actionsのスケジュール実行を利用するため、常時稼働す
         │
         ▼
 [ main.py (Python) ]
-        ├── news_fetcher.py  ──> Google News RSS (AI/IT記事を最大10件取得)
-        ├── ai_summarizer.py ──> Gemini API (最大5件の要約を生成)
-        └── line_notifier.py  ──> LINE Messaging API (LINEへPush送信)
+        ├── news_fetcher.py  ──> Google News RSS (技術系・関心系を各最大20件取得)
+        ├── ai_summarizer.py ──> Gemini API (2種類の要約を生成)
+        └── line_notifier.py  ──> LINE Messaging API (2通をまとめて送信)
 ```
+
+技術ニュースはAI・機械学習、開発・インフラ・クラウド、IT業界・セキュリティなどのバランスを考慮して5件に厳選します。関心ニュースも異なるジャンルから5件に厳選します。
 
 Geminiは `gemini-3.6-flash` を優先し、失敗した場合は `gemini-2.5-flash` を使用します。各モデルへのAPI呼び出しは最大3回まで再試行します。
 
