@@ -21,3 +21,20 @@ GitHub Actions上でCron実行するため、サーバーの維持費不要（�
    ├── 1. news_fetcher.py  ──> Google News RSS (AI/IT記事を取得)
    ├── 2. ai_summarizer.py ──> Gemini API (記事を分析・要約生成)
    └── 3. line_notifier.py  ──> LINE Messaging API (スマホへPush送信)
+---
+
+## 📁 ディレクトリ構成
+
+```text
+my-ai-news-bot/
+├── .github/
+│   └── workflows/
+│       └── daily_news.yml   # GitHub Actions 実行設定（毎朝7時）
+├── config.py                # 定数・環境変数の集約
+├── news_fetcher.py          # GoogleニュースRSSの取得モジュール
+├── ai_summarizer.py         # Gemini API連携・要約モジュール
+├── line_notifier.py         # LINE Messaging API送信モジュール
+├── main.py                  # 全体を統括するメイン処理
+├── requirements.txt         # 依存ライブラリ一覧
+└── README.md                # プロジェクト説明
+```
