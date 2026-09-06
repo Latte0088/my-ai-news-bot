@@ -8,6 +8,9 @@ def generate_summary_by_prompt(articles: list[dict], prompt_template: str) -> st
     if not articles:
         return "本日は対象の記事を取得できませんでした。"
 
+    if not GEMINI_API_KEY:
+        raise ValueError("GEMINI_API_KEY が環境変数に設定されていません。")
+
     news_text_list = [f"{i}. タイトル: {a['title']}\n   URL: {a['link']}" for i, a in enumerate(articles, 1)]
     formatted_news = "\n\n".join(news_text_list)
     prompt = prompt_template.format(news_content=formatted_news)
@@ -23,7 +26,8 @@ def generate_summary_by_prompt(articles: list[dict], prompt_template: str) -> st
                     model=model_name,
                     contents=prompt
                 )
-                return response.text
+                if response.text:
+                    return response.text
             except Exception as e:
                 logging.warning(f"{model_name} 試行失敗 ({attempt}/3): {e}")
                 time.sleep(5)

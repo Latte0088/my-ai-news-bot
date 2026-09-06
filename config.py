@@ -7,14 +7,14 @@ LINE_USER_ID = os.getenv("LINE_USER_ID")
 
 # --- 1. AI/IT技術ニュース設定 ---
 RSS_URLS_TECH = [
-    "https://news.google.com/rss/search?q=AI+when:1d&hl=ja&gl=JP&ceid=JP:ja",
-    "https://news.google.com/rss/search?q=IT+技術+when:1d&hl=ja&gl=JP&ceid=JP:ja"
+    "https://news.google.com/rss/search?q=AI&hl=ja&gl=JP&ceid=JP:ja",
+    "https://news.google.com/rss/search?q=IT+技術&hl=ja&gl=JP&ceid=JP:ja"
 ]
 
-# --- 2. 興味関心ニュース設定（お好みでキーワードを変更可能） ---
+# --- 2. 興味関心ニュース設定（お好みでキーワード変更可能） ---
 INTEREST_KEYWORDS = ["ガジェット", "ライフハック", "ビジネス", "サイエンス"]
 RSS_URLS_INTEREST = [
-    f"https://news.google.com/rss/search?q={kw}+when:1d&hl=ja&gl=JP&ceid=JP:ja"
+    f"https://news.google.com/rss/search?q={kw}&hl=ja&gl=JP&ceid=JP:ja"
     for kw in INTEREST_KEYWORDS
 ]
 
