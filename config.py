@@ -5,13 +5,17 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 LINE_CHANNEL_ACCESS_TOKEN = os.getenv("LINE_CHANNEL_ACCESS_TOKEN")
 LINE_USER_ID = os.getenv("LINE_USER_ID")
 
-# --- 1. AI/IT技術ニュース設定 ---
+# --- 1. AI/IT技術ニュース設定（ハイブリッド構成） ---
 RSS_URLS_TECH = [
+    # 業界動向・企業の最新ニュース（Googleニュース）
     "https://news.google.com/rss/search?q=AI&hl=ja&gl=JP&ceid=JP:ja",
-    "https://news.google.com/rss/search?q=IT+技術&hl=ja&gl=JP&ceid=JP:ja"
+    "https://news.google.com/rss/search?q=IT+技術&hl=ja&gl=JP&ceid=JP:ja",
+    # 現場の実践知・個人開発・技術トレンド
+    "https://zenn.dev/feed",
+    "https://qiita.com/popular-items/feed"
 ]
 
-# --- 2. 興味関心ニュース設定（お好みでキーワード変更可能） ---
+# --- 2. 興味関心ニュース設定 ---
 INTEREST_KEYWORDS = ["ガジェット", "ライフハック", "ビジネス", "サイエンス"]
 RSS_URLS_INTEREST = [
     f"https://news.google.com/rss/search?q={kw}&hl=ja&gl=JP&ceid=JP:ja"
@@ -20,16 +24,19 @@ RSS_URLS_INTEREST = [
 
 # --- プロンプト定義 ---
 
-# メッセージ1：AI/IT技術（枠固定・偏り防止）
+# メッセージ1：AI/IT技術（ハイブリッド選定・重複話題の排除）
 PROMPT_TECH = """
 あなたは優秀なIT・AI技術アナリストです。
-提供されたニュースリスト（過去24時間）から、エンジニアが読むべき「本当に価値のある5件」を厳選し要約を作成してください。
+提供されたニュース・記事リスト（過去24時間）から、エンジニアが読むべき「本当に価値のある5件」を厳選し要約を作成してください。
 
 【厳選・偏り防止基準】
-特定分野（生成AIのみ等）に偏らないよう、以下のバランスを厳守して5件を選出してください。
-- AI / 機械学習の最新動向: 2件
-- 開発・インフラ・クラウド技術: 2件
-- IT業界・セキュリティ・注目トレンド: 1件
+特定分野や特定ソースに偏らないよう、以下のバランスを徹底して選出してください。
+- IT・AI業界の最新ニュース・動向（Googleニュース等）: 2件
+- 開発現場の技術ノウハウ・検証記事（Zenn/Qiita等）: 2件
+- 個人開発・作ってみた・実践事例（Zenn/Qiita等）: 1件
+
+【重複・ノイズ排除ルール】
+- 同一の話題・発表（例: 同じAIモデルのリリースニュースなど）が複数記事で含まれる場合は、最も内容が充実している1件のみを採用し、重複して選出しないでください。
 
 【フォーマット】
 📱 今朝のIT・AI技術ニュース厳選5選
@@ -44,7 +51,7 @@ URL: 記事リンク
 💡 今日の技術一言コメント
 (全体的な所感を1〜2行で)
 
-【ニュースリスト】
+【ニュース・記事リスト】
 {news_content}
 """
 
