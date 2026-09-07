@@ -1,7 +1,17 @@
 import time
 import logging
+from datetime import datetime, timezone, timedelta
 from google import genai
 from config import GEMINI_API_KEY, PROMPT_TECH, PROMPT_INTEREST
+
+
+def _get_current_date_str() -> str:
+    """日本時間（JST）の現在日付と曜日文字列を取得（例: "2026/09/08(火)"）"""
+    jst = timezone(timedelta(hours=9))
+    now = datetime.now(jst)
+    weekdays = ["月", "火", "水", "木", "金", "土", "日"]
+    return f"{now.strftime('%Y/%m/%d')}({weekdays[now.weekday()]})"
+
 
 def generate_summary_by_prompt(articles: list[dict], prompt_template: str) -> str:
     """指定された記事リストとプロンプトでGemini要約を生成する"""
@@ -13,7 +23,10 @@ def generate_summary_by_prompt(articles: list[dict], prompt_template: str) -> st
 
     news_text_list = [f"{i}. タイトル: {a['title']}\n   URL: {a['link']}" for i, a in enumerate(articles, 1)]
     formatted_news = "\n\n".join(news_text_list)
-    prompt = prompt_template.format(news_content=formatted_news)
+    
+    # 日付文字列を取得し、プロンプトに埋め込み
+    date_str = _get_current_date_str()
+    prompt = prompt_template.format(date_str=date_str, news_content=formatted_news)
 
     client = genai.Client(api_key=GEMINI_API_KEY)
     candidate_models = ['gemini-3.6-flash', 'gemini-2.5-flash']
@@ -27,12 +40,13 @@ def generate_summary_by_prompt(articles: list[dict], prompt_template: str) -> st
                     contents=prompt
                 )
                 if response.text:
-                    return response.text
+                    return response.text.strip()
             except Exception as e:
                 logging.warning(f"{model_name} 試行失敗 ({attempt}/3): {e}")
                 time.sleep(5)
 
     raise RuntimeError("すべてのモデルでAI要約生成に失敗しました。")
+
 
 def generate_both_summaries(tech_articles: list[dict], interest_articles: list[dict]) -> tuple[str, str]:
     """技術ニュースと関心ニュースの2パターンの要約を作成する"""
