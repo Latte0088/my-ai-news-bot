@@ -12,10 +12,7 @@ RSS_URLS_TECH = [
     "https://news.google.com/rss/search?q=IT+技術&hl=ja&gl=JP&ceid=JP:ja",
     # 現場の実践知・個人開発・技術トレンド
     "https://zenn.dev/feed",
-    "https://qiita.com/popular-items/feed",
-    # note（技術・AI系ハッシュタグ）
-    "https://note.com/hashtag/テクノロジー/rss",
-    "https://note.com/hashtag/AI/rss"
+    "https://qiita.com/popular-items/feed"
 ]
 
 # --- 2. 興味関心・ライフスタイルニュース設定（安定性の高い個別RSS） ---
@@ -23,10 +20,7 @@ RSS_URLS_INTEREST = [
     "https://www.lifehacker.jp/feed/index.xml",       # ライフハック・仕事術・日用品
     "https://www.gizmodo.jp/feed/index.xml",          # ガジェット・テクノロジー
     "https://wired.jp/feed/rss/",                     # サイエンス・ビジネス・カルチャー
-    "https://b.hatena.ne.jp/hotentry/life.rss",        # ライフスタイル全般・トレンド
-    # note（ライフハック・ガジェット系ハッシュタグ）
-    "https://note.com/hashtag/ライフハック/rss",
-    "https://note.com/hashtag/ガジェット/rss"
+    "https://b.hatena.ne.jp/hotentry/life.rss"        # ライフスタイル全般・トレンド
 ]
 
 # --- プロンプト定義 ---
@@ -39,7 +33,7 @@ PROMPT_TECH = """
 【厳選・偏り防止基準】
 - IT・AI業界の最新ニュース・動向（Googleニュース等）: 2件
 - 開発現場の技術ノウハウ・検証記事（Zenn/Qiita等）: 2件
-- 個人開発・作ってみた・実践事例（Zenn/Qiita/note等）: 1件
+- 個人開発・作ってみた・実践事例（Zenn/Qiita等）: 1件
 
 【重複・ノイズ排除ルール】
 - 同一の話題・発表が複数記事で含まれる場合は、最も内容が充実している1件のみを採用してください。
