@@ -44,7 +44,9 @@ def generate_summary_by_prompt(articles: list[dict], prompt_template: str) -> st
     prompt = prompt_template.format(date_str=date_str, news_content=formatted_news)
 
     client = genai.Client(api_key=GEMINI_API_KEY)
-    candidate_models = ['gemini-3.6-flash', 'gemini-2.5-flash']
+    # gemini-2.5-flashは新規ユーザー向けに提供終了（404 NOT_FOUND）しているため、
+    # Google推奨の後継モデルgemini-3.8-flashをフォールバック先とする。
+    candidate_models = ['gemini-3.6-flash', 'gemini-3.8-flash']
 
     for model_name in candidate_models:
         for attempt in range(1, 4):
