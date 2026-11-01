@@ -1,6 +1,6 @@
-# 🤖 Daily AI Tech News LINE Bot
+# 🤖 Daily AI Tech News Bot
 
-Google Gemini API、GitHub Actions、LINE Messaging APIを組み合わせ、**毎日7:12（日本時間）にAI/IT技術ニュースと関心ニュースを要約してLINEに通知するBot**です。
+Google Gemini API、GitHub Actions、LINE Messaging API（＋任意でGmail）を組み合わせ、**毎日7:12（日本時間）にAI/IT技術ニュースと関心ニュースを要約して配信するBot**です。
 
 ---
 
@@ -21,9 +21,10 @@ GitHub Actionsのスケジュール実行を利用するため、常時稼働す
 [ main.py (Python) ]
         ├── news_fetcher.py   ──> 技術系・関心系RSS (各最大20件取得、1ソースあたり均等上限、タイトル重複を除外、取得元ラベル付与)
         │       └── note_paywall.py ──> note.comの記事は有料記事（price>0）を除外
-        ├── ai_summarizer.py  ──> Gemini API (技術系・関心系の要約を生成)
+        ├── ai_summarizer.py  ──> Gemini API (LINE向け各5件・Gmail向け各10件の要約を生成)
         ├── stats_recorder.py ──> 取得件数・選定カテゴリを data/stats.json に記録（ダッシュボード用）
-        └── line_notifier.py  ──> LINE Messaging API (2通を1回のPush APIリクエストで送信)
+        ├── line_notifier.py  ──> LINE Messaging API (2通を1回のPush APIリクエストで送信)
+        └── email_formatter.py + gmail_notifier.py ──> Gmail SMTPでHTMLメール送信（任意・未設定ならスキップ）
                                          │
                                          ▼
                           [ dashboard/index.html ] ── data/stats.json を読み込んでChart.jsで可視化
@@ -38,6 +39,32 @@ note.comの記事は、[note.comの記事情報API](https://note.com/api/v3/note
 Geminiへのプロンプトで、技術ニュースと関心ニュースからそれぞれ5件を選定・要約します。記事の取得処理では公開日時によるフィルタリングは行っていません。
 
 Geminiは `gemini-3.6-flash` を優先し、失敗した場合は `gemini-2.5-flash` を使用します。各モデルへのAPI呼び出しは最大3回まで再試行します。
+
+## 📧 Gmail通知（任意）
+
+LINEに加えて、より件数の多い・詳しい要約をGmailで受け取ることができます。`GMAIL_ADDRESS` / `GMAIL_APP_PASSWORD` が未設定の場合、Gmail送信は自動的にスキップされ、LINE配信には一切影響しません。
+
+- **件数**: LINEの2倍（技術系10件・関心系10件）。Gemini呼び出しがLINE用と別に発生するため、1回の実行あたりのAPI呼び出し回数は2回→4回に増えます
+- **形式**: HTMLメール（記事ごとにタイトルをリンク化したカード形式、1通にまとめて送信）
+- **送信方式**: Gmail SMTP + [アプリパスワード](https://myaccount.google.com/apppasswords)（Googleアカウントの2段階認証が前提。新しい外部サービスへの登録は不要）
+- **宛先**: `GMAIL_ADDRESS` 宛（送信元・送信先は同一アドレス）
+
+### 設定手順
+
+1. Googleアカウントで**2段階認証**を有効化します。
+2. [Googleアプリパスワード](https://myaccount.google.com/apppasswords)で新しいアプリパスワードを発行します。
+3. GitHubリポジトリの **Settings > Secrets and variables > Actions** に次のSecretsを追加します。
+
+| Secret名 | 内容 |
+| --- | --- |
+| `GMAIL_ADDRESS` | Gmailアドレス（送信元・宛先として使用） |
+| `GMAIL_APP_PASSWORD` | 手順2で発行したアプリパスワード |
+
+### 注意事項
+
+- Gmail用の要約（10件）とLINE用の要約（5件）は**別々にGeminiへ問い合わせます**。同じ記事リストから選定するため内容は近くなりますが、完全に一致するとは限りません。
+- `data/stats.json`のカテゴリー集計（ダッシュボード）は**LINE用の要約（5件）のみ**を基準にしており、Gmail用の件数は含まれません。
+- Geminiの出力テキストの解析に失敗した記事があっても、その記事だけ生テキスト表示にフォールバックし、メール全体の送信は継続します。
 
 ## 📊 ダッシュボード
 
@@ -79,16 +106,18 @@ python -m http.server 8000
 
 GitHubリポジトリの **Settings > Secrets and variables > Actions** に、次のSecretsを登録してください。
 
-| Secret名 | 内容 |
-| --- | --- |
-| `GEMINI_API_KEY` | Google AI Studioで発行したGemini APIキー |
-| `LINE_CHANNEL_ACCESS_TOKEN` | LINE Messaging APIのチャネルアクセストークン |
-| `LINE_USER_ID` | 通知先ユーザーのID |
+| Secret名 | 内容 | 必須 |
+| --- | --- | --- |
+| `GEMINI_API_KEY` | Google AI Studioで発行したGemini APIキー | ✅ |
+| `LINE_CHANNEL_ACCESS_TOKEN` | LINE Messaging APIのチャネルアクセストークン | ✅ |
+| `LINE_USER_ID` | 通知先ユーザーのID | ✅ |
+| `GMAIL_ADDRESS` | Gmail通知を使う場合の送信元・宛先アドレス | 任意（Gmail通知を使う場合） |
+| `GMAIL_APP_PASSWORD` | Gmail通知を使う場合のアプリパスワード | 任意（Gmail通知を使う場合） |
 
 ## 🚀 セットアップ
 
 1. このリポジトリをGitHubに作成またはForkします。
-2. 上記3つのSecretsを **Settings > Secrets and variables > Actions** に登録します。
+2. 上記のSecretsを **Settings > Secrets and variables > Actions** に登録します（Gmail通知を使わない場合は`GMAIL_*`は不要です）。
 3. `main`ブランチへ変更をPushします。
 4. GitHubの **Actions > Daily AI/IT News to LINE** でワークフローを確認します。
 
@@ -108,6 +137,9 @@ pip install -r requirements.txt
 export GEMINI_API_KEY="your-gemini-api-key"
 export LINE_CHANNEL_ACCESS_TOKEN="your-line-channel-access-token"
 export LINE_USER_ID="your-line-user-id"
+# 任意: Gmail通知を使う場合のみ
+export GMAIL_ADDRESS="your-gmail-address@gmail.com"
+export GMAIL_APP_PASSWORD="your-gmail-app-password"
 python main.py
 ```
 
@@ -126,6 +158,7 @@ python main.py
 - RSSの取得に失敗したURLがあっても、警告を出して他のURLの処理を続けます。
 - すべてのRSSから記事を取得できなかった場合、該当する要約は「本日は対象の記事を取得できませんでした。」になります。
 - note.comの記事は有料記事を除外するため、RSSから取得した件数より実際に要約対象となる件数が少なくなることがあります（除外した分の補充は行いません）。
+- Gmail通知を有効にすると、1回の実行あたりのGemini API呼び出し回数が2回→4回に増えます（無料枠のレート制限にご注意ください）。
 - Gemini APIは `gemini-3.6-flash` を最大3回試行し、失敗した場合に `gemini-2.5-flash` を最大3回試行します。各試行の間隔は5秒です。
 - 処理中にエラーが発生した場合は、エラー内容をLINEへ通知しようとします。LINEへのエラー通知にも失敗した場合はログに記録します。
 - RSSの重複除外は記事タイトルの完全一致で行います。URL一致や類似タイトルによる重複除外は行いません。
@@ -144,12 +177,14 @@ my-ai-news-bot/
 │   └── index.html           # 記事数・カテゴリー分けの可視化ダッシュボード（Chart.js, CDN読み込み）
 ├── data/
 │   └── stats.json           # 日次統計データ（直近90日分、ワークフローが自動更新）
-├── config.py                # 定数・環境変数の集約、RSSソース（URL+取得元ラベル）の定義
+├── config.py                # 定数・環境変数の集約、RSSソース（URL+取得元ラベル）・プロンプトの定義
 ├── news_fetcher.py          # RSSの取得モジュール（取得元ラベルを各記事に付与）
 ├── note_paywall.py          # note.comの有料記事判定モジュール（無料記事のみ残す）
-├── ai_summarizer.py         # Gemini API連携・要約モジュール
+├── ai_summarizer.py         # Gemini API連携・要約モジュール（LINE向け/Gmail向け）
 ├── stats_recorder.py        # ダッシュボード用の日次統計データ記録モジュール
 ├── line_notifier.py         # LINE Messaging API送信モジュール
+├── email_formatter.py       # Gemini要約テキスト→HTMLメール変換モジュール
+├── gmail_notifier.py        # Gmail SMTP送信モジュール（任意機能）
 ├── main.py                  # 全体を統括するメイン処理
 ├── requirements.txt         # 依存ライブラリ一覧
 └── README.md                # プロジェクト説明

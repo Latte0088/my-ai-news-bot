@@ -2,7 +2,13 @@ import time
 import logging
 from datetime import datetime, timezone, timedelta
 from google import genai
-from config import GEMINI_API_KEY, PROMPT_TECH, PROMPT_INTEREST
+from config import (
+    GEMINI_API_KEY,
+    PROMPT_TECH,
+    PROMPT_INTEREST,
+    PROMPT_TECH_EMAIL,
+    PROMPT_INTEREST_EMAIL,
+)
 
 
 def _get_current_date_str() -> str:
@@ -11,6 +17,15 @@ def _get_current_date_str() -> str:
     now = datetime.now(jst)
     weekdays = ["月", "火", "水", "木", "金", "土", "日"]
     return f"{now.strftime('%Y/%m/%d')}({weekdays[now.weekday()]})"
+
+
+def get_current_date_str() -> str:
+    """日本時間（JST）の現在日付と曜日文字列を取得する（公開用）。
+
+    email_formatter.py / gmail_notifier.py など、他モジュールからの
+    日付表示用に使用する。
+    """
+    return _get_current_date_str()
 
 
 def generate_summary_by_prompt(articles: list[dict], prompt_template: str) -> str:
@@ -49,11 +64,26 @@ def generate_summary_by_prompt(articles: list[dict], prompt_template: str) -> st
 
 
 def generate_both_summaries(tech_articles: list[dict], interest_articles: list[dict]) -> tuple[str, str]:
-    """技術ニュースと関心ニュースの2パターンの要約を作成する"""
+    """技術ニュースと関心ニュースの2パターンの要約を作成する（LINE向け、各5件）"""
     logging.info("--- 技術ニュース要約作成開始 ---")
     tech_summary = generate_summary_by_prompt(tech_articles, PROMPT_TECH)
-    
+
     logging.info("--- 関心ニュース要約作成開始 ---")
     interest_summary = generate_summary_by_prompt(interest_articles, PROMPT_INTEREST)
-    
+
+    return tech_summary, interest_summary
+
+
+def generate_both_email_summaries(tech_articles: list[dict], interest_articles: list[dict]) -> tuple[str, str]:
+    """技術ニュースと関心ニュースの2パターンの要約を作成する（Gmail向け、各10件）
+
+    LINE向けの generate_both_summaries とは別にGeminiを呼び出すため、
+    1回の実行あたりのAPI呼び出し回数が増える点に注意。
+    """
+    logging.info("--- 技術ニュース要約作成開始（Gmail向け） ---")
+    tech_summary = generate_summary_by_prompt(tech_articles, PROMPT_TECH_EMAIL)
+
+    logging.info("--- 関心ニュース要約作成開始（Gmail向け） ---")
+    interest_summary = generate_summary_by_prompt(interest_articles, PROMPT_INTEREST_EMAIL)
+
     return tech_summary, interest_summary
