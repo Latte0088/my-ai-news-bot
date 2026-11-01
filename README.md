@@ -20,6 +20,7 @@ GitHub Actionsのスケジュール実行を利用するため、常時稼働す
         ▼
 [ main.py (Python) ]
         ├── news_fetcher.py   ──> 技術系・関心系RSS (各最大20件取得、タイトル重複を除外、取得元ラベル付与)
+        │       └── note_paywall.py ──> note.comの記事は有料記事（price>0）を除外
         ├── ai_summarizer.py  ──> Gemini API (技術系・関心系の要約を生成)
         ├── stats_recorder.py ──> 取得件数・選定カテゴリを data/stats.json に記録（ダッシュボード用）
         └── line_notifier.py  ──> LINE Messaging API (2通を1回のPush APIリクエストで送信)
@@ -28,7 +29,11 @@ GitHub Actionsのスケジュール実行を利用するため、常時稼働す
                           [ dashboard/index.html ] ── data/stats.json を読み込んでChart.jsで可視化
 ```
 
-技術系RSSにはGoogleニュース、Zenn、Qiitaを使用し、AI・IT業界の動向、開発ノウハウ、個人開発・実践事例などを収集します。関心系RSSにはLifehacker Japan、Gizmodo Japan、WIRED Japan、はてなブックマークを使用し、ガジェット、ライフハック、科学、生活などの記事を収集します。各RSSには `config.py` 内で取得元ラベル（例: `Zenn`, `Lifehacker`）を付与しており、ダッシュボードの取得元別集計に利用します。
+技術系RSSにはGoogleニュース、Zenn、Qiita、note（テクノロジー・AIタグ）を使用し、AI・IT業界の動向、開発ノウハウ、個人開発・実践事例などを収集します。関心系RSSにはLifehacker Japan、Gizmodo Japan、WIRED Japan、はてなブックマーク、note（ライフハック・ガジェットタグ）を使用し、ガジェット、ライフハック、科学、生活などの記事を収集します。各RSSには `config.py` 内で取得元ラベル（例: `Zenn`, `Lifehacker`）を付与しており、ダッシュボードの取得元別集計に利用します。
+
+### note.comの有料記事フィルタ
+
+note.comの記事は、[note.comの記事情報API](https://note.com/api/v3/notes/{記事キー})が返す `price` フィールド（`0`=無料、`0`より大きい=有料）を使って無料記事かどうかを判定し、**有料記事はLINE配信・ダッシュボード集計の対象から除外**します（`note_paywall.py`）。判定に使用するAPIはnote.com側の非公開実装のため、仕様変更やエラーの可能性があります。記事キーの取得やAPI呼び出しに失敗した場合は安全側に倒し、その記事を除外します。
 
 Geminiへのプロンプトで、技術ニュースと関心ニュースからそれぞれ5件を選定・要約します。記事の取得処理では公開日時によるフィルタリングは行っていません。
 
@@ -114,12 +119,13 @@ python main.py
 | --- | --- |
 | `google-genai` | Gemini APIによる要約生成 |
 | `feedparser` | RSSの解析 |
-| `requests` | LINE Messaging APIへのHTTP通信 |
+| `requests` | LINE Messaging APIへのHTTP通信、note.comの有料記事判定 |
 
 ## ⚠️ 注意事項
 
 - RSSの取得に失敗したURLがあっても、警告を出して他のURLの処理を続けます。
 - すべてのRSSから記事を取得できなかった場合、該当する要約は「本日は対象の記事を取得できませんでした。」になります。
+- note.comの記事は有料記事を除外するため、RSSから取得した件数より実際に要約対象となる件数が少なくなることがあります（除外した分の補充は行いません）。
 - Gemini APIは `gemini-3.6-flash` を最大3回試行し、失敗した場合に `gemini-2.5-flash` を最大3回試行します。各試行の間隔は5秒です。
 - 処理中にエラーが発生した場合は、エラー内容をLINEへ通知しようとします。LINEへのエラー通知にも失敗した場合はログに記録します。
 - RSSの重複除外は記事タイトルの完全一致で行います。URL一致や類似タイトルによる重複除外は行いません。
@@ -140,6 +146,7 @@ my-ai-news-bot/
 │   └── stats.json           # 日次統計データ（直近90日分、ワークフローが自動更新）
 ├── config.py                # 定数・環境変数の集約、RSSソース（URL+取得元ラベル）の定義
 ├── news_fetcher.py          # RSSの取得モジュール（取得元ラベルを各記事に付与）
+├── note_paywall.py          # note.comの有料記事判定モジュール（無料記事のみ残す）
 ├── ai_summarizer.py         # Gemini API連携・要約モジュール
 ├── stats_recorder.py        # ダッシュボード用の日次統計データ記録モジュール
 ├── line_notifier.py         # LINE Messaging API送信モジュール
