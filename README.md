@@ -6,7 +6,7 @@ Google Gemini API、GitHub Actions、LINE Messaging APIを組み合わせ、**�
 
 ## 💡 概要
 
-毎日、技術系RSSと関心系RSSから記事をそれぞれ最大20件取得します。記事はRSSに記載された順に処理し、タイトルが完全一致する記事を除外します。取得した記事をGemini APIでそれぞれ要約し、2通のメッセージとしてLINE Messaging APIでPush通知します。
+毎日、技術系RSSと関心系RSSから記事をそれぞれ最大20件取得します。1つのRSSソースだけで取得上限に達して他のソースがまったく反映されなくなることを防ぐため、**1ソースあたりの取得件数は `取得上限 ÷ ソース数` に制限**されます（例: 上限20件・6ソースなら1ソースあたり3件）。記事はRSSに記載された順に処理し、タイトルが完全一致する記事を除外します。取得した記事をGemini APIでそれぞれ要約し、2通のメッセージとしてLINE Messaging APIでPush通知します。
 
 GitHub Actionsのスケジュール実行を利用するため、常時稼働するサーバーは必要ありません。Gemini APIやLINE Messaging APIの利用料金・上限は各サービスの契約に従います。
 
@@ -19,7 +19,7 @@ GitHub Actionsのスケジュール実行を利用するため、常時稼働す
         │
         ▼
 [ main.py (Python) ]
-        ├── news_fetcher.py   ──> 技術系・関心系RSS (各最大20件取得、タイトル重複を除外、取得元ラベル付与)
+        ├── news_fetcher.py   ──> 技術系・関心系RSS (各最大20件取得、1ソースあたり均等上限、タイトル重複を除外、取得元ラベル付与)
         │       └── note_paywall.py ──> note.comの記事は有料記事（price>0）を除外
         ├── ai_summarizer.py  ──> Gemini API (技術系・関心系の要約を生成)
         ├── stats_recorder.py ──> 取得件数・選定カテゴリを data/stats.json に記録（ダッシュボード用）
