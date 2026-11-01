@@ -39,9 +39,25 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/stats.json
+
           if git diff --staged --quiet; then
             echo "ダッシュボード用データに変更はありません。コミットをスキップします。"
-          else
-            git commit -m "chore: update dashboard stats for $(date -u +'%Y-%m-%d')"
-            git push
+            exit 0
           fi
+
+          git commit -m "chore: update dashboard stats for $(date -u +'%Y-%m-%d')"
+
+          # 実行タイミングが重なり、pushの間にmainが先に更新されていることがあるため、
+          # pull --rebase してpushし直すリトライを行う（最大5回）。
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              echo "data/stats.json のプッシュに成功しました。"
+              exit 0
+            fi
+            echo "プッシュが失敗しました（リモートのmainが更新されている可能性があります）。pull --rebase して再試行します… ($attempt/5)"
+            git pull --rebase origin main
+            sleep $((attempt * 3))
+          done
+
+          echo "::error::複数回再試行しましたが、data/stats.json のプッシュに失敗しました。"
+          exit 1
