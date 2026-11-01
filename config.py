@@ -8,6 +8,11 @@ LINE_USER_ID = os.getenv("LINE_USER_ID")
 GMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 
+# メール件名でフィルタできるよう、リポジトリ名を取得する。
+# GitHub Actions実行時は GITHUB_REPOSITORY（"owner/repo"形式）が自動設定されるため
+# そこから取得し、ローカル実行時など未設定の場合は固定値にフォールバックする。
+REPO_NAME = os.getenv("GITHUB_REPOSITORY", "").split("/")[-1] or "my-ai-news-bot"
+
 # --- 1. AI/IT技術ニュース設定（ハイブリッド構成） ---
 # 各RSSには "source" ラベルを付与し、ダッシュボードでの取得元別集計に使用する。
 RSS_SOURCES_TECH = [

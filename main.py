@@ -1,5 +1,5 @@
 import logging
-from config import RSS_SOURCES_TECH, RSS_SOURCES_INTEREST
+from config import RSS_SOURCES_TECH, RSS_SOURCES_INTEREST, REPO_NAME
 from news_fetcher import fetch_news_from_urls
 from ai_summarizer import generate_both_summaries, generate_both_email_summaries, get_current_date_str
 from line_notifier import send_line_messages
@@ -37,7 +37,7 @@ def main():
                 )
                 date_str = get_current_date_str()
                 html_body = build_html_email(tech_email_summary, interest_email_summary, date_str)
-                send_html_email(f"🤖 ニュース要約 - {date_str}", html_body)
+                send_html_email(f"🤖 [{REPO_NAME}] ニュース要約 - {date_str}", html_body)
             else:
                 logging.info("Gmail設定が未登録のため、Gmail送信をスキップします。")
         except Exception as gmail_err:
