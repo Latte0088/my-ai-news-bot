@@ -7,6 +7,9 @@ on:
   # 手動テスト用ボタン
   workflow_dispatch:
 
+permissions:
+  contents: write  # ダッシュボード用統計データ（data/stats.json）をコミットし直すために必要
+
 jobs:
   run-news-bot:
     runs-on: ubuntu-latest
@@ -30,3 +33,15 @@ jobs:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         run: python main.py
+
+      - name: Commit updated dashboard data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/stats.json
+          if git diff --staged --quiet; then
+            echo "ダッシュボード用データに変更はありません。コミットをスキップします。"
+          else
+            git commit -m "chore: update dashboard stats for $(date -u +'%Y-%m-%d')"
+            git push
+          fi

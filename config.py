@@ -6,27 +6,28 @@ LINE_CHANNEL_ACCESS_TOKEN = os.getenv("LINE_CHANNEL_ACCESS_TOKEN")
 LINE_USER_ID = os.getenv("LINE_USER_ID")
 
 # --- 1. AI/IT技術ニュース設定（ハイブリッド構成） ---
-RSS_URLS_TECH = [
+# 各RSSには "source" ラベルを付与し、ダッシュボードでの取得元別集計に使用する。
+RSS_SOURCES_TECH = [
     # 業界動向・企業の最新ニュース（Googleニュース）
-    "https://news.google.com/rss/search?q=AI&hl=ja&gl=JP&ceid=JP:ja",
-    "https://news.google.com/rss/search?q=IT+技術&hl=ja&gl=JP&ceid=JP:ja",
+    {"url": "https://news.google.com/rss/search?q=AI&hl=ja&gl=JP&ceid=JP:ja", "source": "Googleニュース(AI)"},
+    {"url": "https://news.google.com/rss/search?q=IT+技術&hl=ja&gl=JP&ceid=JP:ja", "source": "Googleニュース(IT)"},
     # 現場の実践知・個人開発・技術トレンド
-    "https://zenn.dev/feed",
-    "https://qiita.com/popular-items/feed",
+    {"url": "https://zenn.dev/feed", "source": "Zenn"},
+    {"url": "https://qiita.com/popular-items/feed", "source": "Qiita"},
     # note（技術・AI系ハッシュタグ）
-    "https://note.com/hashtag/テクノロジー/rss",
-    "https://note.com/hashtag/AI/rss"
+    {"url": "https://note.com/hashtag/テクノロジー/rss", "source": "note(テクノロジー)"},
+    {"url": "https://note.com/hashtag/AI/rss", "source": "note(AI)"},
 ]
 
 # --- 2. 興味関心・ライフスタイルニュース設定（安定性の高い個別RSS） ---
-RSS_URLS_INTEREST = [
-    "https://www.lifehacker.jp/feed/index.xml",       # ライフハック・仕事術・日用品
-    "https://www.gizmodo.jp/feed/index.xml",          # ガジェット・テクノロジー
-    "https://wired.jp/feed/rss/",                     # サイエンス・ビジネス・カルチャー
-    "https://b.hatena.ne.jp/hotentry/life.rss",        # ライフスタイル全般・トレンド
+RSS_SOURCES_INTEREST = [
+    {"url": "https://www.lifehacker.jp/feed/index.xml", "source": "Lifehacker"},       # ライフハック・仕事術・日用品
+    {"url": "https://www.gizmodo.jp/feed/index.xml", "source": "Gizmodo"},             # ガジェット・テクノロジー
+    {"url": "https://wired.jp/feed/rss/", "source": "WIRED"},                          # サイエンス・ビジネス・カルチャー
+    {"url": "https://b.hatena.ne.jp/hotentry/life.rss", "source": "はてなブックマーク"},  # ライフスタイル全般・トレンド
     # note（ライフハック・ガジェット系ハッシュタグ）
-    "https://note.com/hashtag/ライフハック/rss",
-    "https://note.com/hashtag/ガジェット/rss"
+    {"url": "https://note.com/hashtag/ライフハック/rss", "source": "note(ライフハック)"},
+    {"url": "https://note.com/hashtag/ガジェット/rss", "source": "note(ガジェット)"},
 ]
 
 # --- プロンプト定義 ---

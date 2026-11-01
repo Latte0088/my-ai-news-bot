@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ニュース要約ダッシュボード</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --surface-page:   #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --gridline:       #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border-ring:    rgba(11,11,11,0.10);
+    --series-1:       #2a78d6; /* 技術系ニュース: blue */
+    --series-2:       #eb6834; /* 関心ニュース: orange */
+    --seq-1: #86b6ef; --seq-2: #6da7ec; --seq-3: #5598e7; --seq-4: #3987e5;
+    --seq-5: #2a78d6; --seq-6: #256abf; --seq-7: #1c5cab; --seq-8: #184f95;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --surface-page:   #0d0d0d;
+      --text-primary:   #f0efec;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --gridline:       #2c2c2a;
+      --baseline:       #383835;
+      --border-ring:    rgba(255,255,255,0.10);
+      --series-1:       #3987e5;
+      --series-2:       #d95926;
+      --seq-1: #86b6ef; --seq-2: #6da7ec; --seq-3: #5598e7; --seq-4: #3987e5;
+      --seq-5: #2a78d6; --seq-6: #256abf; --seq-7: #1c5cab; --seq-8: #184f95;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: var(--surface-page);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text-primary);
+  }
+  .viz-root { padding: 24px 16px 48px; max-width: 1080px; margin: 0 auto; }
+
+  header.page-head { margin-bottom: 24px; }
+  header.page-head h1 { font-size: 22px; margin: 0 0 4px; }
+  header.page-head p { margin: 0; color: var(--text-secondary); font-size: 14px; }
+  #last-updated { color: var(--text-muted); font-size: 13px; margin-top: 8px; }
+
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .stat-tile {
+    background: var(--surface-1);
+    border: 1px solid var(--border-ring);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .stat-tile .label { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+  .stat-tile .value { font-size: 28px; font-weight: 600; line-height: 1.1; }
+  .stat-tile .value small { font-size: 14px; font-weight: 400; color: var(--text-secondary); }
+
+  section.panel {
+    background: var(--surface-1);
+    border: 1px solid var(--border-ring);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .panel-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .panel-head h2 { font-size: 16px; margin: 0; }
+  .panel-head .sub { font-size: 12px; color: var(--text-muted); }
+
+  .panel-controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  select.ctrl, button.ctrl {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-ring);
+    background: var(--surface-page);
+    color: var(--text-primary);
+  }
+  button.ctrl { cursor: pointer; }
+  button.ctrl:hover { background: var(--gridline); }
+
+  .chart-wrap { position: relative; height: 280px; }
+  .chart-wrap.tall { height: 340px; }
+
+  table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 12px;
+  }
+  table.data-table th, table.data-table td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--gridline);
+  }
+  table.data-table th {
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+  table.data-table td.num, table.data-table th.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .hidden { display: none; }
+
+  .empty-state {
+    color: var(--text-secondary);
+    font-size: 14px;
+    padding: 24px 8px;
+    text-align: center;
+    line-height: 1.7;
+  }
+  .legend-swatch {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  footer.page-foot {
+    color: var(--text-muted);
+    font-size: 12px;
+    text-align: center;
+    margin-top: 32px;
+  }
+</style>
+</head>
+<body>
+<div class="viz-root">
+
+  <header class="page-head">
+    <h1>📊 ニュース要約ダッシュボード</h1>
+    <p>my-ai-news-bot の実行結果から、日々の記事取得数とトピック別の内訳を可視化します。</p>
+    <div id="last-updated"></div>
+  </header>
+
+  <div class="kpi-row" id="kpi-row"></div>
+
+  <section class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>日々の記事数</h2>
+        <div class="sub">技術系ニュース・関心ニュースの取得件数（直近30日）</div>
+      </div>
+      <div class="panel-controls">
+        <button class="ctrl" id="toggle-table-daily" type="button">表で見る</button>
+      </div>
+    </div>
+    <div class="chart-wrap" id="daily-chart-wrap">
+      <canvas id="daily-chart"></canvas>
+    </div>
+    <div id="daily-table-wrap" class="hidden"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <div>
+        <h2>トピックごとのカテゴリー分け</h2>
+        <div class="sub">Geminiが要約に採用したカテゴリの件数</div>
+      </div>
+      <div class="panel-controls">
+        <select class="ctrl" id="category-date-select"></select>
+        <button class="ctrl" id="toggle-table-category" type="button">表で見る</button>
+      </div>
+    </div>
+    <div class="chart-wrap tall" id="category-chart-wrap">
+      <canvas id="category-chart"></canvas>
+    </div>
+    <div id="category-table-wrap" class="hidden"></div>
+  </section>
+
+  <footer class="page-foot">
+    データソース: <code>data/stats.json</code>（GitHub Actionsの実行ごとに自動更新）
+  </footer>
+</div>
+
+<script>
+(async function () {
+  const root = document.querySelector('.viz-root');
+  const css = (name) => getComputedStyle(root).getPropertyValue(name).trim();
+
+  const SEQ_STEPS = ['--seq-1', '--seq-2', '--seq-3', '--seq-4', '--seq-5', '--seq-6', '--seq-7', '--seq-8'];
+
+  function seqColor(fraction) {
+    const idx = Math.max(0, Math.min(SEQ_STEPS.length - 1, Math.round(fraction * (SEQ_STEPS.length - 1))));
+    return css(SEQ_STEPS[idx]);
+  }
+
+  function fmtDate(iso) {
+    const [, m, d] = iso.split('-');
+    return `${m}/${d}`;
+  }
+
+  function showEmptyState(message) {
+    document.getElementById('kpi-row').innerHTML =
+      `<div class="stat-tile" style="grid-column: 1 / -1;"><div class="empty-state">${message}</div></div>`;
+    document.getElementById('daily-chart-wrap').innerHTML = '';
+    document.getElementById('category-chart-wrap').innerHTML = '';
+    document.getElementById('toggle-table-daily').style.display = 'none';
+    document.getElementById('toggle-table-category').style.display = 'none';
+    document.getElementById('category-date-select').style.display = 'none';
+  }
+
+  let payload;
+  try {
+    const res = await fetch('../data/stats.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    payload = await res.json();
+  } catch (e) {
+    showEmptyState(
+      '統計データ（data/stats.json）がまだ見つかりません。<br>' +
+      'GitHub Actionsのワークフローが最初に実行されると、ここに日々の記事数とカテゴリー分けが表示されます。'
+    );
+    return;
+  }
+
+  const daily = Array.isArray(payload.daily) ? payload.daily.slice() : [];
+  daily.sort((a, b) => (a.date < b.date ? -1 : 1));
+
+  if (daily.length === 0) {
+    showEmptyState(
+      '統計データはまだ記録されていません。<br>' +
+      '次回のニュース配信ジョブが完了すると、ここに日々の記事数とカテゴリー分けが表示されます。'
+    );
+    return;
+  }
+
+  // --- 最終更新 ---
+  const lastUpdatedEl = document.getElementById('last-updated');
+  if (payload.updated_at) {
+    const dt = new Date(payload.updated_at);
+    lastUpdatedEl.textContent = '最終更新: ' + dt.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }) + ' (JST)';
+  }
+
+  // --- KPIタイル ---
+  const latest = daily[daily.length - 1];
+  const last7 = daily.slice(-7);
+  const avg7 = last7.reduce((s, d) => s + (d.fetched?.total || 0), 0) / last7.length;
+
+  document.getElementById('kpi-row').innerHTML = `
+    <div class="stat-tile">
+      <div class="label">本日の取得記事数（${fmtDate(latest.date)}）</div>
+      <div class="value">${latest.fetched?.total ?? 0}<small> 件</small></div>
+    </div>
+    <div class="stat-tile">
+      <div class="label">技術系 / 関心ニュース（本日）</div>
+      <div class="value">${latest.fetched?.tech ?? 0}<small> / ${latest.fetched?.interest ?? 0}</small></div>
+    </div>
+    <div class="stat-tile">
+      <div class="label">直近7日間の平均記事数</div>
+      <div class="value">${avg7.toFixed(1)}<small> 件/日</small></div>
+    </div>
+    <div class="stat-tile">
+      <div class="label">記録日数</div>
+      <div class="value">${daily.length}<small> 日</small></div>
+    </div>
+  `;
+
+  // --- チャート1: 日々の記事数（直近30日のstacked bar） ---
+  const recent = daily.slice(-30);
+  const labels = recent.map(d => fmtDate(d.date));
+  const techData = recent.map(d => d.fetched?.tech ?? 0);
+  const interestData = recent.map(d => d.fetched?.interest ?? 0);
+
+  new Chart(document.getElementById('daily-chart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        { label: '技術系ニュース', data: techData, backgroundColor: css('--series-1'), borderRadius: 4, borderSkipped: false },
+        { label: '関心ニュース', data: interestData, backgroundColor: css('--series-2'), borderRadius: 4, borderSkipped: false },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { color: css('--text-muted') } },
+        y: {
+          stacked: true, beginAtZero: true,
+          grid: { color: css('--gridline') },
+          ticks: { color: css('--text-muted'), precision: 0 },
+        },
+      },
+      plugins: {
+        legend: { position: 'top', labels: { color: css('--text-secondary'), boxWidth: 10, boxHeight: 10 } },
+        tooltip: { backgroundColor: css('--surface-1'), titleColor: css('--text-primary'), bodyColor: css('--text-secondary'), borderColor: css('--border-ring'), borderWidth: 1 },
+      },
+    },
+  });
+
+  // --- 表ビュー（チャート1） ---
+  const dailyTableRows = recent.map(d => `
+    <tr>
+      <td>${d.date}</td>
+      <td class="num">${d.fetched?.tech ?? 0}</td>
+      <td class="num">${d.fetched?.interest ?? 0}</td>
+      <td class="num">${d.fetched?.total ?? 0}</td>
+    </tr>`).join('');
+  document.getElementById('daily-table-wrap').innerHTML = `
+    <table class="data-table">
+      <thead><tr><th>日付</th><th class="num">技術系</th><th class="num">関心</th><th class="num">合計</th></tr></thead>
+      <tbody>${dailyTableRows}</tbody>
+    </table>`;
+  document.getElementById('toggle-table-daily').addEventListener('click', () => {
+    const tableWrap = document.getElementById('daily-table-wrap');
+    const chartWrap = document.getElementById('daily-chart-wrap');
+    tableWrap.classList.toggle('hidden');
+    chartWrap.classList.toggle('hidden');
+    document.getElementById('toggle-table-daily').textContent = tableWrap.classList.contains('hidden') ? '表で見る' : 'グラフで見る';
+  });
+
+  // --- チャート2: カテゴリー別記事数（日付選択式） ---
+  const dateSelect = document.getElementById('category-date-select');
+  const ALL_VALUE = '__all__';
+  dateSelect.innerHTML =
+    `<option value="${ALL_VALUE}">全期間の合計</option>` +
+    daily.slice().reverse().map(d => `<option value="${d.date}">${d.date}${d.date === latest.date ? '（最新）' : ''}</option>`).join('');
+
+  function aggregateCategories(dateValue) {
+    const counts = {};
+    const target = dateValue === ALL_VALUE ? daily : daily.filter(d => d.date === dateValue);
+    for (const d of target) {
+      for (const [cat, n] of Object.entries(d.selected_categories || {})) {
+        counts[cat] = (counts[cat] || 0) + n;
+      }
+    }
+    return Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 10);
+  }
+
+  let categoryChart = null;
+  function renderCategoryChart(dateValue) {
+    const entries = aggregateCategories(dateValue);
+    const catLabels = entries.map(e => e[0]);
+    const catValues = entries.map(e => e[1]);
+    const maxVal = Math.max(1, ...catValues);
+    const colors = catValues.map(v => seqColor(v / maxVal));
+
+    if (categoryChart) categoryChart.destroy();
+
+    if (entries.length === 0) {
+      document.getElementById('category-chart-wrap').innerHTML =
+        '<div class="empty-state">この期間にはカテゴリーデータがありません。</div>';
+      document.getElementById('category-table-wrap').innerHTML = '';
+      return;
+    }
+    if (!document.getElementById('category-chart')) {
+      document.getElementById('category-chart-wrap').innerHTML = '<canvas id="category-chart"></canvas>';
+    }
+
+    categoryChart = new Chart(document.getElementById('category-chart'), {
+      type: 'bar',
+      data: {
+        labels: catLabels,
+        datasets: [{ data: catValues, backgroundColor: colors, borderRadius: 4, borderSkipped: false }],
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { beginAtZero: true, grid: { color: css('--gridline') }, ticks: { color: css('--text-muted'), precision: 0 } },
+          y: { grid: { display: false }, ticks: { color: css('--text-secondary') } },
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: { backgroundColor: css('--surface-1'), titleColor: css('--text-primary'), bodyColor: css('--text-secondary'), borderColor: css('--border-ring'), borderWidth: 1 },
+        },
+      },
+    });
+
+    const rows = entries.map(([cat, n]) => `
+      <tr><td>${cat}</td><td class="num">${n}</td></tr>`).join('');
+    document.getElementById('category-table-wrap').innerHTML = `
+      <table class="data-table">
+        <thead><tr><th>カテゴリー</th><th class="num">件数</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+  }
+
+  dateSelect.value = latest.date;
+  renderCategoryChart(latest.date);
+  dateSelect.addEventListener('change', () => renderCategoryChart(dateSelect.value));
+
+  document.getElementById('toggle-table-category').addEventListener('click', () => {
+    document.getElementById('category-table-wrap').classList.toggle('hidden');
+    document.getElementById('category-chart-wrap').classList.toggle('hidden');
+    document.getElementById('toggle-table-category').textContent =
+      document.getElementById('category-table-wrap').classList.contains('hidden') ? '表で見る' : 'グラフで見る';
+  });
+})();
+</script>
+</body>
+</html>
