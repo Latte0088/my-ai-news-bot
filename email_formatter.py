@@ -1,8 +1,8 @@
 """Gemini要約テキストをHTMLメール本文に変換するモジュール。
 
 ai_summarizer.generate_both_email_summaries() が返す整形済みテキスト
-（「1. 【カテゴリ】タイトル / ▪️要点 / 要約 / ▪️記事を読む / URL」の繰り返し）を、
-記事カード形式のHTMLに変換する。
+（「1. 【カテゴリ】タイトル / ▪️要点 / ・箇条書き / ▪️今日から試せること（任意） /
+▪️記事を読む / URL」の繰り返し）を、記事カード形式のHTMLに変換する。
 
 Geminiに直接HTMLを生成させていない（プレーンテキストの出力フォーマットを
 維持している）ため、テキスト解析でHTML化する。解析に失敗した記事があっても
@@ -16,8 +16,10 @@ import re
 ENTRY_START_PATTERN = re.compile(r"^\d+\.\s+", re.MULTILINE)
 CATEGORY_TITLE_PATTERN = re.compile(r"^【(.+?)】\s*(.*)$")
 URL_PATTERN = re.compile(r"https?://\S+")
+BULLET_PREFIX_PATTERN = re.compile(r"^[・\-•]\s*")
 READ_MORE_MARKER = "記事を読む"
 SUMMARY_MARKER = "要点"
+ACTION_MARKER = "今日から試せること"
 
 
 def _split_entries(text: str) -> list[str]:
@@ -42,7 +44,10 @@ def _split_entries(text: str) -> list[str]:
 
 
 def _parse_entry(block: str) -> dict:
-    """1記事分のブロックを {category, title, summary, url} に分解する
+    """1記事分のブロックを {category, title, points, action, url} に分解する
+
+    "points" は要点の箇条書きリスト（先頭の「・」等は除去）。
+    "action" は「今日から試せること」セクションの本文（なければ None）。
 
     解析に失敗した場合（想定フォーマットと異なる場合）は、
     {"raw": block} を返し、呼び出し側で生テキスト表示にフォールバックさせる。
@@ -58,22 +63,34 @@ def _parse_entry(block: str) -> dict:
     category = first_line_match.group(1).strip()
     title = first_line_match.group(2).strip()
 
-    # ▪️要点 〜 ▪️記事を読む の間を要約本文として扱う
-    body_lines = []
-    in_summary = False
+    points: list[str] = []
+    action_lines: list[str] = []
     url = None
+    section = None  # "summary" | "action" | "read_more" | None
 
     for line in lines[1:]:
-        if SUMMARY_MARKER in line and line.startswith("▪"):
-            in_summary = True
+        if line.startswith("▪"):
+            if SUMMARY_MARKER in line:
+                section = "summary"
+            elif ACTION_MARKER in line:
+                section = "action"
+            elif READ_MORE_MARKER in line:
+                section = "read_more"
+            else:
+                section = None
             continue
-        if READ_MORE_MARKER in line and line.startswith("▪"):
-            in_summary = False
+
+        if section == "summary":
+            bullet_text = BULLET_PREFIX_PATTERN.sub("", line).strip()
+            if bullet_text:
+                points.append(bullet_text)
             continue
-        if in_summary:
-            body_lines.append(line)
+
+        if section == "action":
+            action_lines.append(line)
             continue
-        # ▪️記事を読む の後に続くURL行を拾う
+
+        # ▪️記事を読む の後（またはマーカー未検出時）に続くURL行を拾う
         url_match = URL_PATTERN.search(line)
         if url_match:
             url = url_match.group(0)
@@ -83,13 +100,14 @@ def _parse_entry(block: str) -> dict:
         url_match = URL_PATTERN.search(block)
         url = url_match.group(0) if url_match else None
 
-    if not title or not url:
+    if not title or not url or not points:
         return {"raw": block}
 
     return {
         "category": category,
         "title": title,
-        "summary": "\n".join(body_lines).strip(),
+        "points": points,
+        "action": "\n".join(action_lines).strip() or None,
         "url": url,
     }
 
@@ -114,8 +132,21 @@ def _render_entry_html(entry: dict) -> str:
 
     category = html.escape(entry["category"])
     title = html.escape(entry["title"])
-    summary = html.escape(entry["summary"]).replace("\n", "<br>")
     url = html.escape(entry["url"], quote=True)
+
+    points_html = "".join(
+        f'<li style="margin:0 0 4px;">{html.escape(p)}</li>' for p in entry["points"]
+    )
+
+    action_html = ""
+    if entry.get("action"):
+        action_text = html.escape(entry["action"]).replace("\n", "<br>")
+        action_html = f"""
+        <div style="margin:8px 0;padding:8px 12px;background:#fff8e6;border-left:3px solid #eda100;border-radius:4px;">
+          <span style="font-size:12px;font-weight:600;color:#8a6500;">💡 今日から試せること</span>
+          <p style="margin:4px 0 0;color:#52514e;font-size:13px;line-height:1.5;">{action_text}</p>
+        </div>
+        """
 
     return f"""
     <div style="margin:0 0 16px;padding:12px 16px;border:1px solid #e1e0d9;border-radius:8px;">
@@ -123,7 +154,10 @@ def _render_entry_html(entry: dict) -> str:
       <p style="margin:4px 0 8px;font-size:16px;font-weight:600;">
         <a href="{url}" style="color:#0b0b0b;text-decoration:none;">{title}</a>
       </p>
-      <p style="margin:0 0 8px;color:#52514e;font-size:14px;line-height:1.6;">{summary}</p>
+      <ul style="margin:0 0 4px;padding-left:20px;color:#52514e;font-size:14px;line-height:1.6;">
+        {points_html}
+      </ul>
+      {action_html}
       <a href="{url}" style="color:#2a78d6;font-size:13px;text-decoration:none;">記事を読む ▸</a>
     </div>
     """
