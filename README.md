@@ -55,12 +55,12 @@ Geminiは `gemini-3.6-flash` を優先し、失敗した場合は `gemini-2.5-fl
 
 ### GitHub Pagesでの公開（任意）
 
-ダッシュボードをWeb上で確認したい場合は、GitHubリポジトリの **Settings > Pages** で以下を設定してください。
+ダッシュボードをWeb上で確認したい場合は、`.github/workflows/pages.yml` を使ってGitHub Pagesに公開できます。このワークフローは **`dashboard/index.html` と `data/stats.json` のみ** をPagesの公開対象として配信し、`main.py` / `config.py` / `stats_recorder.py` などのソースコードやワークフロー定義は公開対象に含めません（リポジトリの可視性が `private` でも、Pagesサイト自体は一般公開される点に注意してください）。
 
-1. **Source**: `Deploy from a branch`
-2. **Branch**: `main` / `/ (root)`
+1. GitHubリポジトリの **Settings > Pages** を開き、**Source** を `GitHub Actions` に設定します（`Deploy from a branch` は選ばないでください。ブランチ全体＝ソースコードも公開されてしまいます）。
+2. `.github/workflows/pages.yml` が `main` ブランチにマージされていれば、`dashboard/**` または `data/stats.json` の更新時に自動でデプロイされます。初回は **Actions > Deploy Dashboard to GitHub Pages > Run workflow** から手動実行してください。
 
-設定後、`https://<GitHubユーザー名>.github.io/my-ai-news-bot/dashboard/` でダッシュボードを閲覧できます。GitHub Actionsのワークフローが `data/stats.json` を自動コミットするため、ページは次回の自動実行後に最新データへ更新されます。
+設定後、`https://<GitHubユーザー名>.github.io/my-ai-news-bot/dashboard/` でダッシュボードを閲覧できます。`daily_news.yml` が `data/stats.json` を更新するたびに `pages.yml` が連動して再デプロイされます。
 
 ### ローカルでダッシュボードを確認する
 
@@ -132,7 +132,8 @@ python main.py
 my-ai-news-bot/
 ├── .github/
 │   └── workflows/
-│       └── daily_news.yml   # GitHub Actions 実行設定（毎日7:12 JST・手動実行可、data/stats.jsonの自動コミットを含む）
+│       ├── daily_news.yml   # GitHub Actions 実行設定（毎日7:12 JST・手動実行可、data/stats.jsonの自動コミットを含む）
+│       └── pages.yml        # dashboard/とdata/stats.jsonのみをGitHub Pagesへ公開（ソースコードは非公開のまま）
 ├── dashboard/
 │   └── index.html           # 記事数・カテゴリー分けの可視化ダッシュボード（Chart.js, CDN読み込み）
 ├── data/
