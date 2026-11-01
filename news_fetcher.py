@@ -1,12 +1,17 @@
 import feedparser
 import logging
 
+from note_paywall import is_free_note_article, is_note_url
+
 
 def fetch_news_from_urls(rss_sources: list[dict], max_fetch: int = 20) -> list[dict]:
     """指定されたRSSソースリストから記事を取得し、重複を除外して返す
 
     各要素は {"url": str, "source": str} の形式を想定する。
     "source" は取得元ラベルで、ダッシュボードの取得元別集計に使用する。
+
+    note.comの記事（source_urlがnote.comドメイン）は、note.comの記事情報API
+    で無料記事かどうかを判定し、有料記事は除外する。
     """
     articles = []
     seen_titles = set()
@@ -24,6 +29,11 @@ def fetch_news_from_urls(rss_sources: list[dict], max_fetch: int = 20) -> list[d
                 link = entry.get("link", "")
 
                 if not title or title in seen_titles:
+                    continue
+
+                if is_note_url(link) and not is_free_note_article(link):
+                    logging.info(f"note.comの有料記事のため除外します: {title}")
+                    seen_titles.add(title)
                     continue
 
                 seen_titles.add(title)
