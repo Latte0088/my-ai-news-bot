@@ -120,13 +120,40 @@ def parse_summary_text(text: str) -> list[dict]:
     return entries
 
 
+# --- スマホ表示向けのスタイル ---
+# モバイルファースト: インライン指定は、スマホで文字の表示幅を最大限に取れる省スペース設計。
+# 広い画面（600px以上）だけ <style> のメディアクエリで従来の広めの余白に戻す
+# （インライン指定より優先させるため !important を付ける）。
+# <style> が効かないメールアプリでも、インライン指定のスマホ向けレイアウトで表示される。
+# 長いURLや英単語で1要素でも横にはみ出すと、Gmailはメール全体を縮小表示して
+# 文字が小さくなるため、折り返しの指定も入れる。
+WRAP_BREAK_STYLE = "overflow-wrap:anywhere;word-break:break-word;"
+
+CARD_STYLE = (
+    "margin:0 0 12px;padding:14px;background:#fcfcfb;"
+    "border:1px solid #e1e0d9;border-radius:8px;" + WRAP_BREAK_STYLE
+)
+
+WIDE_SCREEN_CSS = """
+    @media (min-width:600px) {
+      .wrap { padding:24px !important; }
+      .container { padding:24px !important; background:#fcfcfb !important; border-radius:12px !important; }
+      .card { margin-bottom:16px !important; padding:12px 16px !important; }
+      .title { font-size:16px !important; }
+      .points { font-size:14px !important; padding-left:20px !important; }
+      .action-text { font-size:13px !important; }
+      .more { font-size:13px !important; padding:0 !important; }
+    }
+"""
+
+
 def _render_entry_html(entry: dict) -> str:
     if "raw" in entry:
         # 解析に失敗した記事は、崩さず生テキストのまま表示する
         escaped = html.escape(entry["raw"]).replace("\n", "<br>")
         return f"""
-        <div style="margin:0 0 16px;padding:12px 16px;border:1px solid #e1e0d9;border-radius:8px;">
-          <p style="margin:0;color:#52514e;font-size:14px;white-space:pre-wrap;">{escaped}</p>
+        <div class="card" style="{CARD_STYLE}">
+          <p style="margin:0;color:#52514e;font-size:15px;white-space:pre-wrap;{WRAP_BREAK_STYLE}">{escaped}</p>
         </div>
         """
 
@@ -144,21 +171,21 @@ def _render_entry_html(entry: dict) -> str:
         action_html = f"""
         <div style="margin:8px 0;padding:8px 12px;background:#fff8e6;border-left:3px solid #eda100;border-radius:4px;">
           <span style="font-size:12px;font-weight:600;color:#8a6500;">💡 今日から試せること</span>
-          <p style="margin:4px 0 0;color:#52514e;font-size:13px;line-height:1.5;">{action_text}</p>
+          <p class="action-text" style="margin:4px 0 0;color:#52514e;font-size:14px;line-height:1.5;">{action_text}</p>
         </div>
         """
 
     return f"""
-    <div style="margin:0 0 16px;padding:12px 16px;border:1px solid #e1e0d9;border-radius:8px;">
+    <div class="card" style="{CARD_STYLE}">
       <span style="display:inline-block;background:#eef4fc;color:#2a78d6;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;margin-bottom:6px;">{category}</span>
-      <p style="margin:4px 0 8px;font-size:16px;font-weight:600;">
+      <p class="title" style="margin:4px 0 8px;font-size:17px;font-weight:600;line-height:1.4;">
         <a href="{url}" style="color:#0b0b0b;text-decoration:none;">{title}</a>
       </p>
-      <ul style="margin:0 0 4px;padding-left:20px;color:#52514e;font-size:14px;line-height:1.6;">
+      <ul class="points" style="margin:0 0 4px;padding-left:18px;color:#52514e;font-size:15px;line-height:1.6;">
         {points_html}
       </ul>
       {action_html}
-      <a href="{url}" style="color:#2a78d6;font-size:13px;text-decoration:none;">記事を読む ▸</a>
+      <a class="more" href="{url}" style="display:inline-block;padding:6px 0;color:#2a78d6;font-size:14px;text-decoration:none;">記事を読む ▸</a>
     </div>
     """
 
@@ -195,9 +222,10 @@ def build_html_email(tech_summary: str, interest_summary: str, date_str: str) ->
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>{WIDE_SCREEN_CSS}</style>
   </head>
-  <body style="margin:0;padding:24px;background:#f9f9f7;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#0b0b0b;">
-    <div style="max-width:640px;margin:0 auto;background:#fcfcfb;border-radius:12px;padding:24px;">
+  <body class="wrap" style="margin:0;padding:8px;background:#f9f9f7;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#0b0b0b;-webkit-text-size-adjust:100%;">
+    <div class="container" style="max-width:640px;margin:0 auto;padding:0;">
       <h1 style="font-size:20px;margin:0 0 4px;">🤖 ニュース要約</h1>
       <p style="margin:0 0 16px;color:#898781;font-size:13px;">{html.escape(date_str)}</p>
       {tech_section}
