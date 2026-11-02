@@ -13,8 +13,32 @@ GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 # そこから取得し、ローカル実行時など未設定の場合は固定値にフォールバックする。
 REPO_NAME = os.getenv("GITHUB_REPOSITORY", "").split("/")[-1] or "my-ai-news-bot"
 
+# --- 有料・会員限定記事の除外設定 ---
+# 全文の閲覧に有料購読・ログイン（会員登録）が必要になりやすい配信元ドメイン。
+# 記事の配信元（Googleニュースは <source> 要素のドメイン、それ以外は記事URLのドメイン）が
+# ここに含まれる記事は、LINE/Gmail配信・ダッシュボード集計の対象から除外する。
+# サブドメインも対象（例: "nikkei.com" は "xtech.nikkei.com" にも一致）。
+# 「無料記事も一緒に除外される」ことよりも「読めない記事を配信してしまう」ことの
+# 影響が大きいため、会員限定記事が混在する配信元もまとめて除外している。
+# 不要なものは削除、追加したい場合は追記する。
+PAYWALLED_DOMAINS = {
+    # 有料購読が前提の経済紙・海外メディア
+    "nikkei.com", "nikkeibp.co.jp",
+    "wsj.com", "bloomberg.com", "bloomberg.co.jp", "ft.com", "economist.com",
+    "nytimes.com", "washingtonpost.com", "newspicks.com",
+    # 会員限定記事が混在するメディア
+    "itmedia.co.jp", "diamond.jp", "toyokeizai.net", "forbesjapan.com",
+    "jbpress.ismedia.jp", "president.jp",
+    # 有料・会員限定記事がある新聞社（Yahoo!ニュース経由の配信は対象外）
+    "asahi.com", "mainichi.jp", "yomiuri.co.jp", "sankei.com",
+}
+
 # --- 1. AI/IT技術ニュース設定（ハイブリッド構成） ---
 # 各RSSには "source" ラベルを付与し、ダッシュボードでの取得元別集計に使用する。
+# "paywall_check": "page" を指定したソースは、記事ページを取得して
+# schema.orgの isAccessibleForFree が false の記事（会員限定記事）を除外する。
+# Googleニュースのリンクは news.google.com 上のJavaScript遷移のため、
+# 記事ページを取得できず、配信元ドメイン（PAYWALLED_DOMAINS）による除外のみ行う。
 RSS_SOURCES_TECH = [
     # 業界動向・企業の最新ニュース（Googleニュース）
     {"url": "https://news.google.com/rss/search?q=AI&hl=ja&gl=JP&ceid=JP:ja", "source": "Googleニュース(AI)"},
@@ -31,8 +55,8 @@ RSS_SOURCES_TECH = [
 RSS_SOURCES_INTEREST = [
     {"url": "https://www.lifehacker.jp/feed/index.xml", "source": "Lifehacker"},       # ライフハック・仕事術・日用品
     {"url": "https://www.gizmodo.jp/feed/index.xml", "source": "Gizmodo"},             # ガジェット・テクノロジー
-    {"url": "https://wired.jp/feed/rss/", "source": "WIRED"},                          # サイエンス・ビジネス・カルチャー
-    {"url": "https://b.hatena.ne.jp/hotentry/life.rss", "source": "はてなブックマーク"},  # ライフスタイル全般・トレンド
+    {"url": "https://wired.jp/feed/rss/", "source": "WIRED", "paywall_check": "page"},  # サイエンス・ビジネス・カルチャー（一部会員限定記事あり）
+    {"url": "https://b.hatena.ne.jp/hotentry/life.rss", "source": "はてなブックマーク", "paywall_check": "page"},  # ライフスタイル全般・トレンド（リンク先は様々なサイト）
     # note（ライフハック・ガジェット系ハッシュタグ）
     {"url": "https://note.com/hashtag/ライフハック/rss", "source": "note(ライフハック)"},
     {"url": "https://note.com/hashtag/ガジェット/rss", "source": "note(ガジェット)"},
