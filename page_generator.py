@@ -1,8 +1,8 @@
 """data/news/ の月別JSONから GitHub Pages 用のニュースページを生成するモジュール。
 
 生成物:
-    _site/index.html            最新日のニュース（重要度4以上を先頭でハイライト）
-    _site/archive/YYYY-MM.html  月別アーカイブ（その月の全日分）
+    _site/index.html              最新日のニュース（重要度4以上を先頭でハイライト）
+    _site/archive/YYYY-MM-DD.html 日別アーカイブ（その日のニュース一覧）
 
 著作権ガードレール: ページに描画するのは記事アイテムの
 title / url / source / category / summary / importance と日付のみ。
@@ -66,88 +66,84 @@ def render_item(item: dict) -> str:
     )
 
 
-def render_compact_item(item: dict) -> str:
-    """アーカイブ用のコンパクトな記事アイテム表示（タイトル・カテゴリ・重要度のみ）"""
-    title = _esc(item.get("title", ""))
-    url = _esc(item.get("url", ""))
-    category = _esc(item.get("category", ""))
-    importance = item.get("importance", "")
-
-    meta = ""
-    if category:
-        meta += f'<span class="category">{category}</span> '
-    if importance != "":
-        meta += f'<span class="importance">重要度 {importance}</span>'
-
-    return f'<li>{meta}<a href="{url}">{title}</a></li>'
-
-
 def _sorted_by_importance(items: list[dict]) -> list[dict]:
     return sorted(items, key=lambda i: i.get("importance", 0), reverse=True)
 
 
-def render_index(latest_day: dict | None, months: list[str]) -> str:
-    """トップページ（最新日のニュース）のHTMLを生成する"""
-    parts = [
+def _render_day_sections(day: dict) -> list[str]:
+    """1日分のニュース（注目ハイライト＋技術・関心セクション）のHTML部品を返す"""
+    tech_items = day.get("tech", [])
+    interest_items = day.get("interest", [])
+    parts = []
+
+    highlight = _sorted_by_importance(
+        [i for i in tech_items + interest_items if i.get("importance", 0) >= HIGHLIGHT_MIN_IMPORTANCE]
+    )
+    if highlight:
+        parts.append('<section id="highlight">')
+        parts.append("<h2>⭐ 注目のニュース（重要度4以上）</h2>")
+        parts.extend(render_item(item) for item in highlight)
+        parts.append("</section>")
+
+    # 注目のニュース（重要度4以上）に載せた記事は、下のセクションでは繰り返さない
+    tech_rest = [i for i in tech_items if i.get("importance", 0) < HIGHLIGHT_MIN_IMPORTANCE]
+    interest_rest = [i for i in interest_items if i.get("importance", 0) < HIGHLIGHT_MIN_IMPORTANCE]
+
+    parts.append('<section id="tech">')
+    parts.append("<h2>📱 IT・AI技術ニュース</h2>")
+    if tech_rest:
+        parts.extend(render_item(item) for item in tech_rest)
+    elif tech_items:
+        parts.append("<p>この日の技術ニュースは、すべて上の「注目のニュース」に掲載しています。</p>")
+    else:
+        parts.append("<p>この日の技術ニュースはありません。</p>")
+    parts.append("</section>")
+
+    parts.append('<section id="interest">')
+    parts.append("<h2>☕ 関心ニュース</h2>")
+    if interest_rest:
+        parts.extend(render_item(item) for item in interest_rest)
+    elif interest_items:
+        parts.append("<p>この日の関心ニュースは、すべて上の「注目のニュース」に掲載しています。</p>")
+    else:
+        parts.append("<p>この日の関心ニュースはありません。</p>")
+    parts.append("</section>")
+
+    return parts
+
+
+def _page_head(title: str) -> list[str]:
+    return [
         "<!DOCTYPE html>",
         '<html lang="ja">',
         "<head>",
         '<meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
-        "<title>AIニュース</title>",
+        f"<title>{_esc(title)}</title>",
         f"<style>{_PAGE_STYLE}</style>",
         "</head>",
         "<body>",
-        "<h1>📰 AIニュース</h1>",
     ]
 
-    if months:
+
+def render_index(latest_day: dict | None, dates: list[str]) -> str:
+    """トップページ（最新日のニュース）のHTMLを生成する。datesは新しい順の日付一覧"""
+    parts = _page_head("AIニュース")
+    parts.append("<h1>📰 AIニュース</h1>")
+
+    latest_date = latest_day.get("date", "") if latest_day else ""
+    past_dates = [d for d in dates if d != latest_date][:30]
+    if past_dates:
         links = " ".join(
-            f'<a href="archive/{_esc(month)}.html">{_esc(month)}</a>' for month in months
+            f'<a href="archive/{_esc(d)}.html">{_esc(d)}</a>' for d in past_dates
         )
         parts.append(f"<nav>過去のニュース: {links}</nav>")
 
     if latest_day is None:
         parts.append("<p>まだニュースがありません。</p>")
     else:
-        date = _esc(latest_day.get("date", ""))
-        tech_items = latest_day.get("tech", [])
-        interest_items = latest_day.get("interest", [])
-
-        parts.append(f"<p>最新: {date}</p>")
-
-        highlight = _sorted_by_importance(
-            [i for i in tech_items + interest_items if i.get("importance", 0) >= HIGHLIGHT_MIN_IMPORTANCE]
-        )
-        if highlight:
-            parts.append('<section id="highlight">')
-            parts.append("<h2>⭐ 注目のニュース（重要度4以上）</h2>")
-            parts.extend(render_item(item) for item in highlight)
-            parts.append("</section>")
-
-        # 注目のニュース（重要度4以上）に載せた記事は、下のセクションでは繰り返さない
-        tech_rest = [i for i in tech_items if i.get("importance", 0) < HIGHLIGHT_MIN_IMPORTANCE]
-        interest_rest = [i for i in interest_items if i.get("importance", 0) < HIGHLIGHT_MIN_IMPORTANCE]
-
-        parts.append('<section id="tech">')
-        parts.append("<h2>📱 IT・AI技術ニュース</h2>")
-        if tech_rest:
-            parts.extend(render_item(item) for item in tech_rest)
-        elif tech_items:
-            parts.append("<p>この日の技術ニュースは、すべて上の「注目のニュース」に掲載しています。</p>")
-        else:
-            parts.append("<p>この日の技術ニュースはありません。</p>")
-        parts.append("</section>")
-
-        parts.append('<section id="interest">')
-        parts.append("<h2>☕ 関心ニュース</h2>")
-        if interest_rest:
-            parts.extend(render_item(item) for item in interest_rest)
-        elif interest_items:
-            parts.append("<p>この日の関心ニュースは、すべて上の「注目のニュース」に掲載しています。</p>")
-        else:
-            parts.append("<p>この日の関心ニュースはありません。</p>")
-        parts.append("</section>")
+        parts.append(f"<p>最新: {_esc(latest_date)}</p>")
+        parts.extend(_render_day_sections(latest_day))
 
     parts.append('<p><a href="dashboard/">📊 ダッシュボード</a></p>')
     parts.append("</body>")
@@ -155,34 +151,21 @@ def render_index(latest_day: dict | None, months: list[str]) -> str:
     return "\n".join(parts) + "\n"
 
 
-def render_archive(month: str, payload: dict) -> str:
-    """月別アーカイブページのHTMLを生成する"""
-    parts = [
-        "<!DOCTYPE html>",
-        '<html lang="ja">',
-        "<head>",
-        '<meta charset="utf-8">',
-        '<meta name="viewport" content="width=device-width, initial-scale=1">',
-        f"<title>AIニュース {_esc(month)}</title>",
-        f"<style>{_PAGE_STYLE}</style>",
-        "</head>",
-        "<body>",
-        f"<h1>📰 AIニュース {_esc(month)}</h1>",
-        '<p><a href="../index.html">← トップへ戻る</a></p>',
-    ]
+def render_day(date: str, day: dict, prev_date: str | None, next_date: str | None) -> str:
+    """日別アーカイブページ（その日のニュース一覧）のHTMLを生成する"""
+    parts = _page_head(f"AIニュース {date}")
+    parts.append(f"<h1>📰 AIニュース {_esc(date)}</h1>")
+    parts.append('<p><a href="../index.html">← トップへ戻る</a></p>')
 
-    days = payload.get("days", {})
-    for date in sorted(days, reverse=True):
-        day = days[date]
-        parts.append(f"<h2>{_esc(date)}</h2>")
-        for section_key, label in (("tech", "📱 IT・AI技術ニュース"), ("interest", "☕ 関心ニュース")):
-            items = day.get(section_key, [])
-            if not items:
-                continue
-            parts.append(f"<h3>{label}</h3>")
-            parts.append("<ul>")
-            parts.extend(render_compact_item(item) for item in items)
-            parts.append("</ul>")
+    parts.extend(_render_day_sections(day))
+
+    nav = []
+    if prev_date:
+        nav.append(f'<a href="{_esc(prev_date)}.html">← {_esc(prev_date)}</a>')
+    if next_date:
+        nav.append(f'<a href="{_esc(next_date)}.html">{_esc(next_date)} →</a>')
+    if nav:
+        parts.append(f"<nav>{' '.join(nav)}</nav>")
 
     parts.append("</body>")
     parts.append("</html>")
@@ -208,32 +191,32 @@ def load_news_data(news_dir: Path) -> dict[str, dict]:
 def generate(news_dir: Path, out_dir: Path) -> list[Path]:
     """ニュースページ一式を生成し、書き出したファイルのパスのリストを返す"""
     payloads = load_news_data(news_dir)
-    months = sorted(payloads, reverse=True)
 
-    latest_day = None
-    all_dates = [
-        date for payload in payloads.values() for date in payload.get("days", {})
-    ]
-    if all_dates:
-        latest_date = max(all_dates)
-        for payload in payloads.values():
-            if latest_date in payload.get("days", {}):
-                latest_day = payload["days"][latest_date]
-                break
+    days: dict[str, dict] = {}
+    for payload in payloads.values():
+        for date, day in payload.get("days", {}).items():
+            days[date] = day
+    dates = sorted(days, reverse=True)
+    latest_day = days[dates[0]] if dates else None
 
     out_dir.mkdir(parents=True, exist_ok=True)
     written = []
 
     index_path = out_dir / "index.html"
-    index_path.write_text(render_index(latest_day, months), encoding="utf-8")
+    index_path.write_text(render_index(latest_day, dates), encoding="utf-8")
     written.append(index_path)
 
-    if payloads:
+    if days:
         archive_dir = out_dir / "archive"
         archive_dir.mkdir(parents=True, exist_ok=True)
-        for month in months:
-            archive_path = archive_dir / f"{month}.html"
-            archive_path.write_text(render_archive(month, payloads[month]), encoding="utf-8")
+        ascending = sorted(days)
+        for idx, date in enumerate(ascending):
+            prev_date = ascending[idx - 1] if idx > 0 else None
+            next_date = ascending[idx + 1] if idx + 1 < len(ascending) else None
+            archive_path = archive_dir / f"{date}.html"
+            archive_path.write_text(
+                render_day(date, days[date], prev_date, next_date), encoding="utf-8"
+            )
             written.append(archive_path)
 
     return written
