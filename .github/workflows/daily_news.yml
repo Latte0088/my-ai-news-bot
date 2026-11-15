@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # ダッシュボード用統計データ（data/stats.json）をコミットし直すために必要
+  contents: write  # ダッシュボード用統計データ（data/stats.json）とニュースデータ（data/news/）をコミットし直すために必要
 
 jobs:
   run-news-bot:
@@ -32,29 +32,26 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
-          # 任意: 未設定の場合、Gmail送信は自動的にスキップされる
-          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: python main.py
 
-      - name: Commit updated dashboard data
+      - name: Commit updated dashboard data and news data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/stats.json
+          git add data/stats.json data/news
 
           if git diff --staged --quiet; then
-            echo "ダッシュボード用データに変更はありません。コミットをスキップします。"
+            echo "ダッシュボード用データとニュースデータに変更はありません。コミットをスキップします。"
             exit 0
           fi
 
-          git commit -m "chore: update dashboard stats for $(date -u +'%Y-%m-%d')"
+          git commit -m "chore: update dashboard stats and news data for $(date -u +'%Y-%m-%d')"
 
           # 実行タイミングが重なり、pushの間にmainが先に更新されていることがあるため、
           # pull --rebase してpushし直すリトライを行う（最大5回）。
           for attempt in 1 2 3 4 5; do
             if git push; then
-              echo "data/stats.json のプッシュに成功しました。"
+              echo "data/stats.json と data/news のプッシュに成功しました。"
               exit 0
             fi
             echo "プッシュが失敗しました（リモートのmainが更新されている可能性があります）。pull --rebase して再試行します… ($attempt/5)"
@@ -62,5 +59,5 @@ jobs:
             sleep $((attempt * 3))
           done
 
-          echo "::error::複数回再試行しましたが、data/stats.json のプッシュに失敗しました。"
+          echo "::error::複数回再試行しましたが、data/stats.json と data/news のプッシュに失敗しました。"
           exit 1
