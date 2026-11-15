@@ -40,6 +40,18 @@ def test_parse_valid_json():
     assert items[1]["source"] == "Qiita"
 
 
+def test_parse_tip_optional():
+    text = json.dumps([
+        _item("https://example.com/a", tip="今日から試せる具体的な行動"),
+        _item("https://example.com/b"),
+        _item("https://example.com/c", tip="  "),
+    ])
+    items = parse_articles_json(text, FETCHED)
+    assert items[0]["tip"] == "今日から試せる具体的な行動"
+    assert "tip" not in items[1]
+    assert "tip" not in items[2]
+
+
 def test_parse_fenced_json():
     text = "```json\n" + json.dumps([_item("https://example.com/a")]) + "\n```"
     items = parse_articles_json(text, FETCHED)
