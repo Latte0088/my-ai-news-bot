@@ -54,6 +54,15 @@ def test_summary_rendered_as_bullets():
     assert "<li>要点の2つ目です</li>" in html
 
 
+def test_tip_box_rendered_when_present():
+    day = _day()
+    day["interest"] = [_item("実践ニュース", 3, tip="今日から試せる具体的な行動です")]
+    html = render_index(day, [])
+    assert "今日から試せること" in html
+    assert "今日から試せる具体的な行動です" in html
+    assert 'class="tip"' in html
+
+
 def test_summary_single_line_stays_paragraph():
     html = render_index(_day(), [])
     assert "<li>" not in html
