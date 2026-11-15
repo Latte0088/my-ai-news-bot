@@ -33,6 +33,7 @@ h2 { font-size: 1.2em; border-bottom: 2px solid #ddd; padding-bottom: 4px; }
 .importance { color: #b00; font-weight: bold; }
 #highlight .item { border-color: #f0b429; background: #fffaf0; }
 details { margin-top: 6px; }
+.item ul { margin: 6px 0; padding-left: 20px; }
 nav a { margin-right: 12px; }
 """.strip()
 
@@ -42,13 +43,28 @@ def _esc(value) -> str:
     return html.escape(str(value if value is not None else ""), quote=True)
 
 
+def _render_summary(summary) -> str:
+    """要約をHTMLに変換する。改行区切りの要点は箇条書き（<ul>）にし、1行だけなら段落にする"""
+    lines = []
+    for raw in str(summary if summary is not None else "").splitlines():
+        line = raw.strip().lstrip("・-• ").strip()
+        if line:
+            lines.append(line)
+    if len(lines) > 1:
+        items = "".join(f"<li>{_esc(line)}</li>" for line in lines)
+        return f"<ul>{items}</ul>"
+    if lines:
+        return f"<p>{_esc(lines[0])}</p>"
+    return ""
+
+
 def render_item(item: dict) -> str:
     """記事アイテム1件をHTMLに変換する。許可されたフィールドのみを使う"""
     title = _esc(item.get("title", ""))
     url = _esc(item.get("url", ""))
     source = _esc(item.get("source", ""))
     category = _esc(item.get("category", ""))
-    summary = _esc(item.get("summary", ""))
+    summary_html = _render_summary(item.get("summary", ""))
     importance = item.get("importance", "")
 
     meta_parts = []
@@ -63,7 +79,7 @@ def render_item(item: dict) -> str:
         '<article class="item">'
         f'<div class="meta">{" ".join(meta_parts)}</div>'
         f'<h3><a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a></h3>'
-        f"<details><summary>要約を読む</summary><p>{summary}</p></details>"
+        f"<details><summary>要約を読む</summary>{summary_html}</details>"
         "</article>"
     )
 
