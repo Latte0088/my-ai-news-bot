@@ -43,6 +43,22 @@ def test_render_index_contains_titles_and_summaries():
     assert 'href="archive/2026-11-15.html"' not in html
 
 
+def test_summary_rendered_as_bullets():
+    day = _day()
+    day["tech"] = [_item("箇条書きニュース", 3, summary="要点の1つ目です\n・要点の2つ目です\n要点の3つ目です")]
+    html = render_index(day, [])
+    assert html.count("<li>") == 3
+    assert "<li>要点の1つ目です</li>" in html
+    # 行頭の箇条書き記号は除去される
+    assert "<li>・要点の2つ目です</li>" not in html
+    assert "<li>要点の2つ目です</li>" in html
+
+
+def test_summary_single_line_stays_paragraph():
+    html = render_index(_day(), [])
+    assert "<li>" not in html
+
+
 def test_article_links_open_in_new_tab():
     html = render_index(_day(), ["2026-11-15"])
     # 記事リンクは新しいタブで開く（サイト内リンクには付けない）
