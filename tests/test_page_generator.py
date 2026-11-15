@@ -43,6 +43,13 @@ def test_render_index_contains_titles_and_summaries():
     assert 'href="archive/2026-11-15.html"' not in html
 
 
+def test_article_links_open_in_new_tab():
+    html = render_index(_day(), ["2026-11-15"])
+    # 記事リンクは新しいタブで開く（サイト内リンクには付けない）
+    assert 'target="_blank" rel="noopener noreferrer"' in html
+    assert '<a href="dashboard/" target=' not in html
+
+
 def test_render_index_highlight_section():
     html = render_index(_day(), ["2026-11"])
     start = html.index('<section id="highlight">')
