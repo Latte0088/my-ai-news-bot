@@ -1,24 +1,20 @@
 """ダッシュボード用の日次統計データを記録するモジュール。
 
-main.py の実行結果（取得記事・Gemini要約）から、
+main.py の実行結果（取得記事・Geminiが選定した記事アイテム）から、
 - 日々の記事取得数（技術系／関心系、取得元別）
-- Geminiが要約内で選定したカテゴリの件数
+- Geminiが選定した記事のカテゴリの件数
 を集計し、dashboard/index.html が読み込む data/stats.json に保存する。
 
-このモジュールの失敗がLINE配信を止めないよう、呼び出し側（main.py）で
+このモジュールの失敗が配信処理を止めないよう、呼び出し側（main.py）で
 例外を捕捉して警告ログのみに留めることを想定している。
 """
 import json
 import logging
-import re
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
 STATS_FILE = DATA_DIR / "stats.json"
-
-# Geminiの要約フォーマット「1️⃣ 【カテゴリ】タイトル」からカテゴリ名を抽出する
-CATEGORY_PATTERN = re.compile(r"【(.+?)】")
 
 # 保持する履歴日数（ダッシュボードの表示範囲に合わせて肥大化を防ぐ）
 MAX_HISTORY_DAYS = 90
@@ -39,18 +35,21 @@ def _count_by_source(articles: list[dict]) -> dict[str, int]:
     return counts
 
 
-def _extract_selected_categories(summary_text: str) -> list[str]:
-    """Gemini要約テキスト中の「【カテゴリ】」表記から選定カテゴリ名を抽出する"""
-    if not summary_text:
-        return []
-    return CATEGORY_PATTERN.findall(summary_text)
+def _count_selected_categories(items: list[dict]) -> dict[str, int]:
+    """選定された記事アイテムのカテゴリ名を集計する"""
+    counts: dict[str, int] = {}
+    for item in items:
+        category = item.get("category") or ""
+        if category:
+            counts[category] = counts.get(category, 0) + 1
+    return counts
 
 
 def build_daily_record(
     tech_articles: list[dict],
     interest_articles: list[dict],
-    tech_summary: str,
-    interest_summary: str,
+    tech_items: list[dict],
+    interest_items: list[dict],
 ) -> dict:
     """1回の実行結果から、ダッシュボード用の日次統計レコードを作成する"""
     source_counts: dict[str, int] = {}
@@ -60,9 +59,10 @@ def build_daily_record(
         source_counts[label] = source_counts.get(label, 0) + count
 
     category_counts: dict[str, int] = {}
-    selected = _extract_selected_categories(tech_summary) + _extract_selected_categories(interest_summary)
-    for category in selected:
-        category_counts[category] = category_counts.get(category, 0) + 1
+    for label, count in _count_selected_categories(tech_items).items():
+        category_counts[label] = category_counts.get(label, 0) + count
+    for label, count in _count_selected_categories(interest_items).items():
+        category_counts[label] = category_counts.get(label, 0) + count
 
     return {
         "date": _today_jst_str(),
@@ -112,9 +112,9 @@ def save_daily_record(record: dict) -> None:
 def record_run_stats(
     tech_articles: list[dict],
     interest_articles: list[dict],
-    tech_summary: str,
-    interest_summary: str,
+    tech_items: list[dict],
+    interest_items: list[dict],
 ) -> None:
     """統計レコードの作成と保存をまとめて行う"""
-    record = build_daily_record(tech_articles, interest_articles, tech_summary, interest_summary)
+    record = build_daily_record(tech_articles, interest_articles, tech_items, interest_items)
     save_daily_record(record)
