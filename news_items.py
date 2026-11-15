@@ -85,14 +85,19 @@ def parse_articles_json(text: str, fetched_articles: list[dict]) -> list[dict]:
         seen_urls.add(url)
 
         title = str(raw.get("title") or "").strip() or str(fetched.get("title", "")).strip()
-        items.append({
+        item = {
             "title": title,
             "url": url,
             "source": str(fetched.get("source", "")),
             "category": str(raw.get("category") or "").strip(),
             "summary": str(raw.get("summary") or "").strip(),
             "importance": _coerce_importance(raw.get("importance", DEFAULT_IMPORTANCE)),
-        })
+        }
+        # 「今日から試せること」（任意）: 空でない場合だけ保持する
+        tip = str(raw.get("tip") or "").strip()
+        if tip:
+            item["tip"] = tip
+        items.append(item)
 
     return items
 
