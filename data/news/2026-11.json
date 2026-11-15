@@ -167,6 +167,171 @@
           "importance": 2
         }
       ]
+    },
+    "2026-11-16": {
+      "date": "2026-11-16",
+      "tech": [
+        {
+          "title": "世界中で20万人以上のIT技術者が職を失ったが、その主な原因はAI（人工知能）にある。 - Vietnam.vn",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOQ1oyeElOcmFrUmdzUTh2M1FKQUotZmFtRm43WTczRmVmTGlGdmxJS3FlX2dJZ3FMRTdPVXFES3h3ZlkzMExVUTJEQXl6bFVEN1lKMjRqS2JrR3pjUWcwZkp1LUtHcFdBT2tIcEdRcE5wZmpzS2d6eHZia19tZzRYN0RXYjdlclljcUpfaDdTZHJJdw?oc=5",
+          "source": "Googleニュース(IT)",
+          "category": "ニュース・動向",
+          "summary": "世界的に20万人以上のIT技術者が解雇された要因を分析\nAIによる開発自動化や省力化が雇用の構造変化に与える影響を提示\nエンジニア市場で求められるスキルシフトの必要性を示す",
+          "importance": 4
+        },
+        {
+          "title": "韓国税理士試験でAI使って首席合格 証書の効力停止へ - 聯合ニュース",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9QdEJxV3pJelZrbkFnOGlsTXVpV1diRjVVRmY5UnBOcVh4YXpVbkU4TDEwOUVOZ0dHeE56dG9BT2FuU29EbjRWejdUN2FXZ3hUaXUxSmtnaXpOUQ?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "ニュース・動向",
+          "summary": "国家資格試験でAIを用いた不正行為が発覚し合格無効措置へ\n高度なAI利用による不正検知や試験運用ルールの課題が顕在化\n公的資格における倫理面および厳格なセキュリティ対策の議論を促す",
+          "importance": 3
+        },
+        {
+          "title": "MetaのAIエージェント「Muse」、日本上陸から3週間で何が変わったか？直近アップデートまとめ",
+          "url": "https://note.com/long_quoll5672/n/n148c8cd5c424",
+          "source": "note(テクノロジー)",
+          "category": "ニュース・動向",
+          "summary": "MetaのAIエージェントMuseの日本展開後の最新機能改善を解説\n日本語処理精度の向上や連携APIの強化状況を整理\n実業務への適用が進む最新AIエージェントの動向を提示",
+          "importance": 4
+        },
+        {
+          "title": "フロントエンドのフレームワークを、安全に段階的に入れ替える",
+          "url": "https://zenn.dev/yasuakiomokawa/articles/de83bb4c4ea928",
+          "source": "Zenn",
+          "category": "ノウハウ・検証",
+          "summary": "大規模プロジェクトにおけるフロントエンド刷新の安全な設計手法\n移行リスクを抑えるためのコンポーネント分離と段階的適用の手順\n既存サービスを停滞させずに技術スタックを更新する実践的ノウハウ",
+          "importance": 4
+        },
+        {
+          "title": "【2026/11/13時点】Claude Duet を Team プランで触ってみた（組織で使うときの注意点つき）",
+          "url": "https://zenn.dev/canly/articles/e2bd67c9a4c18b",
+          "source": "Zenn",
+          "category": "ノウハウ・検証",
+          "summary": "Claude DuetをTeamプランで検証した際の最新利用所感を共有\n組織導入時における権限管理やデータ連携上の懸念点を提示\nチーム開発で生成AIを効率的に安全運用するための留意点を解説",
+          "importance": 4
+        },
+        {
+          "title": "「ざっくり工数どのくらい？」に「ざっくり工数このくらい」で答えてはいけない",
+          "url": "https://qiita.com/tsutorm/items/c9ab1e1c64474c341d77?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "ノウハウ・検証",
+          "summary": "安易な概算工数提示が引き起こす手戻りや期待値乖離の問題点を指摘\n不確実性を考慮した段階的見積もりと前提条件の明確化手順を提示\nエンジニアとステークホルダー間の健全なコミュニケーション手法を解説",
+          "importance": 3
+        },
+        {
+          "title": "AI開発のセキュリティは設計で証明！今後エンジニアに求められるスキルを完全解説",
+          "url": "https://qiita.com/Sicut_study/items/b6d17933cc276dadf6d5?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "ノウハウ・検証",
+          "summary": "AI組み込みシステムにおける設計段階からのセキュリティ確保手法\nデータ漏洩や悪用を防ぐ脅威モデルと設計検証の重要性を分析\nAI時代においてエンジニアに必須となるセキュリティスキルの全容",
+          "importance": 4
+        },
+        {
+          "title": "Qwen3.8 Flash Nextに混ざる中国語を、出力層の書き換えで消した: 27%→0%、他の重みは1バイトも変えずに",
+          "url": "https://zenn.dev/caphtech/articles/qwen38-zh-ban",
+          "source": "Zenn",
+          "category": "個人開発・実践事例",
+          "summary": "LLM出力時の言語混在問題をモデル重みを変更せず解消した手法\n出力層の特定ロジット調整により中国語混入率を27%から0%に削減\n計算資源を削減しつつ生成精度をコントロールする技術的アプローチ",
+          "importance": 4
+        },
+        {
+          "title": "日本語の脆弱性 DB は 4.6 日かかる。待てないので、46 秒でセキュリティ情報が載るようにした",
+          "url": "https://qiita.com/songchong/items/fa50cc82e49b24925fe3?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "個人開発・実践事例",
+          "summary": "国内脆弱性情報の反映遅延を解消するためリアルタイム収集システムを構築\n海外DBや一次情報の自動取得により更新速度を4.6日から46秒に短縮\nセキュリティ運用を迅速化するパイプライン自作の実践事例",
+          "importance": 4
+        }
+      ],
+      "interest": [
+        {
+          "title": "Android、こんな操作できたの？ 文字入力もアプリ切り替えもラクになるジェスチャー6選",
+          "url": "https://www.lifehacker.jp/article/2611-android-gestures-most-people-miss-but-i-turn-on-immediately/",
+          "source": "Lifehacker",
+          "category": "ライフハック",
+          "summary": "文字入力や画面切り替えを格段に高速化する隠れた操作法を紹介\nキーボード上のスワイプや背面タップなど知る人ぞ知る機能が満載\n日常の何気ないスマホ操作のストレスを激減させるヒントが詰まる",
+          "importance": 3,
+          "tip": "Androidの「設定」からジェスチャー操作や背面タップの項目を確認してみましょう。"
+        },
+        {
+          "title": "「山がいらない揚水発電」が実現？カギは水の2.5倍の密度を持つ謎の流体",
+          "url": "https://www.gizmodo.jp/article/2611-pumped-storage-hydro-without-mountains/",
+          "source": "Gizmodo",
+          "category": "サイエンス",
+          "summary": "高低差が必要だった揚水発電を平地でも可能にする技術が登場\n水の2.5倍の重さを持つ特殊な流体を使う革新的なアイデア\n再生可能エネルギーの貯蔵問題を解決する可能性を秘める",
+          "importance": 3
+        },
+        {
+          "title": "NASAが1977年に打ち上げたボイジャー1号、まもなく地球から「1光日」の彼方へ",
+          "url": "https://www.gizmodo.jp/article/voyager-1-light-day-distance/",
+          "source": "Gizmodo",
+          "category": "サイエンス",
+          "summary": "半世紀近く旅を続ける探査機が光の速さでも丸1日かかる距離へ到達\n通信に24時間以上を要する人類史上最も遠い人工物としての偉業\n半世紀前の技術で今なお宇宙の深遠からデータを送り続ける感動",
+          "importance": 3
+        },
+        {
+          "title": "睡眠テックの到達点か？ Ankerの「SleepLab Pro」は、ただ側に“置くだけ”で睡眠データを計測",
+          "url": "https://www.gizmodo.jp/article/2611-anker-sleeplab-pro-sleep-tracker/",
+          "source": "Gizmodo",
+          "category": "ガジェット",
+          "summary": "身体に何も装着せずに枕元へ置くだけで高精度な睡眠計測が可能\n非接触センサーにより睡眠中の呼吸や身体の動きを正確にキャッチ\n装着時の違和感や充電の手間をゼロにした新世代の睡眠トラッカー",
+          "importance": 3,
+          "tip": "枕元に置くだけで計測できる非接触型の睡眠管理ツールの導入を検討してみましょう。"
+        },
+        {
+          "title": "細胞の「若返り」はどう起こる？ 老化の謎に迫る新たな研究",
+          "url": "https://wired.jp/article/a-new-benchmark-for-de-aging-comes-from-slowly-turning-back-cells-clocks/",
+          "source": "WIRED",
+          "category": "サイエンス",
+          "summary": "細胞の時計をゆっくり巻き戻すリプログラミング技術の最新成果\n完全に初期化せず若々しい状態を保つための基準を新たに解明\n将来的な抗老化治療や若返り医療の実現に向けた大きな一歩",
+          "importance": 4
+        },
+        {
+          "title": "ホワイトカラーの仕事は、いつから色褪せ始めたのか？",
+          "url": "https://wired.jp/article/sz-mutiny-noam-scheiber-book-review-yuppies-dylan-gottlieb/",
+          "source": "WIRED",
+          "category": "ビジネス",
+          "summary": "かつて憧れだったデスクワークの価値変化と歴史的背景を探る\nテクノロジーの進化と労働環境の変化が職種に与えた影響を分析\n今後の働き方やスキルのあり方を深く再考させる刺激的な考察",
+          "importance": 3
+        },
+        {
+          "title": "寒いから家メシ。包丁は使いたくない。でも、たんぱく質は1食で30g以上摂りたい。そんなときの「1人キムチ鍋」10分レシピ - メシ通 | ホットペッパーグルメ",
+          "url": "https://www.hotpepper.jp/mesitsu/entry/kanakitajima/2026-01363",
+          "source": "はてなブックマーク",
+          "category": "生活",
+          "summary": "包丁不要で調理時間10分、手軽に作れるヘルシーな1人鍋レシピ\n1食でタンパク質30g以上をしっかり摂取できる優れた栄養バランス\n寒い日の夕食や忙しい晩に重宝する手軽で美味しい時短メニュー",
+          "importance": 3,
+          "tip": "カット野菜と豆腐、豚肉を用意して、今夜の夕食に手軽な1人キムチ鍋を作ってみましょう。"
+        },
+        {
+          "title": "「なんだかだるい」を解消する。疲れを溜めない食事の小さな工夫",
+          "url": "https://note.com/fast_tucan7842/n/n2734af0457f7",
+          "source": "note(ライフハック)",
+          "category": "ライフハック",
+          "summary": "日常的な体の重さやだるさを防ぐための食習慣の改善ポイント\n血糖値の急上昇を抑える食べ順や食材選びの実践的アドバイス\n毎日の食事に少し工夫を加えるだけで疲労感を軽減できる知恵",
+          "importance": 3,
+          "tip": "食事の際は野菜やタンパク質から食べ始め、炭水化物を最後に摂る習慣を今日から始めてみましょう。"
+        },
+        {
+          "title": "【Windows 11】右クリックの旧メニュー固定が突然解除された人へ｜2026年11月時点の新しい直し方",
+          "url": "https://note.com/sumimitsui/n/necda1580ea7f",
+          "source": "note(ライフハック)",
+          "category": "IT",
+          "summary": "OS更新でリセットされた旧右クリックメニューの再固定手順\n2026年11月時点の最新OS環境に対応した修正手順を解説\n日常の操作ストレスを減らし快適なPC作業環境を取り戻せる",
+          "importance": 4,
+          "tip": "Windows 11の右クリック操作で不便を感じたら、最新のメニュー固定設定を試してみましょう。"
+        },
+        {
+          "title": "髪の毛よりずっと小さな泡を、今のシャワーに。精密金型メーカーが作ったナノバブルアダプター",
+          "url": "https://www.lifehacker.jp/article/machi-ya-cosmobub-additional-985943/",
+          "source": "Lifehacker",
+          "category": "ガジェット",
+          "summary": "既存のシャワーヘッドに取り付けるだけで超微細気泡を発生\n日本の精密金型メーカーによる高度な加工技術が活きた逸品\n毛穴の汚れ洗浄や保湿効果を高める日々のバスタイム改革",
+          "importance": 3,
+          "tip": "自宅のシャワーに簡単に後付けできるナノバブルアダプターをチェックしてみましょう。"
+        }
+      ]
     }
   }
 }
