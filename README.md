@@ -208,3 +208,14 @@ my-ai-news-bot/
 ├── requirements.txt         # 依存ライブラリ一覧
 └── README.md                # プロジェクト説明
 ```
+---
+
+## 📰 GitHub Pagesでのニュース公開（移行後）
+
+ニュースの公開方法を、LINE／メールへのプッシュ配信からGitHub Pagesへのプル型公開に移行しました。移行後の流れは次のとおりです。
+
+1. Geminiの選定・要約は、記事ごとに `{title, url, source, category, summary, importance（1〜5）}` のJSON形式で生成されます（`ai_summarizer.py`、パースと検証は `news_items.py`）。
+2. 選定された記事は `data/news/YYYY-MM.json` に月別で保存されます（`news_store.py`）。日次ワークフローが `data/stats.json` と一緒にコミットします。
+3. GitHub Pagesのビルド時に `page_generator.py` が月別JSONからニュースページ（トップページ＋月別アーカイブ）を生成します。ページに掲載するのはタイトル・URL・出典・カテゴリ・AIが自分の言葉で書いた要約・重要度のみで、記事本文は転載しません。
+4. LINEには、重要度5のニュースがある日だけ、その一覧とページへのリンクを通知します（重要度5がない日は通知しません）。処理エラー時のLINE通知は従来どおりです。
+5. Gmailの詳細メールは廃止しました（`gmail_notifier.py` / `email_formatter.py` は削除済みです）。
