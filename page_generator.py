@@ -125,18 +125,26 @@ def render_index(latest_day: dict | None, months: list[str]) -> str:
             parts.extend(render_item(item) for item in highlight)
             parts.append("</section>")
 
+        # 注目のニュース（重要度4以上）に載せた記事は、下のセクションでは繰り返さない
+        tech_rest = [i for i in tech_items if i.get("importance", 0) < HIGHLIGHT_MIN_IMPORTANCE]
+        interest_rest = [i for i in interest_items if i.get("importance", 0) < HIGHLIGHT_MIN_IMPORTANCE]
+
         parts.append('<section id="tech">')
         parts.append("<h2>📱 IT・AI技術ニュース</h2>")
-        if tech_items:
-            parts.extend(render_item(item) for item in tech_items)
+        if tech_rest:
+            parts.extend(render_item(item) for item in tech_rest)
+        elif tech_items:
+            parts.append("<p>この日の技術ニュースは、すべて上の「注目のニュース」に掲載しています。</p>")
         else:
             parts.append("<p>この日の技術ニュースはありません。</p>")
         parts.append("</section>")
 
         parts.append('<section id="interest">')
         parts.append("<h2>☕ 関心ニュース</h2>")
-        if interest_items:
-            parts.extend(render_item(item) for item in interest_items)
+        if interest_rest:
+            parts.extend(render_item(item) for item in interest_rest)
+        elif interest_items:
+            parts.append("<p>この日の関心ニュースは、すべて上の「注目のニュース」に掲載しています。</p>")
         else:
             parts.append("<p>この日の関心ニュースはありません。</p>")
         parts.append("</section>")
