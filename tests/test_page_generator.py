@@ -53,6 +53,25 @@ def test_render_index_highlight_section():
     assert "軽い関心ニュース" not in highlight
 
 
+def test_render_index_no_duplicate_items():
+    # 注目のニュース（重要度4以上）に載った記事が下のセクションで重複しないこと
+    day = {
+        "date": "2026-11-15",
+        "tech": [
+            _item("技術A", 5, url="https://example.com/tech-a"),
+            _item("技術B", 3, url="https://example.com/tech-b"),
+        ],
+        "interest": [
+            _item("関心A", 4, url="https://example.com/int-a"),
+            _item("関心B", 2, url="https://example.com/int-b"),
+        ],
+    }
+    html = render_index(day, [])
+    for url in ("https://example.com/tech-a", "https://example.com/tech-b",
+                "https://example.com/int-a", "https://example.com/int-b"):
+        assert html.count(url) == 1
+
+
 def test_render_index_escapes_html():
     day = _day()
     day["tech"] = [_item('<script>alert("x")</script>', 5)]
