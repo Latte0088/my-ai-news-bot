@@ -1,14 +1,19 @@
+"""Gemini APIでニュースを選定・要約し、構造化データ（JSON）として返すモジュール。
+
+各記事は news_items.py の記事アイテム形式
+{title, url, source, category, summary, importance} で返される。
+生成されたアイテムは news_store.py で保存され、GitHub Pagesに公開される。
+"""
 import time
 import logging
 from datetime import datetime, timezone, timedelta
 from google import genai
 from config import (
     GEMINI_API_KEY,
-    PROMPT_TECH,
-    PROMPT_INTEREST,
-    PROMPT_TECH_EMAIL,
-    PROMPT_INTEREST_EMAIL,
+    PROMPT_TECH_JSON,
+    PROMPT_INTEREST_JSON,
 )
+from news_items import parse_articles_json
 
 
 def _get_current_date_str() -> str:
@@ -22,30 +27,34 @@ def _get_current_date_str() -> str:
 def get_current_date_str() -> str:
     """日本時間（JST）の現在日付と曜日文字列を取得する（公開用）。
 
-    email_formatter.py / gmail_notifier.py など、他モジュールからの
-    日付表示用に使用する。
+    main.py のLINE通知メッセージの日付表示などに使用する。
     """
     return _get_current_date_str()
 
 
-def generate_summary_by_prompt(articles: list[dict], prompt_template: str) -> str:
-    """指定された記事リストとプロンプトでGemini要約を生成する"""
-    if not articles:
-        return "本日は対象の記事を取得できませんでした。"
+def _format_news_content(articles: list[dict]) -> str:
+    """プロンプトに埋め込む記事リスト文字列を作成する（タイトル・URL・出典）"""
+    lines = []
+    for i, article in enumerate(articles, 1):
+        lines.append(
+            f"{i}. タイトル: {article['title']}\n"
+            f"   URL: {article['link']}\n"
+            f"   出典: {article.get('source', '')}"
+        )
+    return "\n\n".join(lines)
 
+
+def _call_gemini(prompt: str) -> str:
+    """Gemini APIを呼び出して応答テキストを返す。
+
+    gemini-2.5-flashは新規ユーザー向けに提供終了（404 NOT_FOUND）しているため、
+    gemini-3.6-flash を優先し、失敗した場合は gemini-3.8-flash にフォールバックする。
+    各モデルへのAPI呼び出しは最大3回まで再試行する。
+    """
     if not GEMINI_API_KEY:
         raise ValueError("GEMINI_API_KEY が環境変数に設定されていません。")
 
-    news_text_list = [f"{i}. タイトル: {a['title']}\n   URL: {a['link']}" for i, a in enumerate(articles, 1)]
-    formatted_news = "\n\n".join(news_text_list)
-    
-    # 日付文字列を取得し、プロンプトに埋め込み
-    date_str = _get_current_date_str()
-    prompt = prompt_template.format(date_str=date_str, news_content=formatted_news)
-
     client = genai.Client(api_key=GEMINI_API_KEY)
-    # gemini-2.5-flashは新規ユーザー向けに提供終了（404 NOT_FOUND）しているため、
-    # Google推奨の後継モデルgemini-3.8-flashをフォールバック先とする。
     candidate_models = ['gemini-3.6-flash', 'gemini-3.8-flash']
 
     for model_name in candidate_models:
@@ -65,27 +74,33 @@ def generate_summary_by_prompt(articles: list[dict], prompt_template: str) -> st
     raise RuntimeError("すべてのモデルでAI要約生成に失敗しました。")
 
 
-def generate_both_summaries(tech_articles: list[dict], interest_articles: list[dict]) -> tuple[str, str]:
-    """技術ニュースと関心ニュースの2パターンの要約を作成する（LINE向け、各5件）"""
-    logging.info("--- 技術ニュース要約作成開始 ---")
-    tech_summary = generate_summary_by_prompt(tech_articles, PROMPT_TECH)
+def _generate_structured_by_prompt(articles: list[dict], prompt_template: str) -> list[dict]:
+    """指定された記事リストとプロンプトでGeminiに選定・要約させ、記事アイテムを返す"""
+    if not articles:
+        return []
 
-    logging.info("--- 関心ニュース要約作成開始 ---")
-    interest_summary = generate_summary_by_prompt(interest_articles, PROMPT_INTEREST)
+    prompt = prompt_template.format(
+        date_str=_get_current_date_str(),
+        news_content=_format_news_content(articles),
+    )
+    response_text = _call_gemini(prompt)
+    items = parse_articles_json(response_text, articles)
+    logging.info(f"構造化要約: {len(items)}件の記事アイテムを採用しました")
+    return items
 
-    return tech_summary, interest_summary
 
+def generate_structured_summaries(
+    tech_articles: list[dict],
+    interest_articles: list[dict],
+) -> dict[str, list[dict]]:
+    """技術ニュースと関心ニュースの構造化要約を作成する。
 
-def generate_both_email_summaries(tech_articles: list[dict], interest_articles: list[dict]) -> tuple[str, str]:
-    """技術ニュースと関心ニュースの2パターンの要約を作成する（Gmail向け、各10件）
-
-    LINE向けの generate_both_summaries とは別にGeminiを呼び出すため、
-    1回の実行あたりのAPI呼び出し回数が増える点に注意。
+    戻り値: {"tech": [記事アイテム...], "interest": [記事アイテム...]}
     """
-    logging.info("--- 技術ニュース要約作成開始（Gmail向け） ---")
-    tech_summary = generate_summary_by_prompt(tech_articles, PROMPT_TECH_EMAIL)
+    logging.info("--- 技術ニュース要約作成開始（JSON） ---")
+    tech_items = _generate_structured_by_prompt(tech_articles, PROMPT_TECH_JSON)
 
-    logging.info("--- 関心ニュース要約作成開始（Gmail向け） ---")
-    interest_summary = generate_summary_by_prompt(interest_articles, PROMPT_INTEREST_EMAIL)
+    logging.info("--- 関心ニュース要約作成開始（JSON） ---")
+    interest_items = _generate_structured_by_prompt(interest_articles, PROMPT_INTEREST_JSON)
 
-    return tech_summary, interest_summary
+    return {"tech": tech_items, "interest": interest_items}
