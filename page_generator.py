@@ -6,7 +6,8 @@
     _site/weekly/YYYY-Www.html    週まとめ（その週の重要度4以上を集約）
 
 著作権ガードレール: ページに描画するのは記事アイテムの
-title / url / source / category / summary / importance と日付のみ。
+title / url / source / category / summary / importance / tip（AIが生成した
+「今日から試せること」）と日付のみ。
 それ以外のフィールド（本文など）は一切出力しない。
 
 使い方:
@@ -34,6 +35,8 @@ h2 { font-size: 1.2em; border-bottom: 2px solid #ddd; padding-bottom: 4px; }
 #highlight .item { border-color: #f0b429; background: #fffaf0; }
 details { margin-top: 6px; }
 .item ul { margin: 6px 0; padding-left: 20px; }
+.tip { background: #fff8e1; border-left: 4px solid #f0b429; border-radius: 4px; padding: 8px 12px; margin-top: 8px; }
+.tip p { margin: 4px 0; }
 nav a { margin-right: 12px; }
 """.strip()
 
@@ -65,6 +68,10 @@ def render_item(item: dict) -> str:
     source = _esc(item.get("source", ""))
     category = _esc(item.get("category", ""))
     summary_html = _render_summary(item.get("summary", ""))
+    tip = str(item.get("tip") or "").strip()
+    tip_html = (
+        f'<div class="tip">💡 今日から試せること<p>{_esc(tip)}</p></div>' if tip else ""
+    )
     importance = item.get("importance", "")
 
     meta_parts = []
@@ -79,7 +86,7 @@ def render_item(item: dict) -> str:
         '<article class="item">'
         f'<div class="meta">{" ".join(meta_parts)}</div>'
         f'<h3><a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a></h3>'
-        f"<details><summary>要約を読む</summary>{summary_html}</details>"
+        f"<details><summary>要約を読む</summary>{summary_html}{tip_html}</details>"
         "</article>"
     )
 
