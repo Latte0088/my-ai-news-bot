@@ -1,8 +1,9 @@
 name: Deploy Dashboard to GitHub Pages
 
-# このワークフローは dashboard/index.html と data/stats.json のみを
-# GitHub Pagesで公開する。main.py / config.py / stats_recorder.py などの
-# ソースコードやワークフロー定義はPagesの公開対象に含めない。
+# このワークフローは、data/news/ の月別JSONから生成したニュースページと
+# dashboard/index.html / data/stats.json のみをGitHub Pagesで公開する。
+# main.py / config.py / stats_recorder.py などのソースコードや
+# ワークフロー定義はPagesの公開対象に含めない。
 
 on:
   push:
@@ -10,6 +11,8 @@ on:
     paths:
       - 'dashboard/**'
       - 'data/stats.json'
+      - 'data/news/**'
+      - 'page_generator.py'
   workflow_dispatch:
 
 permissions:
@@ -32,8 +35,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build public site (dashboard + data only)
+      - name: Build public site (news pages + dashboard + data)
         run: |
+          python3 page_generator.py --news-dir data/news --out _site
           mkdir -p _site/dashboard _site/data
           cp dashboard/index.html _site/dashboard/index.html
           if [ -f data/stats.json ]; then
