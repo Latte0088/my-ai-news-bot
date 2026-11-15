@@ -33,7 +33,7 @@ Google Gemini API、GitHub Actions、LINE Messaging APIを組み合わせ、**�
         └── line_notifier.py  ──> LINE Messaging API (重要度5がある日だけ通知。エラー時もLINEへ通知)
 
 [ GitHub Actions: pages.yml ]
-        ├── page_generator.py ──> data/news/ の月別JSONからニュースページ（トップ＋日別アーカイブ）を生成
+        ├── page_generator.py ──> data/news/ の月別JSONからニュースページ（トップ＋日別アーカイブ＋週まとめ）を生成
         └── dashboard/index.html ＋ data/stats.json をあわせてGitHub Pagesへデプロイ
 ```
 
@@ -70,6 +70,7 @@ note.comの記事は、[note.comの記事情報API](https://note.com/api/v3/note
 
 - **トップページ**: 最新日のニュース。重要度4以上を上部にハイライトし、技術・関心のセクションごとに表示。要約は開閉式（`<details>`）で掲載
 - **日別アーカイブ**: `archive/YYYY-MM-DD.html` に、その日のニュース一覧をトップと同じ形式で掲載。トップページ上部の「過去のニュース」から日付ごとにリンクされ、各日ページには前日・翌日へのリンクもあります
+- **週まとめ**: `weekly/YYYY-Www.html` に、その週（月〜日）の重要度4以上のニュースを日付ごとに集約。トップページ上部の「週まとめ」からリンクされます（重要度4以上が1件もない週は生成されません）
 
 ページに掲載するのはタイトル・URL・出典・カテゴリ・要約・重要度のみで、記事本文は転載しません。
 
@@ -198,7 +199,7 @@ my-ai-news-bot/
 ├── ai_summarizer.py         # Gemini API連携・構造化要約モジュール
 ├── news_items.py            # Gemini出力JSONのパース・検証、重要度5のLINEメッセージ生成
 ├── news_store.py            # 選定ニュースの月別JSON保存モジュール
-├── page_generator.py        # ニュースページ（トップ＋日別アーカイブ）の生成モジュール
+├── page_generator.py        # ニュースページ（トップ＋日別アーカイブ＋週まとめ）の生成モジュール
 ├── stats_recorder.py        # ダッシュボード用の日次統計データ記録モジュール
 ├── line_notifier.py         # LINE Messaging API送信モジュール
 ├── main.py                  # 全体を統括するメイン処理

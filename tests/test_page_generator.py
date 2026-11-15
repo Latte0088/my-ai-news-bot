@@ -1,6 +1,6 @@
 """page_generator.py のユニットテスト（描画・ハイライト・エスケープ・著作権ガード）。"""
 
-from page_generator import render_day, render_index
+from page_generator import render_day, render_index, render_weekly
 
 SENTINEL = "SENTINEL_BODY_TEXT_DO_NOT_RENDER"
 
@@ -85,6 +85,29 @@ def test_render_index_escapes_html():
 def test_render_index_empty_state():
     html = render_index(None, [])
     assert "まだニュースがありません" in html
+
+
+def test_render_weekly_collects_highlights_only():
+    days = [
+        ("2026-11-15", _day()),
+        ("2026-11-14", {"date": "2026-11-14", "tech": [_item("前日の注目ニュース", 4)], "interest": []}),
+    ]
+    html = render_weekly("2026-W46", days)
+    # 重要度4以上だけが集約される
+    assert "重大な技術ニュース" in html
+    assert "注目の関心ニュース" in html
+    assert "前日の注目ニュース" in html
+    assert "普通の技術ニュース" not in html
+    assert "軽い関心ニュース" not in html
+    # 期間ラベルと著作権ガード
+    assert "2026年11月9日" in html
+    assert SENTINEL not in html
+
+
+def test_render_index_weekly_nav():
+    html = render_index(_day(), ["2026-11-15"], weeks=[("2026-W46", "11/9〜11/15")])
+    assert 'href="weekly/2026-W46.html"' in html
+    assert "週まとめ" in html
 
 
 def test_render_day_page():
