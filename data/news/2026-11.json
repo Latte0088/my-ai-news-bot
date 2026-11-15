@@ -1,0 +1,172 @@
+{
+  "month": "2026-11",
+  "days": {
+    "2026-11-15": {
+      "date": "2026-11-15",
+      "tech": [
+        {
+          "title": "「AIエージェント」普及期に 知的作業を代替、自律取引も 構造転換、問われる対応 - Yahoo!ニュース",
+          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9wWldYdGlLaXFJUU9JRFV0UFYtZXZhQXMyN3dPdU0zblFuZ1NuSzlwS2dZaWlXQUFFZVRFZDA1cG1RTXowZzkxdTJ1d3NPQmhn?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "最新ニュース・動向",
+          "summary": "AIエージェントの自律取引や知的業務代替が本格化し、ビジネス構造の変革が進む。導入有無による生産性格差が拡大する中、現場では適切な権限管理やリスク運用フレームワークの構築が急務となっている。",
+          "importance": 4
+        },
+        {
+          "title": "アングル：ＡＩ電力不足で中古タービン市場過熱、退役ジェットエンジンも転用 - Reuters",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE0wbThrUHRNbFVTUk9IMGhNSndGd2NMSGdnZDc1TWFNeVBEZVNWVVhsdk5HMnRSQV9wdDRXYWZ6MjZLUl8wY1lTTVZHc2c0c3UyTW83WmFJS3ktdDZLeGRhZTZBWXZUUHY4cHc3a2JDNGstZWtUYkVUdFdMZlFHZw?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "最新ニュース・動向",
+          "summary": "AIデータセンターの急激な電力需要に対応するため、退役ジェットエンジンなどの中古ガスタービン活用が急増。電力供給のボトルネックがAI開発の制約要素となっており、代替エネルギー確保の重要性が高まっている。",
+          "importance": 4
+        },
+        {
+          "title": "防衛省「Defense AI Vision」今月中に公表へ - TBS NEWS DIG",
+          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9sa3d2Q0NsZTkxOGYtVU5LVVp6Smp3cFJmeWlVMUpObTd5b2xVNXA0MGNkSE5HQlNGdkZHREZoaXN2NlhsNGRIaWtnaElkVW53TS1YQXI4OA?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "最新ニュース・動向",
+          "summary": "防衛省が安全保障分野でのAI活用方針を示す「Defense AI Vision」を公表予定。無人アセットの運用や情報分析の高度化を目指す一方、防衛領域におけるAI倫理やサイバーセキュリティ確保が重大課題となる。",
+          "importance": 3
+        },
+        {
+          "title": "Shield、OpenAIのGPT-6 Astraを導入しIT技術者のレガシーポータル業務の停滞を解消 - BigGo ファイナンス",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE16cU1ZUldIVVVDZzBHeHRNcU9Dczc4Q3JGTWxrVFdVUDJEUEozNmxzYTkzRFZJazdYdDRQanlKLVZiWENXSnd1N3NaM2E3SlZCQS1GN1RIYmM1dzhKSDlkYTVqQkNvRmhYbFVPTTJwTGNVdk90?oc=5",
+          "source": "Googleニュース(IT)",
+          "category": "最新ニュース・動向",
+          "summary": "Shieldが次世代モデル「GPT-6 Astra」を導入し、レガシーなポータル運用業務の自動化を推進。既存システムの保全コストを削減し、エンジニアをより付加価値の高い業務へ転換させる先進事例。",
+          "importance": 4
+        },
+        {
+          "title": "Qwen3.8 Flash Nextに混ざる中国語を、出力層の書き換えで消した: 27%→0%、他の重みは1バイトも変えずに",
+          "url": "https://zenn.dev/caphtech/articles/qwen38-zh-ban",
+          "source": "Zenn",
+          "category": "技術ノウハウ・検証記事",
+          "summary": "LLMの出力層の重みを直接書き換えることで、本体の再学習を行わずに混在する中国語応答率をゼロに抑えた検証。ファインチューニングのコストをかけずモデル挙動を制御する高度な技術ノウハウ。",
+          "importance": 4
+        },
+        {
+          "title": "「ざっくり工数どのくらい？」に「ざっくり工数このくらい」で答えてはいけない",
+          "url": "https://qiita.com/tsutorm/items/c9ab1e1c64474c341d77?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "技術ノウハウ・検証記事",
+          "summary": "曖昧な工数見積もり要求に対して安易に数値を返す危険性と、適切な要件定義への導き方を解説。見積もりの前提条件整理やリスク共有など、エンジニアに必要なコミュニケーション設計のノウハウ。",
+          "importance": 4
+        },
+        {
+          "title": "ちょっと見ない間にClaude APIが進化してた！",
+          "url": "https://qiita.com/moritalous/items/9e7c02b749037238b2bc?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "技術ノウハウ・検証記事",
+          "summary": "機能拡張が続くClaude APIの最新機能と変更点を検証した解説記事。最新のAPI仕様をシステムや開発ワークフローへ組み込むことで、処理速度向上や実装の効率化を図るための実践的知見。",
+          "importance": 3
+        },
+        {
+          "title": "【AWS】AWS EmulatorでCDK/Terraformのスタックはどこまで動くか【AWSEmulator】",
+          "url": "https://qiita.com/Nana_777/items/3f3c71525d867b22c9f2?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "技術ノウハウ・検証記事",
+          "summary": "AWS EmulatorにおけるCDKやTerraformスタックの動作再現性と限界を詳細に検証。ローカル環境でのインフラ検証の可否を切り分け、CI/CD環境の高速化やクラウドコスト削減につながる実践的考察。",
+          "importance": 3
+        },
+        {
+          "title": "【2026/11/13時点】Claude Duet を Team プランで触ってみた（組織で使うときの注意点つき）",
+          "url": "https://zenn.dev/canly/articles/e2bd67c9a4c18b",
+          "source": "Zenn",
+          "category": "個人開発・実践事例",
+          "summary": "Claude Duetを組織のTeamプランで実践導入した際のリアルな体験レポート。権限設定やセキュリティ面での注意点を具体的に挙げ、企業内でAIアシスタントを安全に運用するための実践的アプローチ。",
+          "importance": 3
+        },
+        {
+          "title": "ng: Neovim のためのシンプルな GUI",
+          "url": "https://zenn.dev/shougo/articles/ng-nvim-simple-gui",
+          "source": "Zenn",
+          "category": "個人開発・実践事例",
+          "summary": "Neovim向けに構築された軽量かつシンプルな新GUIフロントエンド「ng」の開発事例。既存のエディタエコシステムを活用しながら高レスポンスな開発環境を実現する、個人開発の実践ノウハウ。",
+          "importance": 3
+        }
+      ],
+      "interest": [
+        {
+          "title": "妥協のないジョブズが「自分に反発する人材」を求めた理由",
+          "url": "https://www.lifehacker.jp/article/2611-steve-jobs-believed-exceptional-leaders-do-1-thing-most-bosses-struggle-with/",
+          "source": "Lifehacker",
+          "category": "ビジネス",
+          "summary": "優れたリーダーは指示待ち人間ではなく意見をぶつけてくれる人材を重宝する。スティーブ・ジョブズの視点から学ぶ、妥協しない組織づくりと信頼関係構築のヒント。",
+          "importance": 3
+        },
+        {
+          "title": "スマホで気分転換しても、疲れは取れない？ 専門家が教える「休み方」の落とし穴",
+          "url": "https://www.lifehacker.jp/article/2611-tiny-hack-sleep-recover/",
+          "source": "Lifehacker",
+          "category": "ライフハック",
+          "summary": "休憩中のスマホ操作が実は脳の疲労を悪化させている事実を解説。真の疲労回復に必要な「正しい休み方」を知ることで、日中のパフォーマンスを劇的に高められます。",
+          "importance": 4
+        },
+        {
+          "title": "そのAndroid、買い替える前に。動作も使い勝手も改善する3つの工夫",
+          "url": "https://www.lifehacker.jp/article/2611-android-cleanup-hacks/",
+          "source": "Lifehacker",
+          "category": "ガジェット",
+          "summary": "重くなったスマホを諦めて買い替える前に試したいテクニックを紹介。設定の見直しやお手軽なメンテナンスだけで、動作のサクサク感と操作性を復活させることができます。",
+          "importance": 3
+        },
+        {
+          "title": "レシートみたいにプリントできるインスタントカメラ。塗り絵もできます",
+          "url": "https://www.gizmodo.jp/article/thermal-paper-instant-camera-da1/",
+          "source": "Gizmodo",
+          "category": "ガジェット",
+          "summary": "感熱紙を使ってレシートのように写真を低コスト印刷できるユニークなカメラ。印刷したモノクロ写真に塗り絵をして遊べるなど、レトロで遊び心溢れる魅力を紹介。",
+          "importance": 2
+        },
+        {
+          "title": "地球の自転早まる。「うるう秒」は「うるう時間」へ変更検討中",
+          "url": "https://www.gizmodo.jp/article/2611-earth-rotation-leap-hour/",
+          "source": "Gizmodo",
+          "category": "サイエンス",
+          "summary": "地球の自転加速に伴い、従来の1秒調整「うるう秒」から将来的に「1時間」単位で調整する構想が浮上。ITシステムへの影響や地球のダイナミックな変化が伺える話題。",
+          "importance": 4
+        },
+        {
+          "title": "細胞の「若返り」はどう起こる？ 老化の謎に迫る新たな研究",
+          "url": "https://wired.jp/article/a-new-benchmark-for-de-aging-comes-from-slowly-turning-back-cells-clocks/",
+          "source": "WIRED",
+          "category": "サイエンス",
+          "summary": "細胞の時計を少しずつ巻き戻すことで「若い状態」へと変化させる最新研究を解説。単なる延命にとどまらず、老化という現象を根本から制御する未来への第一歩となる知見。",
+          "importance": 3
+        },
+        {
+          "title": "夢グループ、20代からすると「これ買う人いるん？」くらいの認識だけど、おばあちゃんがCMを見た途端「電話して！」と即購入→そこからの顧客を取り込む導線がマジで凄い",
+          "url": "https://togetter.com/li/2770529",
+          "source": "はてなブックマーク",
+          "category": "トレンド",
+          "summary": "若者には響かなくてもシニア層を爆速で動かす通信販売の強力な顧客導線を分析。ターゲットの行動様式を徹底的に理解し、心理的ハードルを下げる見事なビジネス戦略の話。",
+          "importance": 3
+        },
+        {
+          "title": "ユニクロのレディースを着てもしっくりこないという人は、思い切ってメンズの方を試してみてほしい「自分はタートルネックニットが似合わない…という悩みが解消された」",
+          "url": "https://togetter.com/li/2770487",
+          "source": "はてなブックマーク",
+          "category": "趣味・生活",
+          "summary": "ユニクロのレディース服でしっくりこない悩みはメンズラインで解決できる？首回りやシルエットの違いを活用し、体型や好みに合った着こなしを叶える実用的なコーディネート術。",
+          "importance": 2
+        },
+        {
+          "title": "整備士が「空き時間×AI」で月3万円の副業収入を作った、リアルな工程と失敗談",
+          "url": "https://note.com/papanpanpan/n/ne8dda2f8f17b",
+          "source": "note(ライフハック)",
+          "category": "ビジネス",
+          "summary": "本業の隙間時間に生成AIを活用して副収入を得た実践記録。成功談だけでなくリアルな失敗プロセスも明かされており、これから副業に挑戦したい人にとって再現性の高い知恵。",
+          "importance": 3
+        },
+        {
+          "title": "車のスマホ充電、こんなに種類があったのか。タイプ別・車載充電アイテム9選",
+          "url": "https://note.com/famous_zebra3012/n/n75f56a552340",
+          "source": "note(ガジェット)",
+          "category": "ガジェット",
+          "summary": "急速充電からワイヤレス、シガーソケット活用まで車内でのスマホ充電環境を劇的に改善するアイテムを厳選。自分のドライブスタイルや車種に最適な充電器選びに役立ちます。",
+          "importance": 2
+        }
+      ]
+    }
+  }
+}
