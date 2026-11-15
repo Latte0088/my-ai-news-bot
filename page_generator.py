@@ -62,7 +62,7 @@ def render_item(item: dict) -> str:
     return (
         '<article class="item">'
         f'<div class="meta">{" ".join(meta_parts)}</div>'
-        f'<h3><a href="{url}">{title}</a></h3>'
+        f'<h3><a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a></h3>'
         f"<details><summary>要約を読む</summary><p>{summary}</p></details>"
         "</article>"
     )
