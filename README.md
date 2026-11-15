@@ -8,7 +8,7 @@ Google Gemini API、GitHub Actions、LINE Messaging APIを組み合わせ、**�
 
 毎日、技術系RSSと関心系RSSから記事をそれぞれ最大20件取得します。1つのRSSソースだけで取得上限に達して他のソースがまったく反映されなくなることを防ぐため、**1ソースあたりの取得件数は `取得上限 ÷ ソース数` に制限**されます（例: 上限20件・6ソースなら1ソースあたり3件）。記事はRSSに記載された順に処理し、タイトルが完全一致する記事を除外します。
 
-取得した記事はGemini APIが選定・要約し、記事ごとに `{title, url, source, category, summary, importance（重要度1〜5）}` の**構造化JSON**として生成します。選定結果は `data/news/YYYY-MM.json` に月別で保存され、GitHub Pagesのビルド時にニュースページ（トップ＋月別アーカイブ）が生成されます。LINEへは、**重要度5のニュースがある日だけ**、その一覧とページへのリンクを通知します（重要度5がない日は通知しません）。
+取得した記事はGemini APIが選定・要約し、記事ごとに `{title, url, source, category, summary, importance（重要度1〜5）}` の**構造化JSON**として生成します。選定結果は `data/news/YYYY-MM.json` に月別で保存され、GitHub Pagesのビルド時にニュースページ（トップ＋日別アーカイブ）が生成されます。LINEへは、**重要度5のニュースがある日だけ**、その一覧とページへのリンクを通知します（重要度5がない日は通知しません）。
 
 実行はGitHub Actionsの `workflow_dispatch` で、運用では外部スケジューラ（cron-job.org）から毎朝起動しています（GitHub Actions標準のcronは使っていません）。常時稼働するサーバーは必要ありません。Gemini APIやLINE Messaging APIの利用料金・上限は各サービスの契約に従います。
 
@@ -33,7 +33,7 @@ Google Gemini API、GitHub Actions、LINE Messaging APIを組み合わせ、**�
         └── line_notifier.py  ──> LINE Messaging API (重要度5がある日だけ通知。エラー時もLINEへ通知)
 
 [ GitHub Actions: pages.yml ]
-        ├── page_generator.py ──> data/news/ の月別JSONからニュースページ（トップ＋月別アーカイブ）を生成
+        ├── page_generator.py ──> data/news/ の月別JSONからニュースページ（トップ＋日別アーカイブ）を生成
         └── dashboard/index.html ＋ data/stats.json をあわせてGitHub Pagesへデプロイ
 ```
 
@@ -69,7 +69,7 @@ note.comの記事は、[note.comの記事情報API](https://note.com/api/v3/note
 `page_generator.py` が `data/news/` の月別JSONから、以下のページを生成します。
 
 - **トップページ**: 最新日のニュース。重要度4以上を上部にハイライトし、技術・関心のセクションごとに表示。要約は開閉式（`<details>`）で掲載
-- **月別アーカイブ**: `archive/YYYY-MM.html` に、その月の全日分をまとめて掲載
+- **日別アーカイブ**: `archive/YYYY-MM-DD.html` に、その日のニュース一覧をトップと同じ形式で掲載。トップページ上部の「過去のニュース」から日付ごとにリンクされ、各日ページには前日・翌日へのリンクもあります
 
 ページに掲載するのはタイトル・URL・出典・カテゴリ・要約・重要度のみで、記事本文は転載しません。
 
@@ -198,7 +198,7 @@ my-ai-news-bot/
 ├── ai_summarizer.py         # Gemini API連携・構造化要約モジュール
 ├── news_items.py            # Gemini出力JSONのパース・検証、重要度5のLINEメッセージ生成
 ├── news_store.py            # 選定ニュースの月別JSON保存モジュール
-├── page_generator.py        # ニュースページ（トップ＋月別アーカイブ）の生成モジュール
+├── page_generator.py        # ニュースページ（トップ＋日別アーカイブ）の生成モジュール
 ├── stats_recorder.py        # ダッシュボード用の日次統計データ記録モジュール
 ├── line_notifier.py         # LINE Messaging API送信モジュール
 ├── main.py                  # 全体を統括するメイン処理

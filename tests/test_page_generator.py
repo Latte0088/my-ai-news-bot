@@ -1,6 +1,6 @@
 """page_generator.py のユニットテスト（描画・ハイライト・エスケープ・著作権ガード）。"""
 
-from page_generator import render_archive, render_index
+from page_generator import render_day, render_index
 
 SENTINEL = "SENTINEL_BODY_TEXT_DO_NOT_RENDER"
 
@@ -33,12 +33,14 @@ def _day():
 
 
 def test_render_index_contains_titles_and_summaries():
-    html = render_index(_day(), ["2026-11"])
+    html = render_index(_day(), ["2026-11-15", "2026-11-14"])
     for title in ("重大な技術ニュース", "普通の技術ニュース", "注目の関心ニュース", "軽い関心ニュース"):
         assert title in html
         assert f"{title}の要約です" in html
     assert "2026-11-15" in html
-    assert 'href="archive/2026-11.html"' in html
+    # 過去ニュースは日付ごとのリンク（最新日はトップ自体なので含まない）
+    assert 'href="archive/2026-11-14.html"' in html
+    assert 'href="archive/2026-11-15.html"' not in html
 
 
 def test_render_index_highlight_section():
@@ -85,12 +87,21 @@ def test_render_index_empty_state():
     assert "まだニュースがありません" in html
 
 
+def test_render_day_page():
+    html = render_day("2026-11-15", _day(), "2026-11-14", None)
+    assert "2026-11-15" in html
+    assert "重大な技術ニュース" in html
+    assert 'href="../index.html"' in html
+    # 前の日へのリンクがあり、次の日（None）は出ない
+    assert 'href="2026-11-14.html"' in html
+    assert "→" not in html
+
+
 def test_copyright_guardrail_extra_fields_not_rendered():
     # 許可フィールド以外のデータ（本文など）は生成ページに出力されない
-    html = render_index(_day(), ["2026-11"])
+    html = render_index(_day(), ["2026-11-15"])
     assert SENTINEL not in html
 
-    payload = {"month": "2026-11", "days": {"2026-11-15": _day()}}
-    archive_html = render_archive("2026-11", payload)
-    assert SENTINEL not in archive_html
-    assert "重大な技術ニュース" in archive_html
+    day_html = render_day("2026-11-15", _day(), None, None)
+    assert SENTINEL not in day_html
+    assert "重大な技術ニュース" in day_html
