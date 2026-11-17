@@ -33,14 +33,18 @@ def get_current_date_str() -> str:
 
 
 def _format_news_content(articles: list[dict]) -> str:
-    """プロンプトに埋め込む記事リスト文字列を作成する（タイトル・URL・出典）"""
+    """プロンプトに埋め込む記事リスト文字列を作成する（タイトル・URL・出典・概要）"""
     lines = []
     for i, article in enumerate(articles, 1):
-        lines.append(
+        block = (
             f"{i}. タイトル: {article['title']}\n"
             f"   URL: {article['link']}\n"
             f"   出典: {article.get('source', '')}"
         )
+        description = (article.get("description") or "").strip()
+        if description:
+            block += f"\n   概要: {description}"
+        lines.append(block)
     return "\n\n".join(lines)
 
 
