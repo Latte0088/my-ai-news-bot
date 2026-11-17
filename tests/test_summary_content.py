@@ -4,6 +4,19 @@
 RSSの概要文を取り込んでGeminiへ渡すことと、プロンプトの指示内容を固定する。
 """
 import json
+import sys
+import types
+
+# CI（tests.yml）は pytest のみをインストールするため、feedparser / requests /
+# google-genai が存在しない。対象モジュールの import を通す目的でのみ
+# 空スタブを差し込む（このテストではネットワークやAPI呼び出しを行わない）。
+for _name in ("feedparser", "requests"):
+    sys.modules.setdefault(_name, types.ModuleType(_name))
+if "google" not in sys.modules:
+    _google = types.ModuleType("google")
+    _google.genai = types.ModuleType("google.genai")
+    sys.modules["google"] = _google
+    sys.modules["google.genai"] = _google.genai
 
 from ai_summarizer import _format_news_content
 from config import PROMPT_INTEREST_JSON, PROMPT_TECH_JSON
