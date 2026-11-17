@@ -337,170 +337,171 @@
       "date": "2026-11-17",
       "tech": [
         {
-          "title": "グーグルのAI認定講座、1万人に無料提供 「Google AI Pro」3カ月利用権も - Impress Watch",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5pdm56d3pETmdiOC1hWmwtekNKM3pwVy1XTDE4YTJ2alkzaXpvQXZzTmxYWEtsdUtHTGtUemdEbjhDSC1ha1BmOUdoQ3pNWjN6dFp2VHJuYlBXT2NNUl9oS0dORlA?oc=5",
+          "title": "ＡＩが人間介さず自動でサイバー攻撃実施、グーグルが初確認…現時点では痕跡残りやすく発見容易（読売新聞オンライン） - Yahoo!ニュース",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5EOHVYX2hRLVZycnI3dHY3SDVvdHIzaHZtTVZEU09KM1FLWGxKYnhmTV8tRER4aDhsTUR3dW0zdFFYMXp0aUNfX01pSXFkVEdWTThBVnI2MHdDS0cwcmZzVUhTTDJDNXo3SXMwWjhaangxZ0ZZempIejRGRkl3MFE?oc=5",
           "source": "Googleニュース(AI)",
-          "category": "ニュース",
-          "summary": "GoogleがAI認定資格講座を1万名に無償提供する施策を発表\nリスキリング支援とGoogle AI Pro利用権の付属で実用的な学習を促進",
-          "importance": 4
+          "category": "IT・AI業界の最新ニュース・動向",
+          "summary": "Googleが人間を介入させずに自動で脆弱性の発見から攻撃まで実行するAI悪用事例を初確認した\n現時点のAI自律攻撃は実行痕跡が残りやすく発見自体は比較的容易である\n今後の技術進化に伴い検出困難な高度攻撃へ変化する懸念があり対策強化が必要となる",
+          "importance": 5
         },
         {
-          "title": "国内企業のIT予算、AIとセキュリティで過去最高の伸び ITR調査で人材育成が重要課題3位に浮上 - BigGo ファイナンス",
-          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1wQkRoeGdjcU5aT0FfQ3A0X09MbjJNWTlhQXFRWjdTXzJxMnBma3hRQmN5SFRGVXhlOVBfRGtGMHp5SXdhaTVtZlNBUDRERURDN0VlbG53YW5FRTVqOHIzdjVSTzZrY1BiWWtlemlBY1ZBSDFp?oc=5",
+          "title": "AIエージェントの“見えないリスク”に備えてアイデンティティを「関係」で統制する - IT Leaders",
+          "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBtTklHSDU2MWsxZXY2T2hQbmh2WDRkejNjckttNEluX2FIWGRNajcxZ3R2NkhvWEhsSXFmUmdzNnZJalN2MHBPVG1lSEZoOHh2MmV3?oc=5",
           "source": "Googleニュース(IT)",
-          "category": "ニュース",
-          "summary": "国内IT投資においてAI活用とセキュリティ対策の予算が過去最高に伸長\nIT人材育成の優先度が上昇し実務スキルの獲得が組織の最重要課題に",
+          "category": "IT・AI業界の最新ニュース・動向",
+          "summary": "AIエージェントの自律動作に伴い従来のセキュリティ手法では追従できない潜在的リスクが生じている\n解決策としてAIエージェントのアイデンティティを他システムや人間との関係性で定義・統制する枠組みが必要となる\nアクセス権限や行動制御を相互関係に基づいて設定することで不正実行や意図しない動作を防ぐ",
           "importance": 4
         },
         {
           "title": "NTTとispace、IOWNの光通信技術を活用した「月インフラ」実現に向けて連携 - EnterpriseZine",
           "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBoLVZQWE9SQXU0YUlTQkZBWHN0bXpUeTQyczh2M1pEWm96R0I5ek1HLWtRV21xRXV4WTV0VmhZZTJGS2wtaDRFOHhSRGRlTTVfNTRiWkl3?oc=5",
           "source": "Googleニュース(IT)",
-          "category": "ニュース",
-          "summary": "次世代通信技術IOWNの光ネットワークを月面データインフラへ導入\n過酷な宇宙環境下での低遅延かつ大容量なデータ通信基盤構築を目指す",
-          "importance": 3
-        },
-        {
-          "title": "OpenAIとAnthropic、Google製TPUを2600万個使う見通し",
-          "url": "https://note.com/3580go/n/nc53821f6b4d7",
-          "source": "note(テクノロジー)",
-          "category": "ニュース",
-          "summary": "主要AIベンダーが大規模モデル学習にGoogle製TPUを本格採用\nNVIDIAの半導体一強市場における競合構造とコスト戦略の転換を示す",
+          "category": "IT・AI業界の最新ニュース・動向",
+          "summary": "NTTとispaceがIOWNの光通信技術を活用した月面インフラの基盤構築に向けてパートナーシップを締結した\n次世代の超高速かつ低遅延な光ネットワーク技術を宇宙空間のデータ伝送に応用する\n地球と月面間および月面拠点間の通信網を整備し将来的な月面探査や産業活動の基盤を支える",
           "importance": 4
         },
         {
-          "title": "物理世界とAIをつなぐ：可視化で学ぶカメラ・座標系・運動制御入門",
-          "url": "https://zenn.dev/turing_motors/articles/cea9e3c85611b2",
+          "title": "日本のスパコン「富岳」が止まった——最大4597人の情報と研究データ、流出の恐れ",
+          "url": "https://note.com/mtmt31617/n/n35436de3218b",
+          "source": "note(テクノロジー)",
+          "category": "IT・AI業界の最新ニュース・動向",
+          "summary": "理化学研究所のスーパーコンピューター富岳の運用システムが外部から不正アクセスを受けシステムが全停止した\n最大4597人の利用者氏名やメールアドレスのほか保管されていた研究データや外部接続用の認証用秘密鍵が流出した可能性がある\n11月12日に不審な通信を検知したことで発覚し緊急措置として運用を停止したが復旧のめどは立っていない",
+          "importance": 5
+        },
+        {
+          "title": "実践パスキー認証設計",
+          "url": "https://zenn.dev/yasuakiomokawa/articles/89f5c46e8effe9",
           "source": "Zenn",
-          "category": "技術ノウハウ",
-          "summary": "フィジカルAI開発に必要なカメラ座標系や運動制御の幾何学的基礎を解説\n視覚フィードバックと実空間の物理制御を繋ぐ実装アプローチを整理",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "プロダクトにパスキー認証を組み込む際の後々の破綻を防ぐ実務的な要件定義と設計手順を整理した\n単なるライブラリ導入ではなく事業責任者やサポートチームなどビジネス側へ認証の有効性を提示・説明できる設計を確立する\n設計初期段階で避けるべきアンチパターンと実装計画で考慮すべき要求事項を把握して運用上のリスクを回避する",
+          "importance": 4
+        },
+        {
+          "title": "QA生産性を爆上げさせるためのQA AIプラットフォーム構築",
+          "url": "https://zenn.dev/gatechnologies/articles/8bdea59269eb10",
+          "source": "Zenn",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "QA業務工程を12個のスキルに分解してAI化を推進する独自プラットフォーム「GAQ」を開発・導入した\n個別プロダクトのテスト作業支援にとどまらず品質保証プロセス全体の自動化と標準化を実現した\nプラットフォームをチーム内に浸透・定着させることで組織全体のQA生産性を劇的に向上させた",
           "importance": 4
         },
         {
           "title": "はじめてのAPIログ設計 — 「ログはあるのに調べられない」を防ぐには？",
           "url": "https://qiita.com/masashige0904/items/22f2836485ecc25ee527?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
           "source": "Qiita",
-          "category": "技術ノウハウ",
-          "summary": "障害発生時の追跡性を高めるAPIログ構造と設計ベストプラクティスを解説\nトレースID保持や検索性を意識したログ設計で障害対応コストを削減",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "障害調査時に「ログは存在するが検索・追跡できない」問題を防ぐためのAPIログ設計指針を整理した\nCloudWatch Logsなどのログ分析基盤に最適化させたJSON形式の採用やログレベルの標準化ルールを策定する\n適切なログライブラリの選定と出力内容の構造化により障害発生時のボトルネック特定時間を大幅に削減できる",
           "importance": 4
         },
         {
           "title": "AI開発のセキュリティは設計で証明！今後エンジニアに求められるスキルを完全解説",
           "url": "https://qiita.com/Sicut_study/items/b6d17933cc276dadf6d5?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
           "source": "Qiita",
-          "category": "技術ノウハウ",
-          "summary": "AI組み込みシステム特有の脅威に対するセキュリティ設計の重要性を提言\nモデル保護やデータ検証など安全性をアーキテクチャ上で証明する手法を整理",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "AI開発では運用後の対策ではなくシステム設計フェーズからセキュリティの堅牢性を保証する設計手法が必須となる\n単純な認証機能やネットワーク保護の理解を超えてAI固有の攻撃手法に対抗する設計スキルが求められる\n脅威モデリングを取り入れた設計手法を標準化することでAIシステムの信頼性と安全性を実証できる",
           "importance": 4
         },
         {
-          "title": "もういい加減\"技術勉強会\"やめませんか？",
-          "url": "https://qiita.com/kotowazaman/items/9ee7c475a475e7527b0e?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-          "source": "Qiita",
-          "category": "技術ノウハウ",
-          "summary": "従来型の技術勉強会の形式化・知識受容のみの運用課題を指摘\nアウトプットとプロジェクト適用を軸とした実効性の高い組織学習法を提案",
+          "title": "週1ページが、数日で1,009ページに――Claudeが解いたゲーデルのノートと、「AIに読ませる」仕事の未来",
+          "url": "https://note.com/cozy_hound9114/n/nbe95eecf2769",
+          "source": "note(テクノロジー)",
+          "category": "個人開発・作ってみた・実践事例",
+          "summary": "長年解読が難航していた論理学者ゲーデルの難解な手書きノート1009ページをAI（Claude）を活用して一気に解析した\n解読速度が週1ページ程度だった作業を数日で完了させ大量の専門データ構造化を実現した\n人間の手では処理しきれない膨大な未整理資料をAI処理で活用可能にする仕事の効率化アプローチを示した",
           "importance": 3
         },
         {
-          "title": "mizchi/mutator を入れてみた",
-          "url": "https://zenn.dev/polyco/articles/e05cb28c569801",
-          "source": "Zenn",
-          "category": "実践事例",
-          "summary": "JavaScript環境向けの新しいミューテーションテストツールの検証事例\nコード変更に対する既存単体テストの検出力やカバー漏れの評価を実施",
-          "importance": 3
-        },
-        {
-          "title": "AIは創薬の調査を1時間で回せる？Google「Agentic Cheminformatics」を読む",
-          "url": "https://note.com/turuto/n/n7abd6ebc2f2b",
+          "title": "副業を丸投げしている相棒「Muse」の話｜パーソナルAIエージェントを紹介します",
+          "url": "https://note.com/jikken_kiroku/n/n1b5eefc74d1c",
           "source": "note(AI)",
-          "category": "実践事例",
-          "summary": "Googleの自律型化学情報学AIエージェントの技術検証結果を考察\n専門性の高い文献・分子データ検索タスクの圧倒的短縮効果を実証",
-          "importance": 4
+          "category": "個人開発・作ってみた・実践事例",
+          "summary": "自身で構築したパーソナルAIエージェント「Muse」を活用して副業業務の大部分を自動化・委任した\n案件応募や返信対応、動画編集ツールの開発、記事執筆などのタスクをAIエージェントが自律的に処理する環境を構築した\n個人開発のAIエージェントを実務運用に組み込むことで個人開発者のタスク負荷を圧倒的に削減できる事例を示した",
+          "importance": 3
         }
       ],
       "interest": [
         {
-          "title": "Androidは初期設定のままじゃもったいない。使い心地が変わる5つのカスタマイズ",
-          "url": "https://www.lifehacker.jp/article/2611-android-settings-that-make-your-phone-feel-like-yours/",
+          "title": "冬の停電、どこまで備える？ Jackeryのポータブル電源3機種を暮らし目線で比較",
+          "url": "https://www.lifehacker.jp/article/2611-jackery-portable-power-station-winter-black-friday/",
           "source": "Lifehacker",
-          "category": "ライフハック",
-          "summary": "デフォルト設定を見直して操作性と利便性を高める\n画面配置や通知の最適化で日々のストレスを軽減\n自分だけの使いやすさを追求する簡単設定テクニック",
+          "category": "防災・生活",
+          "summary": "冬の停電対策としてJackeryのポータブル電源3機種を用途別に比較できる\n世帯規模や使用家電に合わせて適切なバッテリー容量を選択することが重要である\n生活動線や保管場所を考慮した配置により災害時も素早く活用できる",
           "importance": 3,
-          "tip": "スマホの設定画面を開き、通知表示やホーム画面の配置を見直してみましょう。"
+          "tip": "自宅で停電が起きた際に優先して動かしたい家電を洗い出し必要なバッテリー容量を把握してみる"
         },
         {
-          "title": "ページの「余白」は増やせる。大事なメモやToDoを自在に書き足す手帳アイデア",
-          "url": "https://www.lifehacker.jp/article/2611-lht-nakabayashi-tase-ru/",
+          "title": "Androidの充電が午前中だけで28％減った。原因を調べて変えたこと",
+          "url": "https://www.lifehacker.jp/article/2611-improve-android-battery-life-settings/",
           "source": "Lifehacker",
-          "category": "ライフハック",
-          "summary": "手帳の書き込みスペースを賢く拡張する活用テクニック\n付箋や追加用紙を使って重要なタスクやメモを整理\n情報が溢れがちな手帳をすっきり機能的に使う工夫",
+          "category": "スマホ・ガジェット",
+          "summary": "Android端末のバッテリー急速減少はバックグラウンド処理の過剰動作が原因である\n不要アプリのバックグラウンド通信や自動同期設定を制限すると電池持ちが改善する\n画面輝度の自動調整や点灯時間の最適化で日中のバッテリー消費を抑えられる",
           "importance": 3,
-          "tip": "手帳の余白に付箋を足して、今日の優先タスクを一覧できるようにしてみましょう。"
+          "tip": "スマホの設定画面からアプリごとのバッテリー消費量を確認し不要なバックグラウンド処理を停止する"
         },
         {
-          "title": "土星の環、お前だったのか。犯人は1億年前に消えた“幻の衛星”",
-          "url": "https://www.gizmodo.jp/article/2611-saturn-rings-lost-moon-origin/",
+          "title": "データセンターの近くでは、石炭火力の廃止が遅れがち",
+          "url": "https://www.gizmodo.jp/article/2611-data-centers-delay-coal-phaseout/",
           "source": "Gizmodo",
-          "category": "サイエンス",
-          "summary": "美しい土星の環が形成された謎に迫る最新の天文学説\nかつて存在した氷の衛星が崩壊して誕生した可能性\n宇宙のダイナミックな歴史を感じさせるロマンあふれる発見",
+          "category": "サイエンス・環境",
+          "summary": "生成AIの普及によるデータセンターの電力消費急増が環境問題を引き起こしている\n電力需要を補うため近隣の石炭火力発電所の廃止計画が遅れている\n結果として脱炭素化の取り組みが停滞しCO2排出量増加の懸念が高まっている",
+          "importance": 4
+        },
+        {
+          "title": "AIでネコのおやつ係ロボットを訓練してみたら、ロボティクスの未来が見えてきた",
+          "url": "https://wired.jp/article/i-trained-a-microduck-to-be-my-cats-butler/",
+          "source": "WIRED",
+          "category": "AI・テクノロジー",
+          "summary": "二足歩行ロボットに猫へおやつを与える複雑な動作をAIで訓練した\n物理環境ではなく仮想空間上のシミュレーションを用いることで訓練を数時間で完了させた\nプログラミングの手間を大幅に削減し高度なロボット制御を実現する技術の進展を示している",
           "importance": 3
         },
         {
-          "title": "1年間、窓のない施設で4人が暮らす。NASAの「模擬火星プロジェクト」が完走",
-          "url": "https://www.gizmodo.jp/article/2611-nasa-chapea-mars-simulation-project/",
-          "source": "Gizmodo",
-          "category": "サイエンス",
-          "summary": "火星有人探査を見据えた1年間の孤立生活実験が完了\n閉鎖空間での心理的影響やチームの生存戦略を調査\n将来の宇宙移住計画に向けた貴重な実践データの収集",
+          "title": "患者と病院をつなぐAIが“医療迷子”をなくす：Ubie",
+          "url": "https://wired.jp/article/vol59-ubie-yoshinori-abe-ai-startups/",
+          "source": "WIRED",
+          "category": "医療・ヘルスケア",
+          "summary": "AI問診システムUbieが患者の症状から最適な医療機関への受診を案内する\n適切な科を受診できず病状が悪化する医療迷子問題を解決できる\n医療従事者の負担を軽減しつつ早期発見と健康維持を実現するインフラとして機能している",
           "importance": 4
         },
         {
-          "title": "マイクロソフトの大規模障害が世界に突きつけた“警告”",
-          "url": "https://wired.jp/article/the-microsoft-outage-is-a-warning-for-the-world/",
-          "source": "WIRED",
-          "category": "IT・セキュリティ",
-          "summary": "クラウド依存が進む現代社会のリスクを浮き彫りにした障害\n単一システムの停止が世界中のインフラや業務に波及\n企業や個人のリスク分散とBCP対策の再考を促す契機",
-          "importance": 5,
-          "tip": "業務に必要な重要データや連絡先はローカル環境にもバックアップしておきましょう。"
+          "title": "日本人は鮮魚のカルパッチョとかいう、刺身にドレッシングかけて野菜と食べる料理を発明してイタリア料理だと思い込んでみんな食べてる",
+          "url": "https://togetter.com/li/2771254",
+          "source": "はてなブックマーク",
+          "category": "グルメ・文化",
+          "summary": "日本で定着している鮮魚のカルパッチョは日本独自に変化したアレンジ料理である\n本来のイタリア料理におけるカルパッチョは生牛肉の薄切りを使用する\n刺身を洋風ドレッシングで味わう独自の食文化がイタリア料理として広まった",
+          "importance": 2
         },
         {
-          "title": "自己改善するAIは、もはや人間には関心はない──ユルゲン・シュミットフーバーに聞く",
-          "url": "https://wired.jp/article/sz-jurgen-schmidhuber-interview/",
-          "source": "WIRED",
-          "category": "テクノロジー",
-          "summary": "AI研究の第一人者が語る超高度人工知能の未来像\n自律的に進化するAIの興味対象は人間の理解を超える可能性\nAIと人類の今後の関わり方について深い考察を提示",
-          "importance": 4
+          "title": "ドイツのホームステイで日本料理を振る舞うことになり、調理して30分ほどでホストマザーから「料理に時間を使いすぎ！そんなに家事をしていたら生活が成り立たないよ！」",
+          "url": "https://togetter.com/li/2771315",
+          "source": "はてなブックマーク",
+          "category": "カルチャー・生活",
+          "summary": "ドイツの家庭では食事準備に30分以上かけることを過度な家事と捉える考え方がある\n品数を多く作る日本の自炊スタイルは文化の違いによって負担が大きすぎると評価される\n家事にかける時間を減らして生活を効率化する海外の合理的な価値観が示されている",
+          "importance": 2
         },
         {
-          "title": "Geminiを使うとGoogleアカウントがBANされる？規約で確かめた3つのこと",
-          "url": "https://note.com/oboro7145/n/n63fecd6e9fe4",
+          "title": "超音波洗浄機を買ってメガネを洗ったら汚さにビビりました→筆やプラモのパーツも洗えるしウイスキーに使うとまろやかになるらしい",
+          "url": "https://togetter.com/li/2771039",
+          "source": "はてなブックマーク",
+          "category": "ライフハック・日用品",
+          "summary": "家庭用超音波洗浄機はメガネの隙間に溜まった皮脂やほこりを強力に除去できる\n模型パーツや筆の洗浄など趣味のメンテナンス作業全般にも幅広く利用できる\nアルコール等の撹拌にも活用されウイスキーの味わいをまろやかに変化させる応用もある",
+          "importance": 2,
+          "tip": "自宅の身の回りの小物を超音波洗浄機でまとめて清掃してみる"
+        },
+        {
+          "title": "スキンケアに「松竹梅」のコースを作る",
+          "url": "https://note.com/momochichizuyo/n/nf15943ace588",
           "source": "note(ライフハック)",
-          "category": "IT・セキュリティ",
-          "summary": "生成AI利用時に知っておくべき利用規約と注意点\nアカウント停止につながる禁止事項やリスク行為を解説\n安心してAIツールを日常業務や学習に活用するための知識",
-          "importance": 4,
-          "tip": "使っているAIサービスの規約や入力データの取り扱いに関する設定を一度確認してみましょう。"
+          "category": "ライフハック・美容",
+          "summary": "毎日のスキンケアを疲労度に応じて松竹梅の3パターンに分類して運用する\n疲れた日は最低限のケアで済ませる梅コースにすることで未達成による罪悪感を防ぐ\n無理のない柔軟なルールを作ることでセルフケアを長期間ストレスなく継続できる",
+          "importance": 3,
+          "tip": "今日の疲労度に合わせて行う家事やセルフケアの手間を3段階に分けて整理してみる"
         },
         {
-          "title": "ゲームショウで一目惚れした細長いトラックボール、2ヶ月使った話｜Keychron Nape Pro",
-          "url": "https://note.com/ff_media_jp/n/n278cfce78560",
-          "source": "note(ガジェット)",
-          "category": "ガジェット",
-          "summary": "ユニークな細長デザインを持つ最新トラックボールの使用感\nデスク上の省スペース化と腕への負担軽減を両立\n2ヶ月間使い込んで分かった操作性と所有感のリアルなレビュー",
-          "importance": 2
-        },
-        {
-          "title": "「セブンカフェ、100億杯売り上げてるのやべーな」“日本最大のコーヒーチェーン”という投稿に「うまいもんね」「世界一狙える」",
-          "url": "https://togetter.com/li/2771100",
-          "source": "はてなブックマーク",
-          "category": "トレンド",
-          "summary": "累計100億杯を達成した身近なコンビニコーヒーの背景\n手軽さと質の高さで日常生活に定着した実績\nネット上で話題を集める日本のコーヒー消費トレンド",
-          "importance": 3
-        },
-        {
-          "title": "月収19万円のフレンチ重課金生活｜趣味垢の統合",
-          "url": "https://note.com/mt25pot3/n/n355a64b3a984",
-          "source": "はてなブックマーク",
-          "category": "趣味・生活",
-          "summary": "限られた予算の中で大好きな本格フレンチを楽しむ情熱\n自分のこだわりとライフスタイルを貫くお金の使い方\n趣味に特化した生活スタイルと自己表現のリアルな記録",
-          "importance": 2
+          "title": "高機能なToDoアプリに何度も挫折した僕が、毎朝届く「3行のメッセージ」だけで回すようになった話",
+          "url": "https://note.com/time_hack_notes/n/n588c2b3c7053",
+          "source": "note(ライフハック)",
+          "category": "仕事術・ライフハック",
+          "summary": "高機能なタスク管理アプリは設定管理の負担から挫折しやすくなる\n毎朝その日にやるべき最重要タスクを3行だけのシンプルなメッセージとして整理する\n管理の手間を最小限に抑えることでタスクの実行と習慣化に集中できる",
+          "importance": 3,
+          "tip": "今日の最優先タスクを3つだけノートやチャットツールに書き出して1日をスタートする"
         }
       ]
     }
