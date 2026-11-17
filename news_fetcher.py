@@ -1,8 +1,30 @@
+import html
+import re
+
 import feedparser
 import logging
 
 from note_paywall import is_free_note_article, is_note_url
 from paywall_filter import get_publisher_host, is_gated_page, is_paywalled_domain
+
+# RSSの概要文をGeminiへ渡す際の最大文字数。本文の転載にならない範囲で、
+# 要約が結論まで書けるだけの材料を渡すための上限。
+DESCRIPTION_MAX_CHARS = 400
+
+
+def _clean_description(entry) -> str:
+    """RSSエントリの概要文（summary/description）をプレーンテキスト化して返す。
+
+    HTMLタグと実体参照を取り除き、空白を正規化して上限文字数で切り詰める。
+    概要がないエントリでは空文字列を返す。
+    """
+    raw = entry.get("summary") or entry.get("description") or ""
+    text = re.sub(r"<[^>]+>", " ", raw)
+    text = html.unescape(text)
+    text = re.sub(r"\s+", " ", text).strip()
+    if len(text) > DESCRIPTION_MAX_CHARS:
+        text = text[:DESCRIPTION_MAX_CHARS].rstrip() + "…"
+    return text
 
 # "paywall_check": "page" のソースで、1回の実行あたりに記事ページを確認する上限件数。
 # 会員限定記事が続いても実行時間が際限なく延びないようにするための安全弁。
@@ -80,6 +102,7 @@ def fetch_news_from_urls(rss_sources: list[dict], max_fetch: int = 20) -> list[d
                     "title": title,
                     "link": link,
                     "source": source_label,
+                    "description": _clean_description(entry),
                 })
                 source_article_count += 1
         except Exception as e:
