@@ -674,6 +674,179 @@
           "tip": "夜に考えごとや反省会が止まらなくなったらアイス枕で物理的に頭を冷やしてみる"
         }
       ]
+    },
+    "2026-11-20": {
+      "date": "2026-11-20",
+      "tech": [
+        {
+          "title": "アプリ作りに専門知識が不要に!? AIが変える常識と落とし穴 - NHKニュース",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1JU0w3U01USU1SaUoyUFRzOXF2WHFvWjhzTlJidjU4OTRhRTRKWnJ4b2k2MUdIaV9faGFqUVdPeGt0WUdnaUlTQW00d2RYVllzWmtlc0ZzMzBPWnhiNFdN?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "業界動向",
+          "summary": "生成AIの普及によりプログラミング専門知識が不要なソフトウェア・アプリ開発手法が急速に広がっている\n専門知識がなくてもアプリを作成できる環境が整い新規参入の障壁低下と開発の高速化が進む\n一方でAI生成コードの品質検証不足や脆弱性などのセキュリティリスクおよび保守性の悪化が問題視されている",
+          "importance": 4
+        },
+        {
+          "title": "京大、設計支援AIを評価するベンチマーク 化学製造工程向け - 日刊工業新聞",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1VVktkQjZweEpiYmk3VlppWlhuYkZEQ01CZWRaR3hULUpOVWFPLVY0MzlZUmZCMWdoTWhoeGNrNjhZcE92NVFWemhvOVBjR3p0NjVhU2w2MHE?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "業界動向",
+          "summary": "京都大学が化学製造工程向けの設計支援AIを対象とした性能評価ベンチマークを開発した\nプラント設計や反応プロセスの最適化を行うAIの精度と信頼性を客観的に測定する指標となる\n専門領域に特化したAIモデルの検証基準が整うことで実際の化学製造現場への社会実装が促進される",
+          "importance": 4
+        },
+        {
+          "title": "街に広がるAI画像 どこまで許容? - Yahoo!ニュース",
+          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFB4YUlMajhUbWVhdS1NZWJHcThIYWZ4ZTBHUDkteEJ3TDlwVHB0MXd3dlVYV0VTSUNBQUZFTnF6THVIU3VDSE1Sd21NaFFwbW80?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "業界動向",
+          "summary": "広告や公共空間において生成AIを用いた画像コンテンツの利用頻度が大幅に増えている\nAI画像の普及に伴い著作権や肖像権の保護範囲および社会的受容性のラインが議論されている\nコンテンツ利用における明示的なガイドライン策定やAI使用の表記ルールの必要性が高まっている",
+          "importance": 3
+        },
+        {
+          "title": "2026年12月に開催される注目のITエンジニア向けカンファレンス4選 - CodeZine",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE40dElqR2x0RGdnemswY2wtckpGRlpQYmpqNHpiVjl5WVd4dEE0aHF2SXlGQ2kzeDM2N05OVzRvTXhNMW5ua1BWeS1WVG13SkJHM1E?oc=5",
+          "source": "Googleニュース(IT)",
+          "category": "業界動向",
+          "summary": "2026年12月に実施されるITエンジニア向けの主要カンファレンス4選が取り上げられている\nシステム開発やAI利用に関する技術動向および現場の実践知を学べるイベントが開催される\n開発者の知識共有やキャリア支援を目的とした技術コミュニティの交流機会が提供される",
+          "importance": 3
+        },
+        {
+          "title": "自分の代わりに動くAgentへ。Claude CodeとCodexで作る自律改善ハーネス",
+          "url": "https://zenn.dev/nttdata_tech/articles/9562962cc181a1",
+          "source": "Zenn",
+          "category": "技術ノウハウ",
+          "summary": "Claude CodeやCodex等のコーディングAgentを統一環境で活用し業務を自律進行させる個人用ハーネスを開発した\nAgentごとの設定分離や履歴追跡の困難さおよび指示の重複発生といった開発環境の不便を改善した\n指示文脈の長期保持により多様なタスクで開発者の代替として自律的に作業を進められる構造を実現している",
+          "importance": 4
+        },
+        {
+          "title": "新機能、ElastiCache の distributed KV caching を GPU 2 台の vLLM で試す",
+          "url": "https://zenn.dev/aws_japan/articles/elasticache-distributed-kv-cache-bench",
+          "source": "Zenn",
+          "category": "技術ノウハウ",
+          "summary": "Amazon ElastiCache for Valkeyの新規機能であるdistributed KV cachingをGPU2台のvLLM環境でベンチマーク検証した\nLLM推論サーバーで計算されたKVキャッシュをElastiCacheクラスタに集約し複数のGPUサーバー間で共有する\nAIエージェント等の継続セッションにおいて同一コンテキストの再計算を抑制し処理効率を高める効果を確認した",
+          "importance": 4
+        },
+        {
+          "title": "Microsoft-Decision-1.1公開！Microsoft-Decision-1との差はどれくらい？",
+          "url": "https://zenn.dev/microsoft/articles/ms-decision-1-1",
+          "source": "Zenn",
+          "category": "技術ノウハウ",
+          "summary": "Microsoftの意思決定支援特化型モデルの後継であるMicrosoft-Decision-1.1が一般提供された\n従来版のMicrosoft-Decision-1と比較して処理速度が2倍以上向上し応答の正確性と精度調整機能が強化された\nテキスト入力のみであった仕様から画像入力への対応が追加されマルチモーダルな課題に対応できるようになった",
+          "importance": 4
+        },
+        {
+          "title": "部下がClaudeっぽいスライドしか出してこなくてウンザリしてる上司はこれを使わせなさい",
+          "url": "https://qiita.com/nuco_d/items/b279477cbcdbe5921abd?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "技術ノウハウ",
+          "summary": "生成AIが出力する資料特有の機械的な表現パターンや違和感を排除するプロンプトと編集の手法をまとめている\nAI生成したスライド構成案をビジネス現場でそのまま活用できるレベルへと品質向上させる技術ノウハウである\n指示文の具体化やレイアウト・構成調整を行うことで成果物としての完成度と実用性を大きく改善できる",
+          "importance": 3
+        },
+        {
+          "title": "【AI × PDF】 紙派だった私が、技術書を電子で買うようになった理由",
+          "url": "https://qiita.com/Dingu-suke/items/7d474c38cd597869049e?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "実践事例",
+          "summary": "技術書籍をPDF形式の電子書籍で購入し生成AIと連携させながら読み進める効率的な学習環境を構築した\n著作権ポリシーを遵守した取り扱いルールを設定した上で書籍のテキストデータをAIの入力に利用している\n疑問点の即時解消やAIによる補助解説を活用することで紙の技術書よりも迅速に専門知識の理解を進められる",
+          "importance": 3
+        },
+        {
+          "title": "【初投稿】「最近どう？」を卒業しよう！180cm95kg・青髪・ヒゲ面のインフラ中間管理職が1on1で意識している11の工夫",
+          "url": "https://qiita.com/human_hub_T/items/439bda5ea9234b7d9013?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "実践事例",
+          "summary": "インフラエンジニア出身の中間管理職がメンバーとの1on1面談の効果を高める11項目の運用ノウハウを確立した\n形式的な質問を排除して相手の状況に即した対話設計と心理的安全性の構築を図っている\nプレイヤーとマネージャーを兼務する現場においてエンジニアチームのエンゲージメント向上を実現する実践モデルである",
+          "importance": 3
+        }
+      ],
+      "interest": [
+        {
+          "title": "古いAndroidスマホが「防犯カメラ」に。月額料金もかからない、意外な再活用術",
+          "url": "https://www.lifehacker.jp/article/2611-old-android-phone-security-camera-ditched-ring-subscription/",
+          "source": "Lifehacker",
+          "category": "ライフハック",
+          "summary": "使わなくなった古いAndroidスマートフォンを防犯カメラとして再利用する方法がある\n月額のサブスクリプション費用を払わずに無料で運用できる\nデータはクラウドではなく自宅ネットワーク内で完結して管理するためプライバシーをしっかり守れる\nコストを抑えながら自宅の防犯体制を手軽に構築できる",
+          "importance": 3,
+          "tip": "家で使わずに眠っている古いAndroidスマホを探して電源が入るか試してみる"
+        },
+        {
+          "title": "「空気の状態」が見えるSharkの空気清浄機で、冬家電の出番を「数字」で決められるようになった",
+          "url": "https://www.lifehacker.jp/article/2611-shark-breatheclear-review-office/",
+          "source": "Lifehacker",
+          "category": "ガジェット",
+          "summary": "Sharkの空気清浄機「BreatheClear」は部屋の空気質や温度・湿度をリアルタイムで数値化できる\n体感や感覚に頼らず目に見える数値をもとに加湿器などの冬家電を稼働させるタイミングを判断できる\n部屋の状態が可視化されることで仕事環境を常に快適に保ちやすくなる",
+          "importance": 3,
+          "tip": "部屋の温湿度計をチェックし冬家電の使い始めを感覚ではなく数値で判断してみる"
+        },
+        {
+          "title": "【速報】Anthropicが上場。初値は111.50ドル、公開価格を34%上回る",
+          "url": "https://www.gizmodo.jp/article/2611-anthropic-ipo/",
+          "source": "Gizmodo",
+          "category": "ビジネス・AI",
+          "summary": "AIモデル「Claude」を開発するAnthropicが2026年11月20日にナスダック市場への上場を果たした\n新規株式公開（IPO）における公開価格は1株あたり83ドルに設定されていた\n取引開始後の初値は111.50ドルを記録し公開価格を34.4%上回る好調な滑り出しとなった",
+          "importance": 5
+        },
+        {
+          "title": "パイロット不要のAI自律戦闘機、ついに滑走路まで不要に",
+          "url": "https://www.gizmodo.jp/article/2611-ai-fighter-jet-x-bat-vertical-takeoff/",
+          "source": "Gizmodo",
+          "category": "サイエンス・技術",
+          "summary": "AIが無人で自律飛行を行う戦闘機「X-Bat」の開発が進められている\n垂直離着陸（VTOL）技術の搭載により従来の長大な滑走路が不要になる\n滑走路が存在しない様々な場所から直接発進できるステルス機として運用が可能になる",
+          "importance": 3
+        },
+        {
+          "title": "スーパーコンピューター「富岳」は、いかにして不正アクセスされたのか",
+          "url": "https://wired.jp/article/riken-fugaku-supercomputer-hacked-via-public-dashboard/",
+          "source": "WIRED",
+          "category": "IT・セキュリティ",
+          "summary": "理化学研究所が運用するスーパーコンピューター「富岳」の運用系システムが外部から不正アクセスを受けた\nこの侵入によって最大4,597人分の利用者情報が外部へ漏洩した可能性が生じている\n日本の重要研究インフラにおけるセキュリティ上の課題や不正侵入の手法について分析が進められている",
+          "importance": 4
+        },
+        {
+          "title": "『GTA6』発売で“ゲーム休暇”も──「13年も待ったのだから、1日くらい休んでもいい」",
+          "url": "https://wired.jp/article/13-years-of-anticipation-deserves-a-day-off-the-gta-vi-work-blackout-is-here/",
+          "source": "WIRED",
+          "category": "トレンド・ゲーム",
+          "summary": "13年ぶりの新作となる大注目ゲーム『グランド・セフト・オートVI』が11月19日に発売された\n作品を心待ちにしていたプレイヤーの間で仕事を休んでプレイに没頭する動きが広まっている\nこの異例の盛り上がりに対応するため従業員に専用の「ゲーム休暇」を付与する企業まで現れている",
+          "importance": 3
+        },
+        {
+          "title": "いいか？バーガーキングのはこう“剥く”んだよ「これまじで食べやすくなる」「えぐい有益情報」",
+          "url": "https://togetter.com/li/2772392",
+          "source": "はてなブックマーク",
+          "category": "ライフハック",
+          "summary": "バーガーキング公式が大型ハンバーガー「ワッパー」をきれいに食べる裏技「URAWAZA WILD」を公開した\n包み紙の剥き方を工夫することで具材やソースをこぼさずに食べ進められる\n片手だけでスマートかつ綺麗に大型バーガーを完食できる実践的な食べ方である",
+          "importance": 2,
+          "tip": "バーガーキングでワッパーを注文した際に包み紙を工夫して片手で食べてみる"
+        },
+        {
+          "title": "人生で一度は使ってみたいと思っていたケルヒャーの洗浄機を買ってみた、掃除が楽しすぎて手当たり次第にケル&ヒャーしまくってる",
+          "url": "https://togetter.com/li/2771885",
+          "source": "はてなブックマーク",
+          "category": "趣味・生活",
+          "summary": "扱いやすいコンパクトなガンタイプのケルヒャー高圧洗浄機を導入した体験談\nベランダや窓のサッシ、網戸、風呂場、自転車などの頑固な汚れが水圧で一気に落とせる\n手軽に汚れが落ちる爽快感から掃除作業そのものが楽しくなり家中の清掃が進む",
+          "importance": 2,
+          "tip": "ベランダや網戸など高圧洗浄機で水洗いしたい場所の汚れ具合を確認してみる"
+        },
+        {
+          "title": "「前の晩の3分」",
+          "url": "https://note.com/sakura5567/n/n4059444a00ef",
+          "source": "note(ライフハック)",
+          "category": "ライフハック",
+          "summary": "朝の準備を早めに始めても途中で一区切りつくと安心感からスマホなどを触ってしまう\n心に余裕ができた隙に時間が経ち出発10分前になって急にバタバタ焦るパターンに陥りやすい\n前日の夜にわずか3分だけでも準備を済ませておくことが朝の油断と直前の慌ただしさを防ぐ鍵になる",
+          "importance": 2,
+          "tip": "今夜寝る前の3分間で明日の外出に必要な持ち物や服を準備しておく"
+        },
+        {
+          "title": "ChatGPTの回答が変わる。今日から使える便利なプロンプト10選",
+          "url": "https://note.com/tiny_goat/n/n0b05f32949a9",
+          "source": "note(ライフハック)",
+          "category": "ライフハック・AI",
+          "summary": "ChatGPTへの質問時に役割・目的・条件・出力形式を指定することで回答精度が大幅に向上する\n例えば「あなたは優秀な教師です」「初学者向けに解説して」と条件を与えることで専門用語を避けた分かりやすい説明が得られる\n仕事や学習、文章作成などの各場面に合わせてコピーしてすぐ使える万能なプロンプトのパターンが存在する",
+          "importance": 3,
+          "tip": "ChatGPTを使う際に「あなたは優秀な教師です。初学者向けに解説してください」と役割を指定して質問してみる"
+        }
+      ]
     }
   }
 }
