@@ -847,6 +847,177 @@
           "tip": "ChatGPTを使う際に「あなたは優秀な教師です。初学者向けに解説してください」と役割を指定して質問してみる"
         }
       ]
+    },
+    "2026-11-21": {
+      "date": "2026-11-21",
+      "tech": [
+        {
+          "title": "ChatGPTの常時稼働型エージェント「dots」、Plusの一部にも提供へ／Meta「Muse」専用メールアドレス、無料ユーザーも取得可能に／VRChatのクリエイター支援とチケット売買、「VThanks」が提供開始【Creative AI Digest No.249 2026.11.21】",
+          "url": "https://note.com/chihirodesign/n/n6bc2a7754a62",
+          "source": "note(テクノロジー)",
+          "category": "IT・AI業界の最新ニュース・動向",
+          "summary": "ChatGPTの常時稼働型エージェント「dots」がPlusプランの一部ユーザー向けに順次提供開始される\nMetaが展開するAIエージェント「Muse」にて無料ユーザーも専用メールアドレスを取得可能になる\nVRChat上でクリエイター支援とチケット売買を行える新サービス「VThanks」が提供を開始する",
+          "importance": 4
+        },
+        {
+          "title": "アングル：アンソロピック需給は綱引き、国内ＡＩ株は「バリュー株並み」で見直し期待も - Reuters",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQVnBoZHZCWEN4Wl85RUlROWhrRHJTWWVyTUVlT0FYdFcySnNWSlpUcHdBYm1rNHZKc1RoVlBsb19uc2tNUF9rSGkzWXljOGUwdlhvS0xmcHNub2x0a3pWR2U0cklESzcza3lXVFJkNXlNbk1PWFFDemhBT3VvYWpEak5NeVdSY0dCRkFzaTdyYWtTZw?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "IT・AI業界の最新ニュース・動向",
+          "summary": "AIスタートアップのアンソロピックに対する株式需要と供給が拮抗し評価額の調整が続いている\n日本の国内AI関連株はPERなどの指標面で「バリュー株並み」に割安な水準まで低下している\n株価割安感から国内外の投資家による見直し買いや再評価の期待が高まりつつある",
+          "importance": 3
+        },
+        {
+          "title": "ドンキ AI社員「近藤あい」の狙い - Yahoo!ニュース",
+          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE43b0ttMTlvd09yZXVCdzYyUEtNa2VnWjVWbmVJLVIxU2dZZ202TW1EbExCVDI4cHpEZURncWJPWlR5bWdkQ0V5dEVGRUpCc0h1?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "IT・AI業界の最新ニュース・動向",
+          "summary": "ドン・キホーテを運営する企業が公式AIキャラクター社員「近藤あい」を導入して業務活用を開始した\n接客や販促プロモーション、社内業務の効率化に向けてAIキャラクターを前面に立てた運用を行う\n親しみやすいAI人材を導入することで顧客エンゲージメントの向上とデジタル変革の加速を目指す",
+          "importance": 3
+        },
+        {
+          "title": "AIやロボ 最新技術体験 リゾテック閉幕 来場者1万5千人超 - 沖縄タイムス社",
+          "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFA1aVJNeXdtUU9wamRpelM1VlhIOXdKTHg3M0N6U3A0OWFsc3NzX1BYU3dUOEVDN2puZm90OXJqaXNGTGd3SDZwNmRmazRpSjQ5OW9CaGoxVW9WTGlkQVE?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "IT・AI業界の最新ニュース・動向",
+          "summary": "最先端のAIやロボット技術を体験できるIT総合見本市「リゾテック」が閉幕した\n会期中の総来場者数は1万5千人を超え、多くのビジネス関係者や一般参加者で賑わった\n地域のデジタル化推進や最新技術の実用化に向けた具体的なソリューションや製品が多数展示された",
+          "importance": 3
+        },
+        {
+          "title": "日本のレシートを自宅PCでOCRする：15構成を実レシート11枚で比べた",
+          "url": "https://zenn.dev/chaki/articles/4545be3475fdb4",
+          "source": "Zenn",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "自宅PCでの日本のレシート読み取り検証において「YomiToku」が最高性能を記録した\n軽量モデルで全体を読んだ後自信のない行を高精度モデルで再読する「2段読み」で商品名完全一致93%・金額100%・1枚約1.8秒を達成した\n商用利用では非商用ライセンスのYomiTokuに代わりNDLOCR-LiteやPP-OCRv6が現実的な選択肢となる\n画像対応AI（VLM）は長いレシートで文字を繰り返す失敗が目立ったが手書き領収書では高い精度を発揮した",
+          "importance": 4
+        },
+        {
+          "title": "CDKからTerraformへ：所有権移譲による本番インフラ無停止のIaC移行",
+          "url": "https://zenn.dev/levtech/articles/14befd8e727f32",
+          "source": "Zenn",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "AWS CDKからTerraformへのIaCツール移行において「所有権を移譲する手法」を採用した\n12のサービスと共通基盤を含む全13スタックの本番インフラを一切停止させずに移行を完了した\n既存リソースの破壊やダウンタイムを回避しながらインフラ管理基盤の一元化と保守性向上を実現した",
+          "importance": 4
+        },
+        {
+          "title": "【朗報】Microsoft 365 CopilotがOneDriveのファイルを直接編集できるようになってた！CoworkなしでGitHub Copilotみたいに使える件",
+          "url": "https://qiita.com/yuyanz/items/c3bb4801c105d96fa79d?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "Microsoft 365 CopilotがOneDrive上のファイルを直接編集できる機能アップデートを実施した\n外部連携機能やCoworkを介さずにAIエージェントへ直接ファイルを更新・編集させることが可能になった\n個人ナレッジの自動蓄積やファイル更新作業をMicrosoft 365環境内で完結できる",
+          "importance": 4
+        },
+        {
+          "title": "AIを使ったアプリ開発で絶対にやってはいけないこと15選。便利さの裏に潜む致命的な落とし穴",
+          "url": "https://note.com/tiny_goat/n/n2f15f4583936",
+          "source": "note(テクノロジー)",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "AI生成コードを動作確認だけで内容を理解せずにそのまま実装・投入する行為は重大な障害やセキュリティリスクに直結する\nアプリ開発のハードルが下がった反面従来の開発者が回避してきた失敗や不適切処理を気づかぬまま再生産する危険性がある\n動作の正確性検証や内部構造の把握、セキュリティチェックを怠らない開発プロセスを徹底する必要がある",
+          "importance": 4
+        },
+        {
+          "title": "RTKの走行データ収集でAndroidの記録アプリを外から監視する",
+          "url": "https://zenn.dev/nauh_blog/articles/b60cd6973c8a3f",
+          "source": "Zenn",
+          "category": "個人開発・作ってみた・実践事例",
+          "summary": "調査機器の車両走行データ収集において記録アプリ「DroggerGPS」の停止によるやり直し作業を防ぐ監視アプリを構築した\n測定装置とエッジAI端末を組み合わせ自社開発のWeb管理画面から状態管理と設定変更を行える構成にした\nRTK受信機と連携したAndroidアプリの動作状況を外部からモニタリングし走行データの取りこぼしリスクを排除した",
+          "importance": 3
+        },
+        {
+          "title": "原価表を AI に渡したら、ずっと気づかなかった「約20%のズレ」が見つかった",
+          "url": "https://note.com/tokonatsu_mgr/n/n8f3c81d769dc",
+          "source": "note(AI)",
+          "category": "個人開発・作ってみた・実践事例",
+          "summary": "社内で利用していた従来の原価管理表データをAIに読み込ませて詳細なデータ解析を実施した\n長年見過ごされていた約20%に及ぶ原価計算の計算誤差や不一致を発見することに成功した\nAIを活用したデータ照合・分析の手法が人間の手作業による見落とし防止と業務改善に極めて有効であると実証された",
+          "importance": 3
+        }
+      ],
+      "interest": [
+        {
+          "title": "「どこにしまったっけ？」Geminiが置き場所を覚えてくれるAndroid新機能",
+          "url": "https://www.lifehacker.jp/article/2611-android-find-hub-remembered-tab-no-tracker/",
+          "source": "Lifehacker",
+          "category": "ガジェット",
+          "summary": "Androidの新機能としてGeminiが持ち物の置き場所を記憶する機能が実装された\n物理的なトラッカーを使わずに貴重品や日用品の保管場所を管理できる\nFind Hub画面からスムーズに検索を行うことで探し物に費やす無駄な時間を削減できる",
+          "importance": 4,
+          "tip": "頻繁になくしがちな鍵や財布の置き場所をGeminiに話しかけて記録させておく"
+        },
+        {
+          "title": "Anthropicの人がClaudeと数学界のラスボス「リーマン予想」の証明を発見したらしい",
+          "url": "https://www.gizmodo.jp/article/2611-claude-riemann-hypothesis-proof/",
+          "source": "Gizmodo",
+          "category": "サイエンス",
+          "summary": "Anthropic所属の数学者Levent Alpöge氏がAIモデルClaudeを用いた研究成果を公表した\n数論における歴史的超難問であるリーマン予想の証明に関わる重要な知見が示されている\nAIと人間による共同研究が未解決の高度な数学的課題の解明に大きく寄与する可能性を開いた",
+          "importance": 4
+        },
+        {
+          "title": "雨の日でも、夜でも発電。太陽光発電の弱点がなくなりつつある",
+          "url": "https://www.gizmodo.jp/article/2611-recent-solar-power-evolution/",
+          "source": "Gizmodo",
+          "category": "サイエンス",
+          "summary": "太陽光発電技術の進化によって日照がない環境でも発電できる新たな手法が開発されている\n雨天や夜間だけでなく海中などの特殊な状況下でもエネルギーを生成することが可能になった\n天候や時間帯の制約を克服することで安定した次世代クリーン電力の供給が期待される",
+          "importance": 3
+        },
+        {
+          "title": "Anthropicが史上最大規模のIPO。それでも残る成長への懸念",
+          "url": "https://wired.jp/article/anthropics-record-breaking-ipo-highlights-the-ai-giants-worst-enemy-itself/",
+          "source": "WIRED",
+          "category": "ビジネス",
+          "summary": "AI開発企業のAnthropicが史上最大規模となる新規株式公開（IPO）を成立させた\n同社が掲げる高度なAI安全性重視の方針が事業の急成長を抑制するリスクを孕んでいる\n大規模なデータセンター建設に対する地域住民や環境面からの反対意見も今後の懸念材料となっている",
+          "importance": 4
+        },
+        {
+          "title": "から揚げ粉をエリンギの全身にかけてオーブンで焼くだけで「なんかすごい唐揚げ感がする！」鶏肉唐揚げのように中から旨味成分汁が染み出て「超ウマー！」のエリンギ料理",
+          "url": "https://togetter.com/li/2772992",
+          "source": "はてなブックマーク",
+          "category": "趣味・生活",
+          "summary": "エリンギ全体に市販のから揚げ粉をまぶしてオーブンで焼く手軽なレシピが注目を集めている\n鶏肉の唐揚げを思わせる食感に仕上がり内部からジューシーな旨味と汁があふれ出す\n用意する材料はから揚げ粉とエリンギの2つのみで手軽においしいおかずやツマミが完成する",
+          "importance": 2,
+          "tip": "今夜の夕食にエリンギへから揚げ粉をまぶしてオーブンで焼く簡単調理を試してみる"
+        },
+        {
+          "title": "『救急病院の前で意識を失い倒れた者に対してAEDを用いた心肺蘇生術をしなかった対応と注意義務違反』",
+          "url": "https://ameblo.jp/egidaisuke/entry-12962776238.html",
+          "source": "はてなブックマーク",
+          "category": "社会・法律",
+          "summary": "救急病院の至近距離で倒れた傷病者に対する病院側の救護対応をめぐる判例が出された\n現場で直ちにAEDを用いた心肺蘇生を実施しなかった対応に注意義務違反が認定された\n医療機関の目前であっても現場での迅速な一次救命処置を優先すべき法的責任が示されている",
+          "importance": 3
+        },
+        {
+          "title": "ペットボトルの牛乳を見かけないのはなぜ？",
+          "url": "https://note.com/sekainoshosetsu/n/n4e94118c63ac",
+          "source": "note(ライフハック)",
+          "category": "趣味・生活",
+          "summary": "清涼飲料水の多くがペットボトルへ移行した中で牛乳は紙パックや瓶での販売が主流のまま維持されている\n牛乳の殺菌処理に必要な加熱耐性や品質保持の観点からプラスチック容器の適用にはハードルが存在する\n容器のコスト性能やリサイクル効率の面において紙パックが最も適した選択肢として機能している",
+          "importance": 2
+        },
+        {
+          "title": "チャットの文面で冷たいと思われてしまう人へ｜短くても誤解されずに伝わる、職場のメッセージ4つの型",
+          "url": "https://note.com/life_eng_lab/n/nd0b744b82b4d",
+          "source": "note(ライフハック)",
+          "category": "ライフハック",
+          "summary": "職場のビジネスチャットで短文返信をすると不機嫌や冷淡な印象を相手に与える問題が起きやすい\n簡潔な文面でも相手に配慮や意图を正しく伝えるための4つの返信フォーマットが役立つ\nニュアンスを補う基本型を活用することで無用な人間関係の行き違いや摩擦を未然に防げる",
+          "importance": 3,
+          "tip": "職場チャットで短く返信する際はクッション言葉や感情を添える基本型を意識して送信する"
+        },
+        {
+          "title": "重いMacBookを持ち歩くのをやめた。自宅のMac miniをiPadで遠隔操作する3つの方法",
+          "url": "https://note.com/aoki722/n/n5f7a55f67c8e",
+          "source": "note(ガジェット)",
+          "category": "ガジェット",
+          "summary": "持ち運ぶ荷物を減らすため外出時にMacBookを持ち歩かず自宅のMac miniをiPadで遠隔操作する手法が有効である\n無料アプリを含む3種類のリモートデスクトップ接続手順を活用する\n出先からでも自宅のデスクトップPCと同等の作業環境を軽量なタブレット上で再現できる",
+          "importance": 3,
+          "tip": "iPadにリモートデスクトップアプリを導入し自宅PCにアクセスできる環境を構築してみる"
+        },
+        {
+          "title": "脚もポールも天板に重ねて板状にまとまる、約430gのカーボン製ミニテーブル",
+          "url": "https://www.lifehacker.jp/article/machi-ya-3ktable-additional5-983957/",
+          "source": "Lifehacker",
+          "category": "ガジェット",
+          "summary": "重量わずか約430gの軽量カーボン素材を採用した折りたたみ式ミニテーブルが登場した\n脚やフレーム用ポールなどの構成パーツをすべて天板内部に重ねて完全なフラット形状に格納できる\n持ち運ぶ際のパッキング効率が飛躍的に向上し野外での作業用スペースを即座に作ることができる",
+          "importance": 2
+        }
+      ]
     }
   }
 }
