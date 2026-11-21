@@ -1018,6 +1018,172 @@
           "importance": 2
         }
       ]
+    },
+    "2026-11-22": {
+      "date": "2026-11-22",
+      "tech": [
+        {
+          "title": "１６７年解けなかった「リーマン予想」、生成ＡＩが証明か…アンソロピックの数学者が発表（読売新聞オンライン） - Yahoo!ニュース",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9KYmU4OXlyMkhXTWwtTmhpckZuN3FsdjBkcmJBb3puREJjM2xsZE1MZlZhWXY3dW9xZ3E2TlNWV1diWFZWRy1BckZRZm83R0oyR1dLWEdlNDJCdEZzTXJJd21xS0hrSTdhbUFIa2p3bVpSSzdyWlAyVGRkczQtQVk?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "IT・AIニュース",
+          "summary": "数学史上最も有名な未解決問題の一つであるリーマン予想が生成AIによって証明された可能性がある\nアンソロピックに所属する数学者がAIを用いた証明成果を発表した\n167年間にわたり解明されなかった数学的難問に対するAI活用の大きな進展となる",
+          "importance": 5
+        },
+        {
+          "title": "「フィジカルAI」や最新技術を披露 「リゾテックエキspo」、19日に沖縄市で開幕（沖縄タイムス） - Yahoo!ニュース",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1QMW1pRHFJZm15LWZmN0d0c01PSlpKLUpQT3JPWDd4bnctQy1pdVN1enRhTlVyMjBMb2s4dnVrWGRmQ0tvWHRHTXVWdGhsN0JCdjlib1RzT1BfckIyYVF2cXFERkwwMkphaGhRMEFoV0toRlhkU0Y1Y0FaNklfcDQ?oc=5",
+          "source": "Googleニュース(IT)",
+          "category": "IT・AIニュース",
+          "summary": "最新のITやAI技術を紹介するイベントであるリゾテックエキスポが19日に沖縄市で開幕した\n現実世界のハードウェアやロボティクスと連携するフィジカルAIの展示が行われている\n先端技術の地域社会への導入やビジネス活用に向けた最新動向が披露された",
+          "importance": 3
+        },
+        {
+          "title": "企業ITを支えるWindowsの歴史を紐解く『Windows ～熱狂と失敗と決断の40年史～』発売 - EnterpriseZine",
+          "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9ORW94NWNocm5DX0QwSHZldVkwUWJuUjNDZC14SkM3NURwVElvR1BEdm1YYlI0VFBsQWlpV19UaUVPYmV0THRmS3Q1YXRJWXRnb2dFTUNn?oc=5",
+          "source": "Googleニュース(IT)",
+          "category": "IT・AIニュース",
+          "summary": "企業向けIT基盤として発展してきたWindowsの40年間の軌跡を扱った書籍が発売された\nOSの誕生からビジネスシーンでの普及および開発の歴史が取り上げられている\n長年にわたるプラットフォームの変遷とIT業界へ与えた影響を振り返る一冊となっている",
+          "importance": 3
+        },
+        {
+          "title": "AIエージェントに堅牢なテストを書かせるには？",
+          "url": "https://zenn.dev/yasuakiomokawa/articles/3ac970c3a3a1c7",
+          "source": "Zenn",
+          "category": "技術ノウハウ・検証",
+          "summary": "AIコーディングエージェントにテストを書かせると実装変更で容易に壊れる課題がある\nプロダクトでの15日間の実践検証をもとに壊れにくいテストを生成させる4手順を定立した\nテストコードの無駄な書き換えを防ぎ実装前に堅牢なテストを作成・保護する手法を確立した",
+          "importance": 4
+        },
+        {
+          "title": "JVM がコードを実行する仕組みを理解したい",
+          "url": "https://zenn.dev/rea9r/articles/jvm-code-execution",
+          "source": "Zenn",
+          "category": "技術ノウハウ・検証",
+          "summary": "障害調査やパフォーマンス把握を目的にJVMのコード実行メカニズムを整理した\n実行ログとコンパイルログおよびjcmd出力を照合しJITコンパイルとコードキャッシュの挙動を調査した\nJDK20でコードキャッシュの回収処理が専用sweeperからGCへ移った仕様変更を確認した",
+          "importance": 3
+        },
+        {
+          "title": "【朗報】Microsoft 365 CopilotがOneDriveのファイルを直接編集できるようになってた！CoworkなしでGitHub Copilotみたいに使える件",
+          "url": "https://qiita.com/yuyanz/items/c3bb4801c105d96fa79d?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "技術ノウハウ・検証",
+          "summary": "Microsoft 365 CopilotにOneDrive内のファイルを直接編集できる機能が追加された\n特別な設定なしでドキュメントの改修や知識ファイルの更新が可能になった\nGitHub Copilotのような操作感でクラウド上のファイルを柔軟に扱えるようになった",
+          "importance": 4
+        },
+        {
+          "title": "【pre:Inventまとめ】AWSのAIエージェント認証がいろいろ進化！MCPサーバー構築を例に一挙解説",
+          "url": "https://qiita.com/minorun365/items/bd6091f2599a0f37326b?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "技術ノウハウ・検証",
+          "summary": "AWS pre:Invent期間中にAIエージェント関連の認証機能群が大幅にアップデートされた\nMCPサーバー構築時の認証フローや統合手法が解説された\nエージェントに対する適切なアクセス制御と安全なインフラ構築のベストプラクティスが示された",
+          "importance": 4
+        },
+        {
+          "title": "反応が小さいとモチベが下がる。だから毎日「変化」がメールで届くようにしました",
+          "url": "https://note.com/tsutomu_takagi/n/nfc9e628c7139",
+          "source": "note(AI)",
+          "category": "個人開発・実践事例",
+          "summary": "制作した複数サービスやコンテンツの数値が別々の管理画面に分散し確認の手間が生じていた\nモチベーション維持のために各プラットフォームのデータを集約して毎日の変化をメール通知する仕組みを構築した\n各管理画面への巡回をなくし毎日の数値変化を一覧で把握できるように改善した",
+          "importance": 3
+        },
+        {
+          "title": "0.2 SOLをAIに渡してミームコイン実験を始めた話【0日目】",
+          "url": "https://note.com/tei_agi/n/nfc2a6d46bda3",
+          "source": "note(AI)",
+          "category": "個人開発・実践事例",
+          "summary": "AIに仮想通貨ウォレットを持たせて自動でミームコイン取引を行わせる検証実験を開始した\n人間側が軍資金として0.2 SOLを入金し売買判断および取引の実行は完全にAIへ委任した\n取引結果や資金の推移を数値データとして記録・検証していく取り組みである",
+          "importance": 3
+        }
+      ],
+      "interest": [
+        {
+          "title": "眩しさがスッと溶けていく。JINSの「可視光調光レンズ」で手に入れた「いつもちょうどいい」視界",
+          "url": "https://www.lifehacker.jp/article/2611-lht-jins/",
+          "source": "Lifehacker",
+          "category": "ヘルスケア・生活",
+          "summary": "JINSの可視光調光レンズは日常使いのメガネとサングラスの機能を1本で兼ね備える\n室内の普段使いでは普通の度付きメガネとして快適に使用できる\n光の眩しい屋外に出るとレンズが自動で色づきサングラスへと変化する\n掛け替える手間がなく室内外を問わず常に最適な視界と見えやすさを保てる",
+          "importance": 3,
+          "tip": "室内外での掛け替えの手間を減らすため、日常用メガネの買い替え時に調光レンズを検討してみる。"
+        },
+        {
+          "title": "CTスキャンで明かされた少年ミイラの秘密。おそらく富裕層です",
+          "url": "https://www.gizmodo.jp/article/2611-golden-boy-mummy-ct-scan/",
+          "source": "Gizmodo",
+          "category": "サイエンス・歴史",
+          "summary": "エジプトで発見された約2,300年前のミイラに対して切開せずCTスキャン解析を実施した\n解析の結果ミイラの中身は当時の富裕層と思われる少年であることが判明した\n遺体とともに数多くの富裕層特有の副葬品が収められていたことが確認された\n最新テクノロジーによりミイラを傷つけることなく歴史的背景や当時の身分を解明した",
+          "importance": 3
+        },
+        {
+          "title": "カーチェイスでも逃げ切れない。『グランド・セフト・オートV』の街に迫る海面上昇の脅威",
+          "url": "https://www.gizmodo.jp/article/2611-gta5-sea-level-rise-los-angeles-simulation/",
+          "source": "Gizmodo",
+          "category": "サイエンス・環境",
+          "summary": "人気オープンワールドゲームGTA5の舞台である仮想都市ロスサントスを研究に使用した\n海面上昇がもたらす水没被害の脅威をゲーム内でシミュレーションした\nプレイヤーに馴染みのある都市空間が浸水する様子を通じて気候変動の現実を視覚化した\nゲーム空間を活用することで環境問題のリスクをより身近に感触として理解させる試みである",
+          "importance": 3
+        },
+        {
+          "title": "“何をどう撮るか”を考える至福。モノクロ版「写ルンです」は最高の風合い",
+          "url": "https://www.gizmodo.jp/article/fujifilm_utsurundesu-black-and-white_review/",
+          "source": "Gizmodo",
+          "category": "趣味・写真",
+          "summary": "富士フイルムから白黒写真を手軽に撮影できる写ルンですBlack and Whiteが登場した\nスマートフォンでの撮影とは異なるフィルムならではの風合いや質感を楽しめる\n何をどう撮影するか構図をじっくり考える撮影体験そのものが魅力となっている\n現像時にはプリントだけでなくスマホへのデータ転送にも対応している",
+          "importance": 3,
+          "tip": "週末のお出かけの際にモノクロの使い切りカメラを持参し、色に頼らない構図重視の撮影を体験してみる。"
+        },
+        {
+          "title": "日用品にたまごっちのような表情を。新たなAIデバイス「OAT」",
+          "url": "https://wired.jp/article/this-ai-tamagotchi-oats-turns-everyday-objects-into-needy-virtual-pets/",
+          "source": "WIRED",
+          "category": "テクノロジー・ガジェット",
+          "summary": "カーネギーメロン大学の学生がE Inkディスプレイを搭載した小型AIデバイスOATを開発した\n観葉植物やダンベルなどの日用品に取り付けることで対象を仮想ペット化する\nAIが生成したキャラクターが対象物の状態や使用頻度に応じて感情や表情を変化させる\nアイテムの状態をアピールすることでユーザーの生活習慣の改善や行動変容を促す",
+          "importance": 3
+        },
+        {
+          "title": "AIにファクトチェックをどこまで任せられるか",
+          "url": "https://wired.jp/article/fact-checking-ai/",
+          "source": "WIRED",
+          "category": "IT・AI",
+          "summary": "WIREDのファクトチェッカーがAIの正確性を測定するため校閲者の採用試験を実施した\n検証対象としてChatGPTやClaude、Gemini、Grokの無料版を使用し問題を解かせた\n各AIモデルのファクトチェック能力や間違いを見抜く精度の限界を検証した\n現在の無料版AIにおける情報検証ツールとしての実用性と課題が浮き彫りになった",
+          "importance": 4,
+          "tip": "AIが生成したテキストを仕事で使う前に、主要な事実や数値だけは必ず人間が一次情報で再確認する。"
+        },
+        {
+          "title": "旦那が買ってきた入浴剤がすごかった「クナイプは高いけど買う価値ある」「マジで爆睡できる」",
+          "url": "https://togetter.com/li/2772498",
+          "source": "はてなブックマーク",
+          "category": "ヘルスケア・生活",
+          "summary": "SNS上でドイツ生まれのハーブ入浴剤クナイプの効果について大きな話題を集めた\n一般的な入浴剤より価格は高めであるものの身体がしっかり温まり深く眠れると評価されている\n安眠やリラックスを目的とするお休み系の香りの評判が特に高く好評を得ている\n甘い香りや刺激の強い種類もあるため自分に合った香りの選択が重要とされる",
+          "importance": 3,
+          "tip": "今夜の入浴時にはクナイプのお休み系入浴剤を入れて、じっくり身体を温めて睡眠の質を高めてみる。"
+        },
+        {
+          "title": "意志力ゼロで上位20%を維持。試験免除で近大編入を決めた大学生の時間管理術！",
+          "url": "https://note.com/like_hebe5364/n/nb46122dcbb95",
+          "source": "note(ライフハック)",
+          "category": "ライフハック・自己啓発",
+          "summary": "夜勤バイトや筋トレに追われる多忙な環境下で成績上位20パーセントを維持したノウハウを公開\n強い意志力に頼らず仕組みでスケジュールとタスクを維持管理する時間管理術を実践\n学力試験免除となる学内特別推薦枠を獲得し近畿大学経営学部への編入を実現した\n意志の力に依存せず成果を出すための実践的な行動設計の重要性を提示している",
+          "importance": 3,
+          "tip": "勉強や仕事のスケジュール管理を気合いに頼らず、時間枠をあらかじめ固定する仕組み化を試してみる。"
+        },
+        {
+          "title": "疎遠になった友人への一通、AIと考えたら3行で十分だった",
+          "url": "https://note.com/cheeky_knot7562/n/n7d6828bb1a49",
+          "source": "note(ライフハック)",
+          "category": "ライフハック・コミュニケーション",
+          "summary": "数年間連絡を取っていない友人にメッセージを送る際の気兼ねやハードルを分析した\n空白期間をすべて埋めようと長文を書くことがかえって送信のハードルと相手の負担を高めていた\n生成AIを活用して下書きを推敲した結果短い3行程度の文章が最も適切であると判明した\n気軽かつ簡潔な連絡の方が受け手も返信しやすく良好な関係再開につながる",
+          "importance": 3,
+          "tip": "しばらく連絡していない友人に、近況を詰め込まず「元気？」と挨拶だけの3行メッセージを送ってみる。"
+        },
+        {
+          "title": "段ボールを重ねる前に、ひもを敷く。それだけで、ひと仕事減ります／おじいさんの知恵袋⑱",
+          "url": "https://note.com/gnotawagoto/n/n30167576c9f9",
+          "source": "note(ライフハック)",
+          "category": "ライフハック・家事",
+          "summary": "通販などで溜まる段ボールを処分する際のまとめ作業の手間を劇的に減らす工夫を紹介\nつぶした箱を重ねてから縛るのではなく箱を重ねる前にあらかじめひもをクロスして敷いておく\n重ね終わった後に下からひもを持ち上げて結ぶだけで持ち上げ直す手間なく簡単に結束できる\n事前のひと工夫により部屋の隅に残りやすい段ボール処分の面倒くささを解消する",
+          "importance": 3,
+          "tip": "段ボールを潰して溜め始める前に、あらかじめ縛る用のひもを床に敷いておく習慣をつける。"
+        }
+      ]
     }
   }
 }
