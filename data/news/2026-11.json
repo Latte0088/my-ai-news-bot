@@ -1184,6 +1184,178 @@
           "tip": "段ボールを潰して溜め始める前に、あらかじめ縛る用のひもを床に敷いておく習慣をつける。"
         }
       ]
+    },
+    "2026-11-23": {
+      "date": "2026-11-23",
+      "tech": [
+        {
+          "title": "AIがAIを作る時代が近い？ Anthropicですら“開発の加速”についていけなくなりつつある（ギズモード・ジャパン） - Yahoo!ニュース",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5zbHUxQkwxZ3dTV1owdjB6MlI5c2l1Nm9DRDVRck5CNTNkbmZLNjlfWThEbDEzLXpEN1p1NllzMVhDVVVadnhqdDFOOWlZZmw1WmtYb3F3MW5OVEZ5SE1IeFU5ell3R2EzbDYzWDVtcUZqV1ltRTRrd0JxeUo3U1E?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "IT・AI業界ニュース",
+          "summary": "AIモデル自体が新たなAI開発を自動で推し進める時代の到来が近づいている\nAnthropicをはじめとする最先端AI企業であっても自社技術の開発速度に組織や人間が適応し続けるのが難しくなりつつある\nAI技術の進化サイクルが従来の手動による開発モデルの限界を超えて加速している",
+          "importance": 4
+        },
+        {
+          "title": "リーマン予想 AI証明巡り共同声明 - Yahoo!ニュース",
+          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5CMmxuTGc4ZGxBVTB5Uk9sLVlDTnJIMVpLMDM4T2NvVW5hYWNJbTRneXdjbG81VHJxU0hHTHFINkhyTFk1SndNTTA3aGtmOVlM?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "IT・AI業界ニュース",
+          "summary": "数学上の難問であるリーマン予想に関するAIを用いた証明アプローチを巡り共同声明が発表された\nAIによる高度な理論証明や学術的成果に対する検証基準と妥当性の扱いが主要な焦点となっている\n高度学術分野における人工知能の貢献度評価と研究倫理に関する国際的な議論が本格化している",
+          "importance": 4
+        },
+        {
+          "title": "AI時代の高スキルIT技術者“争奪戦”／AIの成果創出に進む日本企業、障壁は／7割の企業で「AIの不具合」、安全性や財務の影響実態、ほか (1/2) - ASCII.jp",
+          "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1iYmZRMnc4WDg4b1gwQzJMb0RSV01KVmZjN1poT1ZZcGJZd0I5eTBDVFpzN0M5VFNCRlBfS0pmc1BFR0d5R1huYnFrZjlFZDRCQmF3Yg?oc=5",
+          "source": "Googleニュース(IT)",
+          "category": "IT・AI業界ニュース",
+          "summary": "高度なAI技術を持つ専門エンジニアの獲得に向けた企業間での争奪戦が急速に激化している\n多くの国内企業がAI活用による事業成果創出を目指す一方でスキル不足や人材確保が大きな阻害要因となっている\n導入済み企業の約7割でAIの不具合が発生しており安全性確保や財務面へのリスク波及が課題となっている",
+          "importance": 4
+        },
+        {
+          "title": "非鉄、AI特需追い風 通期業績底堅く 半導体材や銅箔に投資 - 日刊工業新聞",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFA2M2JrLVFrdFhIWjM4cTgyTHdDcEhSSjlhUWt6NXF6QjJxZElvU1RrQVI3ekhraGJrdVR1YVg0UHV3c0hVekdhTnVyaDJTYlZvMWdmZ29kSGU?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "IT・AI業界ニュース",
+          "summary": "AIインフラ需要の急拡大に伴い非鉄金属業界の通期業績が好調に推移している\nAI向け半導体材料や高性能プリント基板用銅箔などへの増産設備投資が積極的に行われている\nAI社会の基盤を支えるハードウェア層および電子材料の需要構造が堅調に推移している",
+          "importance": 3
+        },
+        {
+          "title": "Next.jsのストリーミングはLambda Web Functionsで動くか",
+          "url": "https://zenn.dev/ryota_09/articles/nextjs-suspense-streaming-lambda-web-functions",
+          "source": "Zenn",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "従来のLambda Web Adapterで課題のあったNext.js Suspenseストリーミングの動作をLambda Web Functions上で検証した\nLambda Web Functions環境では追加の複雑な設定を行わずに段階的なストリーミング表示が正しく機能することが確認された\nVercelの実行環境と対比しても実用的なレスポンスストリーミングをAWSサーバーレス上で再現可能であることが分かった",
+          "importance": 3
+        },
+        {
+          "title": "【TLA+】AIにテストケースを書かせるな。ルールを書け",
+          "url": "https://zenn.dev/karamage/articles/73027ee36796dc",
+          "source": "Zenn",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "AIがコードとテストの両方を自動生成する開発環境では個別のテストケース作成だけでは潜在バグを見逃すリスクが高まる\n開発者が個別の具体的なテストケースを書く作業からシステム全体が満たすべき不変の仕様ルールを定義する手法への転換が求められる\n計算機が得意な具体例の網羅生成と人間が得意な仕様ルールの定義を組み合わせることでソフトウェアの品質保証を高める",
+          "importance": 4
+        },
+        {
+          "title": "脆弱性の「CVSS 9.8」って結局なに？CVSSの読み方をちゃんと理解する",
+          "url": "https://qiita.com/heki-dm/items/77ecaacd592d1c4459df?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "Dependabot等で出力されるCVSSスコア数値だけでなくベクトル文字列が示す個別の評価基準を正確に解釈する知識が重要となる\nCVSS 9.8といった高リスク判定の裏にある攻撃元ベクトル・攻撃の複雑さ・認証要件などの各指標の評価構造を整理した\nスコアの評価構造を正しく理解することで実際の自社システムに対する影響範囲と修正の優先度決定を適切に行える",
+          "importance": 3
+        },
+        {
+          "title": "情報漏えいを公表しないリスクの要点整理",
+          "url": "https://qiita.com/Maruo110/items/385b2c7ef5fbd074e6e2?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "セキュリティインシデント発生時に情報漏えいを隠蔽または非公表のまま処理することは企業信用低下や二次被害など重大なリスクを招く\n個人情報保護委員会への報告義務化など法制度の整備に伴い非公表で収束を図る従来の対応パターンは通用しなくなっている\n組織としてインシデント発生時の公表基準および規制当局や被害者への迅速な情報開示フローを事前に規定する必要がある",
+          "importance": 4
+        },
+        {
+          "title": "Orca Botsが良さそう、何ができるのか",
+          "url": "https://zenn.dev/kg_motors_mibot/articles/orca-bot-intro",
+          "source": "Zenn",
+          "category": "個人開発・作ってみた・実践事例",
+          "summary": "Claude CodeやCodexなどのAIエージェントを活用した開発を前提とする統合開発環境「Orca」およびOrca Botsの実践的な検証を行った\nAIエージェント主導の開発ワークフローに適合したUIと機能を備えており日常の開発作業への組み込み手順を確認した\n開発プロセスにエージェント環境を統合することでタスク実装と検証のサイクルを大きく短縮できる",
+          "importance": 3
+        },
+        {
+          "title": "560Bの医療特化型オープンMoE「LingSante-3.1-flash」が示す、臨床AIの新たなアーキテクチャと現実解",
+          "url": "https://note.com/gifted_snail5503/n/n57e366147026",
+          "source": "note(AI)",
+          "category": "個人開発・作ってみた・実践事例",
+          "summary": "Ant Groupが総パラメータ数560B・アクティブ25Bの医療特化型オープンMoEモデル「LingSante-3.1-flash」をMITライセンスで公開した\n100万トークンの長文コンテキスト処理と外部検索ツール連携により特定臨床評価で最先端モデルを上回るベンチマーク結果を示した\n専門知識試験ではフロンティアモデルに及ばない部分がありモデル設計上も自律診断ではなく有資格者の業務支援用途に制限されている",
+          "importance": 3
+        }
+      ],
+      "interest": [
+        {
+          "title": "期末試験を対面にしたら成績が急降下──アイビーリーグのAI不正事情",
+          "url": "https://wired.jp/article/we-cannot-choose-to-become-idiots-the-ai-cheating-scandal-roiling-brown-university/",
+          "source": "WIRED",
+          "category": "トレンド",
+          "summary": "アイビーリーグの大学で学生による生成AIを使った課題の不正利用が深刻化していた\n教授が対策として従来の持ち帰り形式から対面での期末試験に変更して実施した\n対面試験を実施した結果学生たちの試験における得点が50パーセントも低下した",
+          "importance": 4
+        },
+        {
+          "title": "失った“読む視力”を取り戻す、たった2ミリのチップ",
+          "url": "https://www.gizmodo.jp/article/science-prima-retinal-implant/",
+          "source": "Gizmodo",
+          "category": "サイエンス",
+          "summary": "元Neuralink社長が率いるScience Corp.の評価額が35億ドルに達した\n開発中の2ミリの網膜チップ「PRIMA」により失われた視力を取り戻す技術開発が進む\n革新的な脳機関数インターフェース技術として大きな注目と資金を集めている",
+          "importance": 4
+        },
+        {
+          "title": "この小さなパーツ2つで、収納の「当たり前」がちょっと変わって見えた",
+          "url": "https://www.lifehacker.jp/article/2611-yamajitsu-tap-holder-tower/",
+          "source": "Lifehacker",
+          "category": "ライフハック",
+          "summary": "山崎実業のパーツを使うことで床に放置されがちな電源タップを壁面に浮かせた状態で収納できる\n石こうボードピンで壁にベースを固定しタップ背面パーツを貼り付けてはめ込むだけで設置完了する\n配線が床から浮くことで掃除が格段に楽になり部屋全体の散らかり感も解消される",
+          "importance": 3,
+          "tip": "床に置いている電源タップを壁やデスクの側面に取り付けて浮かせ収納に切り替えてみる"
+        },
+        {
+          "title": "君はエイリアンか? はたまたイチゴか? 腕20本の動物が南極で発見",
+          "url": "https://www.gizmodo.jp/article/2611-new-antarctic-strawberry-feather-star-species/",
+          "source": "Gizmodo",
+          "category": "サイエンス",
+          "summary": "カリフォルニア大学の研究チームが南極近くの海域で未知の生物を発見した\n発見された生き物は20本の腕を持ちイチゴのような特異な形状をしている\n過酷な南極海には未だ解明されていない独自の生態系が存在することが分かった",
+          "importance": 3
+        },
+        {
+          "title": "MacでSteamOSを動かすには？ 手軽な導入方法を解説",
+          "url": "https://wired.jp/article/get-steamos-easily-running-on-your-mac/",
+          "source": "WIRED",
+          "category": "ガジェット",
+          "summary": "無料ツール「FX Steam Launcher」を使うことでApple Silicon搭載Macの仮想マシン上でSteamOSが動かせる\nこれまで Mac 非対応だったPCゲームや過去のゲームタイトルがプレイ可能になる\n複雑な設定をすることなく手軽な手順でゲーム環境を構築できる",
+          "importance": 3,
+          "tip": "Mac非対応で諦めていたPCゲームがないか手持ちのゲームライブラリを見直してみる"
+        },
+        {
+          "title": "頼まれごとを断れなかった私、AIと断り文を考えたら理由は短いほうがよかった",
+          "url": "https://note.com/cheeky_knot7562/n/n68bfdd8ab318",
+          "source": "note(ライフハック)",
+          "category": "ライフハック",
+          "summary": "頼まれごとを断る際に長文で丁寧な理由を書こうとすると返信作成に膨大な時間がかかる\n生成AIに相談したところ理由を長く書くほどかえって断りにくくなることが分かった\n理由は無理に詳述せず簡潔に短く伝える方がスムーズかつ確実に断ることができる",
+          "importance": 3,
+          "tip": "頼まれごとを断る時は余計な理由を添えず「その日は都合が悪くて」と短い一言だけで返信してみる"
+        },
+        {
+          "title": "元TBSアナ・国山ハセンさんが事業が失敗に終わったことをXに投稿したが、その内容には起業でやってはいけないことが詰まっていた",
+          "url": "https://togetter.com/li/2773630",
+          "source": "はてなブックマーク",
+          "category": "ビジネス",
+          "summary": "元アナウンサーの国山ハセン氏がアメリカで立ち上げた事業の失敗を公表した\n銀行から借り入れた資金5000万円をほぼ使い切りシリコンバレーの発信メディア事業などが終了した\n事業失敗の報告内容には資金管理や事業判断において起業家が避けるべき失敗パターンが含まれている",
+          "importance": 3
+        },
+        {
+          "title": "脳の使い方？",
+          "url": "https://note.com/nice_poppy603/n/n4678906951cc",
+          "source": "note(ライフハック)",
+          "category": "ライフハック",
+          "summary": "見えない狭い場所での配線や細かい手作業は手元が見えずストレスがかかる\nあえて目を閉じて視覚情報を遮断すると指先の感覚が格段に研ぎ澄まされる\n視覚をオフにすることで脳の処理が触覚に集中し見えない位置での作業が容易になる",
+          "importance": 2,
+          "tip": "手元が見えづらい隙間の作業をする時は、あえて目を閉じて指先の感覚だけに集中してみる"
+        },
+        {
+          "title": "ギリシャでマクドナルドが流行らない理由はこれのせい！？「ギロピタだ」「ケバブに似てて、削ぎ肉と野菜とフライドポテトとヨーグルトソースをピタパンで巻いたもの」",
+          "url": "https://togetter.com/li/2773722",
+          "source": "はてなブックマーク",
+          "category": "趣味・生活",
+          "summary": "世界展開するマクドナルドがギリシャのファストフード市場では苦戦している\n現地には圧倒的人気を誇る伝統料理「ギロピタ」が存在することが主な要因となっている\nギロピタは削ぎ肉やポテト、野菜、ヨーグルトソースをピタパンで巻いた満足度の高いファストフードである",
+          "importance": 2
+        },
+        {
+          "title": "地図を捨てて、街の「行間」を歩く——大人のための『迷子』のススメ",
+          "url": "https://note.com/symbiomaker/n/nffefb12965fc",
+          "source": "note(ライフハック)",
+          "category": "趣味・生活",
+          "summary": "現代人はスマホの地図を活用するあまり最短ルートと効率ばかりを優先して移動している\n目的地を決めずあえて地図を見ずに歩くことで日常の風景の中に新しい発見が生まれる\n効率重視の移動を捨てて意図的に迷子になることで街の隠れた魅力や散策の面白さを再発見できる",
+          "importance": 2,
+          "tip": "今日の帰り道や散歩ではスマホの地図を見ずに、直感に従っていつもと違う道を曲がってみる"
+        }
+      ]
     }
   }
 }
