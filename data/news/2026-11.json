@@ -1356,6 +1356,178 @@
           "tip": "今日の帰り道や散歩ではスマホの地図を見ずに、直感に従っていつもと違う道を曲がってみる"
         }
       ]
+    },
+    "2026-11-25": {
+      "date": "2026-11-25",
+      "tech": [
+        {
+          "title": "NVIDIA、フアン氏がCEOに電撃復帰 株価31%急騰",
+          "url": "https://note.com/ai_mirailab/n/nf6100c6760cb",
+          "source": "note(テクノロジー)",
+          "category": "ニュース・動向",
+          "summary": "NVIDIA取締役会が辞任から11日でジェンスン・フアン氏を社長兼CEOに全会一致で復帰させた\n復帰発表を受けて同社の株価は31%急騰し終値は165.05ドルに達した\nAI向け半導体世界大手トップの電撃復帰は市場およびAI業界全体に著しい影響を与えている",
+          "importance": 5
+        },
+        {
+          "title": "OpenAIのアルトマンが「非常にまずい」と警告、AIエージェント時代に職場が整えるべき「6つの備え」 - Yahoo!ニュース",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE02NWRLNklqaUhRS0JDT21scDM5NmN2RmUycnB4dHEzY2wzWml1dFpPZGVlRWEtTVlPV1RUa2RQVlg1Y2lXcm5DNVc5a09pR1p3SGV6S1hmZVpjU2JvalFQQy1Obk9JeDF1NHFwQXVPOVNMS0R3eGJla1RyN25KaGM?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "ニュース・動向",
+          "summary": "OpenAIのサム・アルトマン氏がAIエージェント本格普及期における現場の対応遅れへ強い警鐘を鳴らした\n自律型AIが日常業務を担う時代を迎えるにあたり組織が準備すべき6つの必須要件を提示している\n技術の急進展に伴い企業における業務モデルや組織体制の迅速な再設計が求められている",
+          "importance": 4
+        },
+        {
+          "title": "Museに後れを取るアップルとグーグル AIエージェント戦争のジレンマ【西田宗千佳のイマトミライ】 - Impress Watch",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBNcjBETGVBMFhmekk4N29FNHMxOHFMaG9CYm82MVlNTTRjQkE1Vzk3ZW1oTERSZGZZXzRqd1ZKN2QyUV9nMkIzVGx4NkYxS1N3a3g5eUdtWHNGZUpTRkpONldFUDlOd1ZsNXd2ZHU3NFRHdw?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "ニュース・動向",
+          "summary": "新興サービスMuseの台頭に対しAppleやGoogleなどの主要プラットフォーマーが後塵を拝している\n既存のプラットフォーム保護と高度なAIエージェント機能の取り込みの間で各社が構造的ジレンマを抱えている\nAIエージェントの主導権を巡る市場競争がより一層熾烈化している",
+          "importance": 4
+        },
+        {
+          "title": "米中に次ぐAI国家確立 安保3文書政策 政府目標明記へ - 沖縄タイムス社",
+          "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1lVndlZHZ3UmRzYVl0RGJhNmtmeXdPZFRuempEd01Cc01hdHZ0OVhZNEdaa0ItRXBYNG53azdQOWRYSmZXcUc3RzhicFJ2M1JGbGFEcHM5QmRyM3pUOXc?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "ニュース・動向",
+          "summary": "日本政府が安全保障に関する基本政策において米中に次ぐAI主要国としての立場を築く目標を盛り込む方針を固めた\n防衛力強化や安全保障領域でのAI技術の戦略的活用と国内産業基盤の強化を推し進める\n自国における高度なAI開発体制とセキュリティ基盤の確立が国家戦略上の重点課題に指定される",
+          "importance": 4
+        },
+        {
+          "title": "Gemini 4 Neon を API で叩いて Claude Code・Codex CLI と比べた：65万トークンの超長文、費用、失敗",
+          "url": "https://zenn.dev/canly/articles/40e773759da8f8",
+          "source": "Zenn",
+          "category": "技術ノウハウ・検証",
+          "summary": "Gemini 4 NeonをAPI経由で呼び出しClaude Opus 5.5やGPT-6.2 Solと同一の8つの評価タスクで比較した\n数学・論理処理、17万トークンの文書検索、8万トークンのグラフ探索など正解が一義的な課題で処理性能や精度を検証した\nリクエスト構成やコストの詳細に加え65万トークンに及ぶ長大文脈入力時のエラー傾向や限界を具体的な手順と共に算出した",
+          "importance": 4
+        },
+        {
+          "title": "Microsoft Foundry で AI エージェントを設計するときに決める5つのこと",
+          "url": "https://zenn.dev/microsoft/articles/daedf42c8463b8",
+          "source": "Zenn",
+          "category": "技術ノウハウ・検証",
+          "summary": "Microsoft FoundryでAIエージェントを構築する際に行うべき5つの重要決定事項を定義している\n会話履歴やファイルの保存領域選定に加えプロジェクト内でのエージェント生成方式を明確化する\n各種ツールとの連携設計や必要とされるアクセス権限、ネットワーク構成の決定方針を体系化した",
+          "importance": 3
+        },
+        {
+          "title": "コードを書くコストが下がった今、ソフトウェアエンジニアリングの価値はどこにあるのか",
+          "url": "https://qiita.com/figueiredoluiz/items/1d6751643b84db67812e?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "技術ノウハウ・検証",
+          "summary": "AIの活用によりプログラミングの実装時間が短縮されコーディング自体の実行コストが劇的に低下した\nコード生成の自動化に伴いエンジニアの本質的な価値は手作業での実装から問題定義や構造設計へと移行している\nシステムの品質改善や長期的な保守性の担保、ユーザー体験の向上に注力することが今後の核となる",
+          "importance": 3
+        },
+        {
+          "title": "脆弱性の「CVSS 9.8」って結局なに？CVSSの読み方をちゃんと理解する",
+          "url": "https://qiita.com/heki-dm/items/77ecaacd592d1c4459df?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "技術ノウハウ・検証",
+          "summary": "セキュリティアラートで用いられるCVSSスコアの算出構成要素とベクトルの具体的な解読法を解説した\nCVSS 9.8に代表される深刻度判定において攻撃経路や攻撃の複雑さ、機密性・完全性・利用可能性への影響範囲の基準を分解した\n単に数値の大きさのみを判断指標とするのではなく運用環境ごとの実際のリスク評価に繋げる視点を提供する",
+          "importance": 3
+        },
+        {
+          "title": "Claude Code を5〜8個並べても迷わないように、自分用のダッシュボードをバイブコーディングで作った",
+          "url": "https://zenn.dev/nexta_/articles/a3ff76a9f98f1c",
+          "source": "Zenn",
+          "category": "個人開発・実践事例",
+          "summary": "VSCode上で5〜8個のClaude Codeセッションを同時実行する際、各パネルの作業内容や応答待ち状況の判別が難しくなる課題が発生した\n進行状況の視認性低下を解決するためAIを活用した自然言語主導の開発手法で自作の管理用ダッシュボードを構築した\n全セッションの状態やユーザーの入力待ちセッションを一覧表示化し並行開発の作業効率を改善した",
+          "importance": 3
+        },
+        {
+          "title": "代表が語る「ポートフォリオAIチェック」に込めた想いと開発プロセス",
+          "url": "https://note.com/yu_cre/n/n88baeb52239f",
+          "source": "note(AI)",
+          "category": "個人開発・実践事例",
+          "summary": "デザイナーが作成したPDFやPSD形式のポートフォリオをアップロードするだけでAIが自動添削する無料Webサービスを立ち上げた\nキャリアアドバイザーが厳選した21の実務的判定観点をAIモデルの評価基準として組み込んでいる\nサービス企画の原点から評価判定プロセスのアルゴリズム化、製品化までの具体的な開発プロセスを開示した",
+          "importance": 3
+        }
+      ],
+      "interest": [
+        {
+          "title": "京王電鉄 1100万人超の情報漏えいか 本人確認書類クレカ番号も | NHKニュース",
+          "url": "https://news.web.nhk/newsweb/na/nd-20261124de80663",
+          "source": "はてなブックマーク",
+          "category": "社会・セキュリティ",
+          "summary": "京王電鉄においてグループ会社の顧客情報を含む1100万人分以上の個人情報が漏えいした可能性が判明した\n漏えい対象には本人確認書類の画像データやクレジットカード番号などの重要情報が含まれている\n2026年9月に発生したサイバー攻撃が原因であり同社が詳しい状況の調査を進めている",
+          "importance": 5
+        },
+        {
+          "title": "AndroidとWindowsのファイル共有、これでよかった。「Quick Share」に乗り換えた理由",
+          "url": "https://www.lifehacker.jp/article/2608-phone-link-quick-share-pc-not-going-back-rdz/",
+          "source": "Lifehacker",
+          "category": "ガジェット・仕事術",
+          "summary": "AndroidスマホとWindows PC間のデータ共有においてGoogleのQuick Shareを使うことで作業効率が向上する\nMicrosoft標準のスマートフォン連携と比較してファイル転送速度が約2倍になり接続の安定性も高まる\n多機能ゆえに動作が重くなりやすい標準ツールの不満を解消し大量の画像や動画もスムーズに送受信できる",
+          "importance": 4,
+          "tip": "AndroidとWindows間でファイルを共有する際はGoogleの「Quick Share」アプリを導入してみる"
+        },
+        {
+          "title": "最強のエルニーニョと「極渦」がせめぎ合い。今冬の天気はどうなる？",
+          "url": "https://wired.jp/article/polar-vortex-breakdown-earliest-on-record-winter-weather-impact/",
+          "source": "WIRED",
+          "category": "サイエンス・気象",
+          "summary": "北極上空の大気循環である極渦に異変が生じ観測史上最も早いタイミングで乱れが確認されている\nこの極渦の崩壊は強い寒気を中緯度地域へ呼び込み大雪や猛烈な冷え込みを引き起こす要因となる\n一方で過去最大級のエルニーニョ現象による暖気を押し出す力も働いており双方の引き交わしにより今冬の天候予測が難しくなっている",
+          "importance": 4
+        },
+        {
+          "title": "洗濯機は1台で十分だと思っていた。「分け洗い専用」という新しい選択肢",
+          "url": "https://www.lifehacker.jp/article/machi-ya-cleanx-end-962718/",
+          "source": "Lifehacker",
+          "category": "ライフハック・家電",
+          "summary": "水と食塩を入れるだけで独自の電気分解システムが働き洗剤なしで衣類を洗える超小型洗濯機CLEAN-Xが登場した\n靴下や下着やベビー用品など衛生面で分けたい衣類を最短3分で手軽に洗浄できる\n本体重量は約780gと軽量でUSB Type-C給電に対応するため旅先や洗面台などの狭いスペースでも活用できる",
+          "importance": 3,
+          "tip": "衛生面が気になる靴下や下着はメインの洗濯とは分けて短時間の洗剤なし洗いを取り入れる"
+        },
+        {
+          "title": "忙しい日でも、ほかほか白米。サーモスの「ごはんが炊ける弁当箱」でランチの満足度上がった",
+          "url": "https://www.lifehacker.jp/article/2611_thermos_thermal_lunchbox_jbs360/",
+          "source": "Lifehacker",
+          "category": "ライフハック・食生活",
+          "summary": "サーモスの「ごはんが炊ける弁当箱 JBS-360」を使うことで外出先でも温かい炊き立てご飯を食べられる\nお米と水を入れて電子レンジで約8分加熱したあと30分間保温するだけで調理が完了する\n高い保温性能を備えており加熱から3時間経過した後でも約68.7度の熱々状態を維持できる",
+          "importance": 3,
+          "tip": "お弁当のごはんを温かく保つために電子レンジ加熱と保温機能を組み合わせた調理お弁当箱を活用してみる"
+        },
+        {
+          "title": "ジャングルに潜む2,500年前の古代都市がレーダー技術で発見される",
+          "url": "https://www.gizmodo.jp/article/2611-ancient-amazon-city-discovered-by-lidar/",
+          "source": "Gizmodo",
+          "category": "サイエンス・歴史",
+          "summary": "アマゾンの熱帯雨林の奥深くに長年埋もれていた約2500年前の大規模な古代都市跡が発見された\n樹木を透過して地表の形状を正確に測定できるレーザー探査技術LiDARを活用して調査が行われた\n地上の目視調査では把握できなかった広大な道筋や建造物の配置など都市全体の全貌が判明した",
+          "importance": 3
+        },
+        {
+          "title": "Z世代の約3割がAIを“話し相手”に。16カ国の調査で見えたつながりの実態",
+          "url": "https://wired.jp/article/over-a-third-of-gen-z-rely-on-ai-for-friendship/",
+          "source": "WIRED",
+          "category": "テクノロジー・社会",
+          "summary": "16カ国を対象とした最新調査によりZ世代の約3割が日常的な対話や相談の相手としてAIを利用していることが分かった\nネット上のみで繋がる友人を持つ若者やAIを話し相手にする若者はそうでない層に比べ孤独感を抱きやすい傾向が示された\nデジタル上の交流手段が増加しても精神的な満たされやすさや孤独の解消に直結しない実態が浮き彫りになっている",
+          "importance": 3
+        },
+        {
+          "title": "ジェンスン・フアンCEO復帰に沸くNVIDIA──社内で広がる冷めた怒り",
+          "url": "https://wired.jp/article/inside-nvidia-not-everyone-is-celebrating-jensen-huangs-return/",
+          "source": "WIRED",
+          "category": "ビジネス・IT",
+          "summary": "不倫疑惑により退任していたジェンスン・フアンCEOがNVIDIAのトップへ復帰をはたした\n強力なカルチャーを持つ同社において復帰を喜ぶ声がある一方での組織変革の機会が失われたと冷ややかに受け止める社員も存在する\nワンチームの結束を強みとしてきた急成長企業の内部で組織運営や指導陣に対する意見の亀裂が表出している",
+          "importance": 3
+        },
+        {
+          "title": "長女がほぼ毎日夕食に文句を言うので穏やかに叱っていたが、今日プチっと何かが切れて「明日から我が家はカルテスエッセンにします！」と宣言した",
+          "url": "https://togetter.com/li/2774480",
+          "source": "はてなブックマーク",
+          "category": "ライフハック・生活",
+          "summary": "毎日の夕食に対する不満への対処法として火を使わないドイツ風の食事様式カルテスエッセンを取り入れるアイデアが話題を集めた\n温かい料理を作らずパンやチーズやソーセージを並べて各自で挟んで食べる形式に変更した\n毎日の献立作りや調理にかかる労力を削減し食事に関するストレスを劇的に軽減する現実的な工夫となっている",
+          "importance": 2,
+          "tip": "夕食作りに疲れた日は火を使わずパンやハムを食卓に並べてセルフサービスで食べる形式を試してみる"
+        },
+        {
+          "title": "推しシールが数十秒で完成。好きをカタチにしたい欲、このプリンターが受け止めてくれた",
+          "url": "https://www.gizmodo.jp/article/2611-xtool-c1-color-cutter-sticker-printer/",
+          "source": "Gizmodo",
+          "category": "ガジェット・趣味",
+          "summary": "xToolから登場したC1 Color Cutterはオリジナルステッカーの作成とカットを1台で行えるプリンターである\nデザインの生成からフルカラー印刷および輪郭に沿った自動カットまでを数十秒の短時間で完了させる\n手軽にクオリティの高いシールやステッカーを作成できるため個人のグッズ制作やDIYの作業工程を大幅に短縮できる",
+          "importance": 2,
+          "tip": "オリジナルグッズやラベル作成を手軽に行いたい場合は印刷とカットが一体化したプリンターを活用してみる"
+        }
+      ]
     }
   }
 }
