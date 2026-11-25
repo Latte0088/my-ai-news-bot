@@ -1528,6 +1528,178 @@
           "tip": "オリジナルグッズやラベル作成を手軽に行いたい場合は印刷とカットが一体化したプリンターを活用してみる"
         }
       ]
+    },
+    "2026-11-26": {
+      "date": "2026-11-26",
+      "tech": [
+        {
+          "title": "米中に次ぐAI国家確立へ 政府案 - Yahoo!ニュース",
+          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE51cWhFM3VwenhzckxMTVc5NmFTbm5zZGZodklzUEhsUWVad3F5UXBXWFBvd25NVHdCeU1jNzhfOUdvQlhWQzlIZ1pfMlZkZkxq?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "AI動向",
+          "summary": "日本政府が米中両国に次ぐAI主要国としての地位確立を目指す国家戦略案を取りまとめた\n先行する米中の開発競争に対抗するため、国内における計算基盤の整備と開発環境への重点投資を進める方針である\n官民の連携を強化して基盤モデルの研究開発を後押しし、経済安全保障と技術主権の確保を図る",
+          "importance": 4
+        },
+        {
+          "title": "Museに後れを取るアップルとグーグル AIエージェント戦争のジレンマ【西田宗千佳のイマトミライ】 - Impress Watch",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBNcjBETGVBMFhmekk4N29FNHMxOHFMaG9CYm82MVlNTTRjQkE1Vzk3ZW1oTERSZGZZXzRqd1ZKN2QyUV9nMkIzVGx4NkYxS1N3a3g5eUdtWHNGZUpTRkpONldFUDlOd1ZsNXd2ZHU3NFRHdw?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "AI動向",
+          "summary": "自律的に動作するAIエージェントの領域においてMuseなどの新興勢力が先行し、アップルやグーグルが後れを取る構図が生まれている\nプラットフォームを握る大手IT企業は、既存のOSやビジネスモデル、プライバシー保護との整合性を保つ必要があり、身軽に動けないジレンマを抱えている\nエージェント主導のUI・UXへの転換期において、巨大プラットフォーマーが抱える構造的課題が浮き彫りとなっている",
+          "importance": 4
+        },
+        {
+          "title": "サイバー防御 完全自動化 ソフトバンク AIに一任へ 手口の高度化に対応 - 沖縄タイムス社",
+          "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1GeW1VTnBBZTJXZDUySVg5aFFaVFotODdiREFxMzZIRUp5dWhFcmhzVlNyTF9WTWE0M0xMSWRxeHN1UUVqUjNrSGN2OEVHNnpjMmtsQnNUcEdKTnhUbHc?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "セキュリティ",
+          "summary": "ソフトバンクがサイバー攻撃への防御オペレーションを完全に自動化し、対処の判断をAIへ一任する体制へと移行する\nサイバー攻撃の手口が急速に高度化・高速化しており、人間のオペレーターによる検知と対応では防ぎきれない事態への対抗策となる\nインシデントの検知から通信遮断などの初期対応までを自律的に完結させることで、被害の極小化とセキュリティ運用の効率化を実現する",
+          "importance": 4
+        },
+        {
+          "title": "SB OAI Japan、OpenAI技術で「侵入できるか」を診断 - 外部公開APIやVPNも対象 - マイナビニュース",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5tX3Z4RGVqcWpXYTB4cUhUOFZRb3FWZ2hZWUgwdTMzQjhyOHZJNkozSTlQbWlXR254VHE2eGYzOHFVTzRoNmFjWDVTakFyVWFFYndaZ1dlbzB4eWxqa3d2ZzFjMzdzQnpP?oc=5",
+          "source": "Googleニュース(IT)",
+          "category": "セキュリティ",
+          "summary": "SB OAI JapanがOpenAIの先端技術を活用し、システムへの侵入耐性を自律的に検証するセキュリティ診断サービスの提供を開始した\n外部公開されているWeb APIや企業拠点のVPN機器など、攻撃者の標的となりやすい外部境界を対象に網羅的なペネトレーションテストを実施する\nAIが攻撃者の挙動や推論プロセスを再現して潜在的な脆弱性を突くことで、従来の手動診断に比べて迅速かつ網羅的なリスク洗い出しを可能にする",
+          "importance": 3
+        },
+        {
+          "title": "RustでFiberを用いたJob Systemを実装したらReleaseビルドでバグが発生した",
+          "url": "https://zenn.dev/otinpan/articles/082f6178eb1472",
+          "source": "Zenn",
+          "category": "技術ノウハウ",
+          "summary": "RustとVulkanを用いた自作ゲームエンジンにおいて、WindowsのFiber APIを活用した並列Job Systemを実装した際にReleaseビルド限定の不具合が発生した\nDebugビルドでは正常に動作するものの、最適化を有効化したReleaseビルドでのみpanicやRefCellの借用エラーが引き起こされる事象が確認された\nFiberの実行コンテキストがOSスレッド間を移動する仕様に対し、コンパイラによるスレッドローカルストレージ（TLS）アクセスの最適化が矛盾を生じさせることがバグの本質的な原因である",
+          "importance": 3
+        },
+        {
+          "title": "結局「オントロジー」って何なのさ 〜概念と良さを4つのレイヤーで整理する〜",
+          "url": "https://zenn.dev/algomatic/articles/ece749a7e3cb24",
+          "source": "Zenn",
+          "category": "技術ノウハウ",
+          "summary": "AIに企業特有の業務文脈やデータ同士の意味関係を正確に理解させる手法として、オントロジー技術の再評価が進んでいる\n抽象度が高く誤解されやすいオントロジーの構造を4つのレイヤーに分類して整理することで、単なる用語集やナレッジグラフとの違いが明確になる\n概念間の意味や制約条件を論理的に定義してAIモデルと連携させることで、ハルシネーションの抑制や高精度な推論・データ利活用基盤の構築につながる",
+          "importance": 3
+        },
+        {
+          "title": "Rails（Sidekiq＋Selenium）経験者向け：Node.jsのBullMQ＋Playwrightでバッチ処理を組むときのハマりどころ",
+          "url": "https://qiita.com/jinxin4869/items/7771db4dccb7ddf3ac4a?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "技術ノウハウ",
+          "summary": "RailsとSidekiq・Seleniumによるブラウザバッチ構成を、Node.js・TypeScriptのBullMQとPlaywrightへ移植する際のアーキテクチャの違いと注意点を整理した\nプロセスモデルの違いから生じるジョブのタイムアウトハンドリングやリソース解放の挙動差など、非同期イベントループ特有の落とし穴への対策が必要となる\nヘッドレスブラウザのメモリリークを防ぐライフサイクル管理とRedisをバックエンドとするBullMQのワーカー設定を適切に同期させる実践設計が重要となる",
+          "importance": 3
+        },
+        {
+          "title": "【完全解説】本質から学ぶSOLIDの原則｜なんとなく分かるから完全理解へ【設計シリーズ】",
+          "url": "https://qiita.com/Sicut_study/items/2bbdfbacab915773dad1?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "技術ノウハウ",
+          "summary": "オブジェクト指向設計の指針であるSOLID原則について、単なる定義の暗記ではなく実務コードの変更容易性を高める本質的アプローチを整理した\n抽象的な概念を現実の実装課題に落とし込み、各原則がどのような設計破綻や結合度の問題を解決するために存在するかを明確化する\n単一責任や依存性逆転などの原則を現場のコード設計と結びつけて適用することで、仕様変更に強くテストが容易なアーキテクチャを実現できる",
+          "importance": 3
+        },
+        {
+          "title": "情報量が4倍のQRコードを作ろう",
+          "url": "https://qiita.com/reipandada/items/17496db6ac5f64a5e61a?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "個人開発・検証",
+          "summary": "QRコードが3箇所の位置検出パターンで向きを判定している仕組みに着目し、4隅すべてにマークを配置して1つを隠すアプローチでデータ容量を拡張するアイデアを検証した\n隠す角の位置の違いを4通りの状態フラグとして活用することで、幾何学的配置そのものに追加情報を持たせる工夫を施している\n規格外の変則的な配置でありながら、シンボルの構造的制約を逆手に取ったユニークなデータ格納の実験的試みとなっている",
+          "importance": 2
+        },
+        {
+          "title": "「あと少しだけ充電」が、1時間たっても終わらない。「世界一充電がたまらないサイト」を作ってしまった。",
+          "url": "https://note.com/reo_reoxz/n/nca004b4c764a",
+          "source": "note(AI)",
+          "category": "個人開発・実践",
+          "summary": "急いで充電したい場面でケーブルを差したにもかかわらずバッテリー残量が減っていく日常の不快体験を再現したWebサイト「ChargeMaster」を開発した\n充電中の表示を模しながらバッテリー残量が実際には増えずに減少していくUIアニメーションを実装し、利用者の焦燥感をシミュレートする仕掛けを設けた\n日常的な些細なフラストレーションを着眼点にして、エンターテインメント性を持つWebコンテンツとして短期間で形にした個人開発の実践例である",
+          "importance": 2
+        }
+      ],
+      "interest": [
+        {
+          "title": "鋼鉄よりも硬い木材、開発されました",
+          "url": "https://www.gizmodo.jp/article/2611-superwood-stronger-than-steel/",
+          "source": "Gizmodo",
+          "category": "サイエンス",
+          "summary": "鋼鉄を上回る強度を持ちながら環境負荷を大幅に抑えられる次世代新素材スーパーウッドが開発された\n従来の木材加工技術を進化させることで金属に匹敵する強度と軽さを両立している\n建材としての実用化により従来の鉄骨構造を代替し建築業界全体の脱炭素化を進める可能性がある",
+          "importance": 4
+        },
+        {
+          "title": "気候変動で雪氷圏が「安全限界」を越えたいま、地球の“安定”に向けて必要なこと",
+          "url": "https://wired.jp/article/cryosphere-beyond-planetary-safe-operating-space/",
+          "source": "WIRED",
+          "category": "環境・サイエンス",
+          "summary": "氷床や海氷、永久凍土など地球の気候を安定させてきた雪氷圏が安全に機能できる許容限界を突破して崩壊危機にある\n国際的な研究チームが雪氷圏の安定性を評価する4つの定量的指標を策定し危機的状況を可視化した\n地球規模の不可逆な環境破綻を防ぐため策定された4指標を各国の気候政策や排出削減目標に直接組み込むことが求められている",
+          "importance": 4
+        },
+        {
+          "title": "ジェンスン・フアン、CEO復帰後初の全社員集会で謝罪。「個人として極めて深刻な過ち」",
+          "url": "https://wired.jp/article/jensen-huang-apologizes-to-nvidia-employees-in-first-all-hands-since-his-return/",
+          "source": "WIRED",
+          "category": "ビジネス",
+          "summary": "NVIDIAの最高経営責任者に復帰したジェンスン・フアンが復帰後初となる全社集会で社内規定違反を認め公式に謝罪した\nフアンCEOは取締役会による復帰判断の正当性を強調しつつ自身の行動を深刻な過ちであったと振り返った\n今後の従業員との向き合い方や次世代の後継者計画にも言及したものの社内ではトップ復帰に対する不安や懸念が完全には払拭されていない",
+          "importance": 4
+        },
+        {
+          "title": "9年越しの脱・タッチパッド。「親指ひとつ」に任せたら、腰も作業もラクになった",
+          "url": "https://www.lifehacker.jp/article/2611-lht-logicool-m575sp/",
+          "source": "Lifehacker",
+          "category": "ガジェット",
+          "summary": "長年使い慣れたノートPCのタッチパッドからロジクールのトラックボールマウスM575SPに移行することで作業負担の軽減が期待できる\n親指だけでカーソルを自在に操作できるため腕や手の移動が減り腰や身体への負担が和らぐ\n手頃な価格設定で入手しやすくトラックボールを初めて使うユーザーの定番入門機として機能する",
+          "importance": 3,
+          "tip": "長時間のデスクワークで身体に負担を感じているなら、手首や腕を動かさずに操作できるトラックボールマウスの導入を検討してみましょう。"
+        },
+        {
+          "title": "「ネットに繋がらない電話」を笑っていた私が、3万円の価格に納得した夜｜思考デバッグログ#100",
+          "url": "https://note.com/brain_os/n/n8b1fc7458055",
+          "source": "note(ガジェット)",
+          "category": "ガジェット",
+          "summary": "インターネットやSNSに一切接続できないシンプルな携帯電話INFOBAR ZEROがauから登場し注目されている\n欧米のZ世代を中心に広がるダムフォンの需要を背景に常時接続のストレスから離れるデジタルデトックスの道具として位置づけられる\n一見すると不便にお金を払う矛盾のように思えるが意図的に情報遮断の環境を買うという新しい価値観や対価のあり方を示している",
+          "importance": 3,
+          "tip": "スマホの通知やSNSに追われて疲れているなら、通信機器を手放して強制的にオフラインになる時間を1日数十分設けてみましょう。"
+        },
+        {
+          "title": "不動産屋に内覧希望のアポを取って出かけたのに「今時は内覧なんかしないで決める、これから繁忙期なのですぐ決めたほうがいい」と力説された…これって本当？",
+          "url": "https://togetter.com/li/2774812",
+          "source": "はてなブックマーク",
+          "category": "暮らし",
+          "summary": "賃貸物件の内覧を予約して訪れたにもかかわらず不動産業者から最近は内覧なしで即決するのが主流と契約を急かされる事例が注目を集めている\n繁忙期を理由に焦らせて内覧を省略させようとする業者の営業手法に対し保留にして即断を避ける判断が重要視されている\n急かされて実物を見ずに契約すると入居後のトラブルに繋がる恐れがあるため業者の都合に流されず慎重に見極める姿勢が欠かせない",
+          "importance": 3,
+          "tip": "賃貸物件探しで「内覧なしで決めるのが普通」と契約を急かされても、その場の空気に流されず一度持ち帰って冷静に判断しましょう。"
+        },
+        {
+          "title": "【リセジャン #132】ChatGPTで人生を変える20の方法。",
+          "url": "https://note.com/resetjunkie/n/n7fc66fe64844",
+          "source": "note(ライフハック)",
+          "category": "ライフハック",
+          "summary": "生成AIを使っても生活が変わらない人と成果を出す人の差はAIを単なる質疑応答ツールと見なすか自己改善の協働者とするかにある\n有料プランの有無よりもAIに対してどのような問いを投げかけ出力された内容をどう行動に移すかが成果を分ける\n人生設計や業務改善の相談において受け取った回答をただ眺めるだけでなく日々の具体的な行動習慣へ落とし込む設計が重要になる",
+          "importance": 3,
+          "tip": "ChatGPTに質問して得たアドバイスから「今日すぐに実行する1つの具体的なアクション」を書き出し、その日のうちに実行してみましょう。"
+        },
+        {
+          "title": "GTA 6の「マイアミ再現度」を、マイアミ帰りの男と検証してみた",
+          "url": "https://www.gizmodo.jp/article/gta6-miami-reality-check/",
+          "source": "Gizmodo",
+          "category": "エンタメ",
+          "summary": "最新ゲーム『GTA 6』の舞台描写について実際にマイアミに滞在した経験を持つ取材者が現地の風景と照らし合わせて検証した\nリゾート地特有の開放的な空気感やビーチ沿いの景観が現地の写真と比較しても極めて高い精度で再現されている\n実在の街の空気感やディテールを忠実に落とし込むことでプレイヤーの没入感を大きく引き上げている",
+          "importance": 2
+        },
+        {
+          "title": "メンズファッション入門 - 日記",
+          "url": "https://deplico.hatenablog.com/entry/2026/11/25/002507",
+          "source": "はてなブックマーク",
+          "category": "ライフスタイル",
+          "summary": "服の選び方に悩む初心者へのアドバイスとして普段好んで聴く音楽や鑑賞している映像作品の雰囲気をヒントにする方法がある\n自分の関心や世界観に近いスタイルを手がかりにすることでゼロから悩まずに統一感のある装いを選びやすくなる\nいきなり大手量販店で無作為に選ぼうとして迷うよりも好きなカルチャーを起点に服を探すほうが納得感のある入門になる",
+          "importance": 2,
+          "tip": "普段好きな音楽のジャケットや映画の登場人物の服装を観察し、気になった色使いやシルエットを普段着選びのヒントにしてみましょう。"
+        },
+        {
+          "title": "ウィンナーを最初にタコにした人って絶対性格良いだろうな→考案者もその家族も凄い一族だった",
+          "url": "https://togetter.com/li/2774811",
+          "source": "はてなブックマーク",
+          "category": "カルチャー",
+          "summary": "お弁当の定番であるタコさんウインナーを初めて考案した人物とその家族の歴史がネット上で話題になっている\n食べる相手を楽しませたいという優しい発想から生まれたこの料理の背景には文化的に大きな功績を残した一族の存在がある\n日常に定着した身近な工夫のルーツを知ることで温かなアイデアが世代を超えて愛され続ける理由が再評価されている",
+          "importance": 2
+        }
+      ]
     }
   }
 }
