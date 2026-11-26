@@ -1700,6 +1700,162 @@
           "importance": 2
         }
       ]
+    },
+    "2026-11-27": {
+      "date": "2026-11-27",
+      "tech": [
+        {
+          "title": "AI法改正案の概要判明 罰則新設 - Yahoo!ニュース",
+          "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBORTRjbTgtOGE0ejRfcGNUZjlGWU10Z2xNNGh0d0VjVkd2TWZPSG1fYmJ4UjBKcl9PeHBaelFHU0lhLTRlMEZleVhjbU9odUJI?oc=5",
+          "source": "Googleニュース(AI)",
+          "category": "IT・AI業界の最新ニュース・動向",
+          "summary": "AIの普及に伴うリスクに対応するため法改正案の概要が判明し違反行為に対する罰則規定が新設された\n悪質なAIの利用や安全基準を無視した運用に対する規制が強化される\n開発事業者や導入企業はコンプライアンスの再確認とリスク管理体制のアップデートが必須となる",
+          "importance": 4
+        },
+        {
+          "title": "AI駆動開発に向け、クラウドネイティブ技術支援サービス群「C-Native」を拡充（2026年11月25日） | CTC - CTC - 伊藤忠テクノソリューションズ",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5RdlIwYzlvby0xVnRaUFlmaGxQMlV0ZWpqcEZBc1FpNl92VUJVeFVPM3lqMUdqMHNaS2tvMmhkc2ZXNnFuNXRjeFdYOWtlRWpiSmh3UkNUWG9SYWJYQWEtMmJJU0lQLUE?oc=5",
+          "source": "Googleニュース(IT)",
+          "category": "IT・AI業界の最新ニュース・動向",
+          "summary": "CTCがAI駆動開発の普及に対応するため支援サービス群C-Nativeの機能を拡充した\nコンテナやマイクロサービスを活用した効率的な開発インフラの構築運用を全面的にサポートする\n企業のシステム開発プロセスへの生成AI組み込みとクラウドネイティブ化を強力に後押しする",
+          "importance": 3
+        },
+        {
+          "title": "SpaceXの宇宙データセンター「Starmind」、米FCCが最大100万基を承認",
+          "url": "https://note.com/ai_mirailab/n/n7caaae28017e",
+          "source": "note(テクノロジー)",
+          "category": "IT・AI業界の最新ニュース・動向",
+          "summary": "米連邦通信委員会（FCC）がSpaceXの軌道上データセンター衛生群Starmindの配備計画を条件付きで認可した\n宇宙におけるデータセンターの設置認可としては米国初の決定となり最大100万基という極めて大規模な承認となった\n2033年から2040年までの段階的な打ち上げ計画が示され宇宙ごみ（デブリ）対策の具現化が承認の条件とされている",
+          "importance": 4
+        },
+        {
+          "title": "Claude Duet、日本にも研究プレビューを拡大　事前登録者への招待始まる／GPT-6.2の使用量計算を修正へ　Astraは上限に40％早く達する見込み／家計簿データを外部AIへ　マネーフォワードが連携の狙いと安全策を説明／Gemini 4 Neon、実際の標高データでスキーシミュレーターを開発するデモ【Creative AI Digest No.255 2026.11.27】",
+          "url": "https://note.com/chihirodesign/n/nc0ebd4a98103",
+          "source": "note(テクノロジー)",
+          "category": "IT・AI業界の最新ニュース・動向",
+          "summary": "Claude Duetの研究プレビューが日本へ拡大され事前登録ユーザーへの招待送信が開始された\nGPT-6.2の使用量計算仕様が改定されAstraなど一部機能が従来より40パーセント早く利用上限に達する見込みとなった\nマネーフォワードが自社データと外部AIとの連携におけるセキュリティ対策を提示しGemini 4 Neonを用いたリアル標高シミュレーターが公開された",
+          "importance": 4
+        },
+        {
+          "title": "迷惑メール対策をしているのに、なぜ詐欺メールは届くのか",
+          "url": "https://zenn.dev/akagumi/articles/catch-all-phishing-invisible-chars",
+          "source": "Zenn",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "ドメイン全体宛てのメールを受け取るキャッチオール設定時にSPF等の認証をすり抜けて詐欺メールが届く問題が発生した\nフィッシング攻撃者が既存の迷惑メールフィルターの判定ルールを潜り抜けるための不可視文字等の手法が確認された\n実際に届いたメールデータの解析結果をもとにフィルターを突破させない新たな判定ロジックの構築方法を確立した",
+          "importance": 4
+        },
+        {
+          "title": "Quadro P2200(VRAM 5GB)でMoE LLMを2種類動かしてみた",
+          "url": "https://zenn.dev/nooop/articles/00cde2e1a825ad",
+          "source": "Zenn",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "llama.cppのMoE対応によりエキスパートの一部をシステムメモリ（RAM）へオフロードして処理速度を向上させた\nVRAM容量5GBのQuadro P2200環境を用いて35BクラスのMoEモデル2種類の推論速度をベンチマーク測定した\nソースビルドとDocker環境での処理速度に大きな差がないことを示しGPUリソースが限られた環境での動作可能性を検証した",
+          "importance": 4
+        },
+        {
+          "title": "自動運転の予測軌跡の可視化動画を誰でも高速に作れるようにする",
+          "url": "https://zenn.dev/turing_motors/articles/cbf9872ca90166",
+          "source": "Zenn",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "従来はGPU環境と手動スクリプト実行が必要だった自動運転の予測軌跡動画の生成プロセスをパイプライン化した\nAWS Step FunctionsおよびAWS Batchを用いて処理基盤を構築し走行データビューアからの操作でSlackへ動画が自動通知される仕組みを作った\n特定の開発環境や認証情報を持たない関係者でも動画を容易に作成・活用できるようになり開発効率と情報共有の速度が大幅に向上した",
+          "importance": 4
+        },
+        {
+          "title": "コピペでSSHしていた初心者が、仕組みから学び直してみる",
+          "url": "https://qiita.com/Yuzuki-ki/items/b23e578d820d411bcb92?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "開発現場の技術ノウハウ・検証記事",
+          "summary": "コマンドの機械的な実行にとどまっていたSSH接続について公開鍵暗号や認証の基礎構造を整理した\nクライアントとサーバー間での通信保護や身元証明がどのような原理で行われているかを把握した\n安全な鍵ペアの管理やconfigファイルを活用した接続設定の記述方法など実践的な運用知識を整理した",
+          "importance": 3
+        },
+        {
+          "title": "情報量が4倍のQRコードを作ろう",
+          "url": "https://qiita.com/reipandada/items/17496db6ac5f64a5e61a?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "個人開発・作ってみた・実践事例",
+          "summary": "QRコードの回転検知が3つの位置検出パターンに基づいている点に着目し4つの角すべてにパターンを配置する設計を試みた\n角のうち1つを状況に応じて隠す仕組みを導入することで理論上最大4倍の情報量を格納する構成を発案した\n既存仕様の仕組みを応用した発想と検証を通じてQRコードのデータ密度を高める実験を行った",
+          "importance": 3
+        },
+        {
+          "title": "【技術書典21】Claudeと作った同人誌で初出展しました。部数の決め方と当日の売れ方の記録",
+          "url": "https://qiita.com/minorun365/items/4416bd940ca0cd3aaabc?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+          "source": "Qiita",
+          "category": "個人開発・作ってみた・実践事例",
+          "summary": "AIアシスタントClaudeを執筆・編集プロセスに組み込み作成した同人誌で技術書典21に初出展した\n300部の印刷を行いイベント当日の販売推移や売り切れまでの時間経過、現場での需要の動きを詳細に記録した\n生成AIを活用した本作りから同人誌イベントにおける適切な初版部数の設定方法まで一連のノウハウをまとめた",
+          "importance": 4
+        }
+      ],
+      "interest": [
+        {
+          "title": "「窓にペタッ」だけで使えるAnkerの新「防犯カメラ」がすごそう",
+          "url": "https://www.lifehacker.jp/article/2611-anker-window-security-camera/",
+          "source": "Lifehacker",
+          "category": "ガジェット",
+          "summary": "室内の窓ガラスにステッカーで貼り付けて電源につなぐだけで簡単に設置できる\n2Kの高画質撮影に対応しており確実な防犯性能を備えている\n価格は通常9,990円と導入しやすい設定になっている\n外壁に穴を開ける必要がないため賃貸住宅でも安心して導入できる",
+          "importance": 3,
+          "tip": "賃貸物件の防犯性を高めるために、窓越しに設置できる室内型カメラの導入を検討してみる。"
+        },
+        {
+          "title": "AirPods Proが壊れて実感。イヤホン選びで音質よりも大事だったもの",
+          "url": "https://www.lifehacker.jp/article/2611-apple-airpods5/",
+          "source": "Lifehacker",
+          "category": "ガジェット",
+          "summary": "イヤホン選びにおいて音質以上の重要要素としてデバイス間の接続切り替え機能に着目している\nMacとiPhoneの間で音声出力を自動的かつスムーズに切り替える連携機能が日常の利便性を左右する\nセールを契機にこの自動切り替え機能を目的としてAirPods 5への買い替えが検討されている",
+          "importance": 3,
+          "tip": "手持ちのデバイス間での接続切り替え手順を見直し、自動切替機能を持つイヤホンの導入を検討してみる。"
+        },
+        {
+          "title": "【速報】M5搭載の現行MacBook Airが3万円OFF、ブラックフライデー先行セールが開始",
+          "url": "https://www.gizmodo.jp/article/2611-amazon-blackfriday-m5-macbook-air-13-inch/",
+          "source": "Gizmodo",
+          "category": "ガジェット",
+          "summary": "M5チップ搭載の13インチMacBook Airが現行モデルとしてセール対象になっている\n16GBのメモリと512GBのストレージを備えた実用的な構成となっている\n通常価格の224,800円から3万円引きとなる194,800円で販売されている",
+          "importance": 4,
+          "tip": "PCの買い替えを検討している場合は、セール期間中に最新チップ搭載モデルの割引率をチェックしてみる。"
+        },
+        {
+          "title": "発掘された2400年前の革、人間の皮膚でした",
+          "url": "https://www.gizmodo.jp/article/researchers-test-2-400-year-old-leather-and-realize-its-frr/",
+          "source": "Gizmodo",
+          "category": "サイエンス",
+          "summary": "スキタイ人の墳墓から発掘された約2400年前の革製品について成分調査が行われた\n研究チームが革に含まれているタンパク質を詳細に分析した\n解析の結果、動物の皮ではなく人間の皮膚から作られていたことが判明した",
+          "importance": 3
+        },
+        {
+          "title": "Amazonプライム・ビデオで観るべきおすすめドラマ・番組34選【2026年最新】",
+          "url": "https://wired.jp/article/best-shows-amazon-prime-2026/",
+          "source": "WIRED",
+          "category": "エンタメ",
+          "summary": "プライム・ビデオで配信中の注目作として『ブレードランナー 2099』が挙げられている\n長年人気を博す『X-ファイル』シリーズが見放題で視聴可能となっている\nファンタジー大作『ロード・オブ・ザ・リング：力の指輪』など見逃せない作品が選出されている",
+          "importance": 2,
+          "tip": "週末の余暇に向けて、動画配信サービスでおすすめされている注目ドラマシリーズをチェックしておく。"
+        },
+        {
+          "title": "アップルのFace ID開発者が挑む、AIによる脳の健康分析",
+          "url": "https://wired.jp/article/the-apple-faceid-veteran-building-a-frontier-ai-model-for-the-human-brain/",
+          "source": "WIRED",
+          "category": "医療テクノロジー",
+          "summary": "AppleのFace ID開発者が立ち上げたスタートアップHemisphericが脳の診断技術を開発している\nうつ病やPTSD、パーキンソン病などを対象とした脳スキャンAIモデルを構築中である\n血液検査のように安価で手軽に受けられる脳検査の実現を目指している",
+          "importance": 4
+        },
+        {
+          "title": "AIが数学界屈指の難問「リーマン予想」を証明。人間はその解読に苦闘している",
+          "url": "https://wired.jp/article/ai-solved-maths-most-famous-problem/",
+          "source": "WIRED",
+          "category": "サイエンス",
+          "summary": "Anthropicの研究者がAIを活用して167年間未解決だったリーマン予想の証明を発表した\n公開された証明は1,700万行に及ぶ膨大な規模となっている\n内容には人間の直感に反する部分が多く含まれており数学者による解読には数カ月かかる見通しである",
+          "importance": 4
+        },
+        {
+          "title": "「ふーみん」の10分でとれる挽き肉だし　だしがらは肉みそに！｜料理通信",
+          "url": "https://r-tsushin.com/recipe/rescue_recipe_13_pork_fumin/",
+          "source": "はてなブックマーク",
+          "category": "料理・生活",
+          "summary": "食品ロス削減の一環として余りがちな豚肉の活用レシピが提案されている\n豚挽き肉を使用することでわずか10分で濃密なだしを取ることができる\nだしをとった後の肉ガラは捨てずに肉みそへ加工することで無駄なく使い切れる",
+          "importance": 3,
+          "tip": "スープ作りで豚挽き肉から10分で出汁を取り、出汁ガラは肉みそにして使い切ってみる。"
+        }
+      ]
     }
   }
 }
